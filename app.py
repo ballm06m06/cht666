@@ -64,7 +64,8 @@ def handle_message(event):
     #Audio
     elif isinstance(event.message, AudioMessage):
         ext = 'm4a'
-        print("Audio message")
+        print("Audio message id:" + event.message.id)
+        
 
     #Image
     elif isinstance(event.message, ImageMessage):
