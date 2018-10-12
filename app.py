@@ -1,7 +1,7 @@
 # encoding: utf-8
 from flask import Flask, request, abort
 import json
-
+import tempfile, os
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -22,6 +22,7 @@ app = Flask(__name__)
 handler = WebhookHandler(line_channel_secret) 
 line_bot_api = LineBotApi(line_channel_access_token) 
 
+static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 
 @app.route('/')
 def index():
@@ -64,8 +65,21 @@ def handle_message(event):
     elif isinstance(event.message, AudioMessage):
         ext = 'm4a'
         print("Audio message id:" + event.message.id)
-        
 
+        audio_content = line_bot_api.get_message_content(event.message_id)
+
+        with tempfile.NamedTemporaryFile(dir=static_tmp_path, prefix=ext + '-', delete=False) as tf:
+            for chunk in audio_content.iter_content():
+                tf.write(chunk)
+            tempfile_path = tf.name
+
+        dist_path = tempfile_path + '.' + ext
+        dist_name = os.path.basename(dist_path)
+        os.rename(tempfile_path, dist_path)
+
+        path = os.path.join('static', 'tmp', dist_name)
+
+        print('聲音路徑：'+ path)
     #Image
     elif isinstance(event.message, ImageMessage):
         ext = 'jpg'
