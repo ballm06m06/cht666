@@ -17,6 +17,8 @@ from text_input.olami import OLAMI_textInput
 
 from cht_package.postgreSQL import register_User
 
+from cht_package.audioConvert import toWAV
+
 app = Flask(__name__)
 
 handler = WebhookHandler(line_channel_secret) 
@@ -73,20 +75,20 @@ def handle_message(event):
                 tf.write(chunk)
             tempfile_path = tf.name
 
-        print('tempfile_path: '+tempfile_path)
+        #print('tempfile_path: '+tempfile_path) /app/static/tmp/m4a-48lboo6w new
         dist_path = tempfile_path + '.' + ext
         dist_name = os.path.basename(dist_path)
-        print('dist_path: '+dist_path)
-        print('distname: '+dist_name)
+        #print('dist_path: '+dist_path) /app/static/tmp/m4a-48lboo6w.m4a old
+        #print('distname: '+dist_name) m4a-48lboo6w.m4a
         
-        os.rename(tempfile_path, dist_path)
+        #os.rename(tempfile_path, dist_path)
 
-        path = os.path.join('static', 'tmp', dist_name)
+        #path = os.path.join('static', 'tmp', dist_name)
+        new_path = toWAV(dist_path, tempfile_path)
         
-        
-        print('聲音路徑：'+ path)
+        print('聲音路徑：'+ new_path)
 
-        os.remove(path)
+        os.remove(new_path)
     #Image
     elif isinstance(event.message, ImageMessage):
         ext = 'jpg'
