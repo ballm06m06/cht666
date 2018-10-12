@@ -84,7 +84,7 @@ def handle_follow(event):
                                         password = pwd, host = host, port=dbport)
             print('Opened DB successfully')
             cur = conn.cursor()
-            cur.execute("INSERT INTO heteuser (ID,NAME,PicUrl)  VALUES (%s, %s, %s )", (profile.user_id,profile.display_name,profile.picture_url))
+            cur.execute("INSERT INTO chtUser (ID,NAME,PicUrl)  VALUES (%s, %s, %s )", (profile.user_id,profile.display_name,profile.picture_url))
             conn.commit()
             print('%s註冊成功'%(profile.display_name))
             conn.close()
