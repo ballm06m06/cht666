@@ -1,6 +1,6 @@
 from cht_package.config import OLAMI_APP_KEY, OLAMI_APP_SECRET, OLAMI_URL
-from asrapi import SpeechAPISample
-import argparse
+from audio_input.asrapi import SpeechAPISample
+
 import time
 
 def OLAMI_audioInput(audio_path):
