@@ -50,12 +50,14 @@ def callback():
 def handle_text_message(event):                  # default
     msg = event.message.text #message from user
     
+    #OLAMI TEXT
     olamiJson = json.loads(OLAMI_textInput(msg))
-    print(olamiJson["data"]["nli"][0])
+    response = olamiJson["data"]["nli"][0]["desc_obj"]["result"]
+    
     # 針對使用者各種訊息的回覆 Start =========
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=msg))
+        TextSendMessage(text=response))
 
     # 針對使用者各種訊息的回覆 End =========
 
