@@ -95,9 +95,12 @@ def handle_message(event):
         print('new path:'+new_path)
 
         #OLAMI Audio
-        result = OLAMI_audioInput(new_path)
+        olamiJson = json.loads(OLAMI_audioInput(new_path))
+        response = olamiJson["data"]["asr"]["result"]
 
-        print("audio result: "+result)
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text='你說的是: '+response))
         
         os.remove(new_path)
         print('new audio file remove ok')
