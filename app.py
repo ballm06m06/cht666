@@ -80,12 +80,12 @@ def handle_message(event):
         dist_name = os.path.basename(dist_path)
         #print('dist_path: '+dist_path) /app/static/tmp/m4a-48lboo6w.m4a old
         #print('distname: '+dist_name) m4a-48lboo6w.m4a
-        
-        #os.rename(tempfile_path, dist_path)
+
+        os.rename(tempfile_path, dist_path)
 
         path = os.path.join('static', 'tmp', dist_name)
         
-        new_path = toWAV(dist_path, tempfile_path)
+        new_path = toWAV(dist_name, tempfile_path)
         
         print('聲音路徑：'+ new_path)
 
