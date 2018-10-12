@@ -1,4 +1,4 @@
-from nluapi import NluAPISample
+from text_input.nluapi import NluAPISample
 
 from cht_package.config import OLAMI_APP_KEY, OLAMI_APP_SECRET, OLAMI_URL
 
