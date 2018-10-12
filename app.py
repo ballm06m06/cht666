@@ -71,8 +71,16 @@ def handle_message(event):
     elif isinstance(event.message, ImageMessage):
         ext = 'jpg'
         print("Image message")
-    
-    
+
+@handler.add(FollowEvent)
+def handle_follow(event):
+    if isinstance(event.source, SourceUser) or isinstance(event.source, SourceGroup) or isinstance(event.source, SourceRoom):
+        profile = line_bot_api.get_profile(event.source.user_id)
+        print(profile.display_name)
+
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=profile.display_name+'您好'))
 
 # ================= 機器人區塊 End =================
 
