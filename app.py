@@ -66,7 +66,7 @@ def handle_message(event):
     #Audio
     elif isinstance(event.message, AudioMessage):
         ext = 'm4a'
-        print("Audio message id:" + event.message.id)
+        #print("Audio message id:" + event.message.id)
 
         audio_content = line_bot_api.get_message_content(event.message.id)
         
@@ -74,21 +74,27 @@ def handle_message(event):
             for chunk in audio_content.iter_content():
                 tf.write(chunk)
             tempfile_path = tf.name
-        print('static_tmp_path: '+static_tmp_path)
+        #print('static_tmp_path: '+static_tmp_path)
         #print('tempfile_path: '+tempfile_path) /app/static/tmp/m4a-48lboo6w new
         dist_path = tempfile_path + '.' + ext
         dist_name = os.path.basename(dist_path)
         #print('dist_path: '+dist_path) /app/static/tmp/m4a-48lboo6w.m4a old
         #print('distname: '+dist_name) m4a-48lboo6w.m4a
 
+        new_dist_path = tempfile_path + '.wav'
+        new_dist_name = os.path.basename(new_dist_path)
+        new_path = os.path.join('static', 'tmp', new_dist_name)
+        print('new path:'+new_path)
+
+
         os.rename(tempfile_path, dist_path)
 
         path = os.path.join('static', 'tmp', dist_name)
         print('path: '+path)
 
-        new_path = toWAV(path, tempfile_path)
+        #new_path = toWAV(path, tempfile_path)
         
-        print('聲音路徑：'+ new_path)
+        #print('聲音路徑：'+ new_path)
 
         os.remove(new_path)
     #Image
