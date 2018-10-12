@@ -78,8 +78,12 @@ def handle_message(event):
         os.rename(tempfile_path, dist_path)
 
         path = os.path.join('static', 'tmp', dist_name)
-
+        
+        
         print('聲音路徑：'+ path)
+
+        os.remove('static/tmp/m4a-36vs8tml.m4a')
+        os.remove(path)
     #Image
     elif isinstance(event.message, ImageMessage):
         ext = 'jpg'
