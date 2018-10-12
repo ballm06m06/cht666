@@ -68,6 +68,9 @@ def handle_message(event):
     elif isinstance(event.message, AudioMessage):
         ext = 'm4a'
         #print("Audio message id:" + event.message.id)
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text='解析中...'))
 
         audio_content = line_bot_api.get_message_content(event.message.id)
         
