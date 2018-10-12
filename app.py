@@ -84,8 +84,9 @@ def handle_message(event):
         os.rename(tempfile_path, dist_path)
 
         path = os.path.join('static', 'tmp', dist_name)
+        print('path: '+path)
         
-        new_path = toWAV(dist_name, tempfile_path)
+        new_path = toWAV(dist_path, tempfile_path)
         
         print('聲音路徑：'+ new_path)
 
