@@ -280,7 +280,18 @@ def handle_follow(event):
                 StickerSendMessage(package_id=2,sticker_id=176),
             ] )
 
-
+@handler.add(PostbackEvent)
+def handle_postback(event):
+    if event.postback.data == 'ping':
+        line_bot_api.reply_message(
+            event.reply_token, TextSendMessage(text='pong'))
+    elif event.postback.data == 'datetime_postback':
+        line_bot_api.reply_message(
+            event.reply_token, TextSendMessage(text=event.postback.params['datetime']))
+    elif event.postback.data == 'date_postback':
+        line_bot_api.reply_message(
+            event.reply_token, TextSendMessage(text=event.postback.params['date']))
+            
 #push text
 def line_single_push(id,txt):
     line_bot_api.push_message(id, 
