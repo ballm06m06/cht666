@@ -1,5 +1,4 @@
 from nluapi import NluAPISample
-import argparse
 
 from cht_package.config import OLAMI_APP_KEY, OLAMI_APP_SECRET, OLAMI_URL
 
