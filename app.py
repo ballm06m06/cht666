@@ -86,7 +86,7 @@ def handle_message(event):
                         ),
                         QuickReplyButton(
                             action=DatetimePickerAction(label="label3",
-                                                        data="data3",
+                                                        data="date_postback",
                                                         mode="date")
                         ),
                         QuickReplyButton(
@@ -291,7 +291,7 @@ def handle_postback(event):
     elif event.postback.data == 'date_postback':
         line_bot_api.reply_message(
             event.reply_token, TextSendMessage(text=event.postback.params['date']))
-            
+
 #push text
 def line_single_push(id,txt):
     line_bot_api.push_message(id, 
