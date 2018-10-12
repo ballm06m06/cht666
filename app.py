@@ -1,8 +1,7 @@
 # encoding: utf-8
 from flask import Flask, request, abort
-
 import json
-
+import psycopg2
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -13,7 +12,7 @@ from linebot.exceptions import (
 from linebot.models import  *
 
 from cht_package.config import line_channel_secret , line_channel_access_token
-
+from cht_package.config import db,user,pwd,host,dbport
 from text_input.olami import OLAMI_textInput
 
 
@@ -72,15 +71,31 @@ def handle_message(event):
         ext = 'jpg'
         print("Image message")
 
+
+
 @handler.add(FollowEvent)
 def handle_follow(event):
     if isinstance(event.source, SourceUser) or isinstance(event.source, SourceGroup) or isinstance(event.source, SourceRoom):
         profile = line_bot_api.get_profile(event.source.user_id)
         print(profile.display_name)
 
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=profile.display_name+'您好'))
+        try:
+            conn = psycopg2.connect(database = db, user = user, 
+                                        password = pwd, host = host, port=dbport)
+            print('Opened DB successfully')
+            cur = conn.cursor()
+            cur.execute("INSERT INTO heteuser (ID,NAME,PicUrl)  VALUES (%s, %s, %s )", (profile.user_id,profile.display_name,profile.picture_url))
+            conn.commit()
+            print('%s註冊成功'%(profile.display_name))
+            conn.close()
+            line_bot_api.reply_message(event.reply_token,[
+                TextSendMessage(text=profile.display_name+'歡迎加入'),
+                StickerSendMessage(package_id=2,sticker_id=176),
+            ] )
+
+        except Exception as e:
+            print('register exception:' + str(e))
+
 
 # ================= 機器人區塊 End =================
 
