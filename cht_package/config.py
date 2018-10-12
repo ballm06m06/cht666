@@ -3,6 +3,6 @@ line_channel_access_token = 'CM4iLIdM/vkrSSvcr+UP+vYIZwoG5sLE7aZxL+XzcP9Gsz4G8uI
 line_channel_secret = '2c0174c6d045c85e0d07e97589a28f2a'
 
 #OLAMI
-OLAMI_URL = 'https://cn.olami.ai/cloudservice/api'
+OLAMI_URL = 'https://tw.olami.ai/cloudservice/api'
 OLAMI_APP_KEY = 'c97b4c08105144ee874c7329aa9e076a'
 OLAMI_APP_SECRET = '17256f7d09e34f8983cd20f60c5d9ae8'
