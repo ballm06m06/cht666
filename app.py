@@ -7,14 +7,17 @@ from linebot import (
 from linebot.exceptions import (
     InvalidSignatureError
 )
-from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,
-)
+
+from linebot.models import  *
+
+from cht_package.config import line_channel_secret , line_channel_access_token
+
+from text_input.olami import OLAMI_textInput
 
 app = Flask(__name__)
 
-handler = WebhookHandler('2c0174c6d045c85e0d07e97589a28f2a') 
-line_bot_api = LineBotApi('CM4iLIdM/vkrSSvcr+UP+vYIZwoG5sLE7aZxL+XzcP9Gsz4G8uIyFKi87uUKbEvBDBQ99Zr64Gu5VOd5fky6XQBTwSz38t25AK9v6JKv57z/sl3OuFbo4X+8f4pEaBTYcdRi8nsVXt6VH5/DqQGejgdB04t89/1O/w1cDnyilFU=') 
+handler = WebhookHandler(line_channel_secret) 
+line_bot_api = LineBotApi(line_channel_access_token) 
 
 
 @app.route('/')
@@ -42,7 +45,8 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)  # default
 def handle_text_message(event):                  # default
     msg = event.message.text #message from user
-
+    
+    print('回傳：' + OLAMI_textInput(msg))
     # 針對使用者各種訊息的回覆 Start =========
     line_bot_api.reply_message(
         event.reply_token,
