@@ -2,4 +2,4 @@ line-bot-sdk
 flask
 psycopg2
 pydub
-ffmpeg
+ffprobe
