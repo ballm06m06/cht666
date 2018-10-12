@@ -73,8 +73,12 @@ def handle_message(event):
                 tf.write(chunk)
             tempfile_path = tf.name
 
+        print('tempfile_path: '+tempfile_path)
         dist_path = tempfile_path + '.' + ext
         dist_name = os.path.basename(dist_path)
+        print('dist_path: '+dist_path)
+        print('distname: '+dist_name)
+        
         os.rename(tempfile_path, dist_path)
 
         path = os.path.join('static', 'tmp', dist_name)
@@ -82,7 +86,6 @@ def handle_message(event):
         
         print('聲音路徑：'+ path)
 
-        os.remove('static/tmp/m4a-36vs8tml.m4a')
         os.remove(path)
     #Image
     elif isinstance(event.message, ImageMessage):
