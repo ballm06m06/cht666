@@ -1,6 +1,8 @@
 # encoding: utf-8
 from flask import Flask, request, abort
 
+import json
+
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -13,6 +15,8 @@ from linebot.models import  *
 from cht_package.config import line_channel_secret , line_channel_access_token
 
 from text_input.olami import OLAMI_textInput
+
+
 
 app = Flask(__name__)
 
@@ -46,7 +50,8 @@ def callback():
 def handle_text_message(event):                  # default
     msg = event.message.text #message from user
     
-    print('回傳：' + OLAMI_textInput(msg))
+    olamiJson = json.loads(OLAMI_textInput(msg))
+    print(olamiJson["data"]["nli"][0])
     # 針對使用者各種訊息的回覆 Start =========
     line_bot_api.reply_message(
         event.reply_token,
