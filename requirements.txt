@@ -3,4 +3,3 @@ flask
 psycopg2
 pydub
 ffmpeg
-libav
