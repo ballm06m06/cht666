@@ -14,6 +14,7 @@ from linebot.models import  *
 from cht_package.config import line_channel_secret , line_channel_access_token
 
 from text_input.olami import OLAMI_textInput
+from audio_input.olami_audio import OLAMI_audioInput
 
 from cht_package.postgreSQL import register_User
 
@@ -85,8 +86,6 @@ def handle_message(event):
         new_dist_name = os.path.basename(new_dist_path)
         new_path = os.path.join('static', 'tmp', new_dist_name)
         
-
-
         os.rename(tempfile_path, dist_path)
 
         path = os.path.join('static', 'tmp', dist_name)
@@ -94,9 +93,14 @@ def handle_message(event):
 
         new_path = toWAV(path, new_path)
         print('new path:'+new_path)
+
+        #OLAMI Audio
+        result = OLAMI_audioInput(new_path)
+
+        print("audio result: "+result)
         
         os.remove(new_path)
-        print('new remove ok')
+        print('new audio file remove ok')
     #Image
     elif isinstance(event.message, ImageMessage):
         ext = 'jpg'
