@@ -13,4 +13,4 @@ def OLAMI_textInput(input):
     print("\n---------- Test NLU API, api=nli ----------\n");
     print("\nResult:\n\n", nluApi.getRecognitionResult(nluApi.API_NAME_NLI, input))
 
-    return nluApi.getRecognitionResult(nluApi.API_NAME_NLI, input)
+    #return nluApi.getRecognitionResult(nluApi.API_NAME_NLI, input)
