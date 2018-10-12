@@ -66,8 +66,8 @@ def handle_message(event):
         ext = 'm4a'
         print("Audio message id:" + event.message.id)
 
-        audio_content = line_bot_api.get_message_content(event.message_id)
-
+        audio_content = line_bot_api.get_message_content(event.message.id)
+        
         with tempfile.NamedTemporaryFile(dir=static_tmp_path, prefix=ext + '-', delete=False) as tf:
             for chunk in audio_content.iter_content():
                 tf.write(chunk)
