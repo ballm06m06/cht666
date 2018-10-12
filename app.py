@@ -1,4 +1,5 @@
 # encoding: utf-8
+#heroku buildpacks:clear
 from flask import Flask, request, abort
 import json
 import tempfile, os
@@ -9,14 +10,28 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 
-from linebot.models import  *
+from linebot.models import (
+    MessageEvent, TextMessage, TextSendMessage,
+    SourceUser, SourceGroup, SourceRoom,
+    TemplateSendMessage, ConfirmTemplate, MessageAction,
+    ButtonsTemplate, ImageCarouselTemplate, ImageCarouselColumn, URIAction,
+    PostbackAction, DatetimePickerAction,
+    CameraAction, CameraRollAction, LocationAction,
+    CarouselTemplate, CarouselColumn, PostbackEvent,
+    StickerMessage, StickerSendMessage, LocationMessage, LocationSendMessage,
+    ImageMessage, VideoMessage, AudioMessage, FileMessage,
+    UnfollowEvent, FollowEvent, JoinEvent, LeaveEvent, BeaconEvent,
+    FlexSendMessage, BubbleContainer, ImageComponent, BoxComponent,
+    TextComponent, SpacerComponent, IconComponent, ButtonComponent,
+    SeparatorComponent, QuickReply, QuickReplyButton
+)
 
 from cht_package.config import line_channel_secret , line_channel_access_token
 
 from text_input.olami import OLAMI_textInput
 from audio_input.olami_audio import OLAMI_audioInput
 
-from cht_package.postgreSQL import register_User
+from cht_package.db_postgres import register_User
 
 from cht_package.audioConvert import toWAV
 
@@ -55,7 +70,36 @@ def handle_message(event):
     # Text 
     if isinstance(event.message, TextMessage):
         msg = event.message.text #message from user
-    
+        
+        if msg == '123':
+            line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(
+                text='Quick reply',
+                quick_reply=QuickReply(
+                    items=[
+                        QuickReplyButton(
+                            action=PostbackAction(label="label1", data="data1")
+                        ),
+                        QuickReplyButton(
+                            action=MessageAction(label="label2", text="text2")
+                        ),
+                        QuickReplyButton(
+                            action=DatetimePickerAction(label="label3",
+                                                        data="data3",
+                                                        mode="date")
+                        ),
+                        QuickReplyButton(
+                            action=CameraAction(label="label4")
+                        ),
+                        QuickReplyButton(
+                            action=CameraRollAction(label="label5")
+                        ),
+                        QuickReplyButton(
+                            action=LocationAction(label="label6")
+                        ),
+                    ])))
+
         #OLAMI TEXT
         olamiJson = json.loads(OLAMI_textInput(msg))
         response = olamiJson["data"]["nli"][0]["desc_obj"]["result"]
@@ -76,6 +120,7 @@ def handle_message(event):
         
         audio_content = line_bot_api.get_message_content(event.message.id)
         
+    
         with tempfile.NamedTemporaryFile(dir=static_tmp_path, prefix=ext + '-', delete=False) as tf:
             for chunk in audio_content.iter_content():
                 tf.write(chunk)

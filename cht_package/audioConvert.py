@@ -1,5 +1,7 @@
 from pydub import AudioSegment
 import os, tempfile
+static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
+
 
 def toWAV(old_path, new_path):
     print(old_path+ ' '+ new_path)
