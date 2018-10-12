@@ -68,6 +68,11 @@ def handle_message(event):
     elif isinstance(event.message, AudioMessage):
         ext = 'm4a'
         #print("Audio message id:" + event.message.id)
+        #waiting for recognition
+        if isinstance(event.source, SourceUser) or isinstance(event.source, SourceGroup) or isinstance(event.source, SourceRoom):
+            profile = line_bot_api.get_profile(event.source.user_id)
+            
+            line_single_push(profile.user_id, '解析中...')
         
         audio_content = line_bot_api.get_message_content(event.message.id)
         
@@ -125,6 +130,26 @@ def handle_follow(event):
             ] )
 
 
+#push text
+def line_single_push(id,txt):
+    line_bot_api.push_message(id, 
+        TextSendMessage(text=txt))
+    
+#push sticker    
+def line_single_sticker(id,packed_id,sticker_id):
+    line_bot_api.push_message(id, 
+        StickerSendMessage(package_id=packed_id,
+    sticker_id=sticker_id))
+
+#push video    
+def line_single_video(id,content,preview):
+    line_bot_api.push_message(id, 
+        VideoSendMessage(original_content_url=content,
+    preview_image_url=preview))
+
+#multicast
+def line_multicast(mlist,txt):
+    line_bot_api.multicast(mlist, TextSendMessage(text=txt))
 
 # ================= 機器人區塊 End =================
 
