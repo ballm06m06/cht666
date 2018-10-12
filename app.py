@@ -99,7 +99,7 @@ def handle_message(event):
                             action=LocationAction(label="label6")
                         ),
                     ])))
-        elif text == 'flex':
+        elif msg == 'flex':
             bubble = BubbleContainer(
             direction='ltr',
             hero=ImageComponent(
