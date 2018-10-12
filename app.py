@@ -90,13 +90,15 @@ def handle_message(event):
         os.rename(tempfile_path, dist_path)
 
         path = os.path.join('static', 'tmp', dist_name)
+
         print('path: '+path)
 
         #new_path = toWAV(path, tempfile_path)
         
         #print('聲音路徑：'+ new_path)
 
-        os.remove(new_path)
+        os.remove(path)
+        print('remove ok')
     #Image
     elif isinstance(event.message, ImageMessage):
         ext = 'jpg'
