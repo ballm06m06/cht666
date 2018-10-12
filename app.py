@@ -74,7 +74,7 @@ def handle_message(event):
             for chunk in audio_content.iter_content():
                 tf.write(chunk)
             tempfile_path = tf.name
-
+        print('static_tmp_path: '+static_tmp_path)
         #print('tempfile_path: '+tempfile_path) /app/static/tmp/m4a-48lboo6w new
         dist_path = tempfile_path + '.' + ext
         dist_name = os.path.basename(dist_path)
@@ -83,7 +83,8 @@ def handle_message(event):
         
         #os.rename(tempfile_path, dist_path)
 
-        #path = os.path.join('static', 'tmp', dist_name)
+        path = os.path.join('static', 'tmp', dist_name)
+        
         new_path = toWAV(dist_path, tempfile_path)
         
         print('聲音路徑：'+ new_path)
