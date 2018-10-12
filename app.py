@@ -46,20 +46,32 @@ def callback():
     return 'OK'
 
 # ================= 機器人區塊 Start =================
-@handler.add(MessageEvent, message=TextMessage)  # default
-def handle_text_message(event):                  # default
-    msg = event.message.text #message from user
+@handler.add(MessageEvent, message=(TextMessage, ImageMessage, AudioMessage))
+def handle_message(event):
     
-    #OLAMI TEXT
-    olamiJson = json.loads(OLAMI_textInput(msg))
-    response = olamiJson["data"]["nli"][0]["desc_obj"]["result"]
+    # Text 
+    if isinstance(event.message, TextMessage):
+        msg = event.message.text #message from user
     
-    # 針對使用者各種訊息的回覆 Start =========
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=response))
+        #OLAMI TEXT
+        olamiJson = json.loads(OLAMI_textInput(msg))
+        response = olamiJson["data"]["nli"][0]["desc_obj"]["result"]
+        
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=response))
 
-    # 針對使用者各種訊息的回覆 End =========
+    #Audio
+    elif isinstance(event.message, AudioMessage):
+        ext = 'm4a'
+        print("Audio message")
+
+    #Image
+    elif isinstance(event.message, ImageMessage):
+        ext = 'jpg'
+        print("Image message")
+    
+    
 
 # ================= 機器人區塊 End =================
 
