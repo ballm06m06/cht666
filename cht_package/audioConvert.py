@@ -15,11 +15,11 @@ def toWAV(old_path, new_path):
 
     print('查看/static/tmp...')
     # 取得所有檔案與子目錄名稱
-    files = listdir(static_tmp_path)
+    files = listdir('static/tmp')
     # 以迴圈處理
     for f in files:
         # 產生檔案的絕對路徑
-        fullpath = join(static_tmp_path, f)
+        fullpath = join('static/tmp', f)
         # 判斷 fullpath 是檔案還是目錄
         if isfile(fullpath):
             print("檔案：", f)
