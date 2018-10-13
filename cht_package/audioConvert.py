@@ -1,6 +1,7 @@
 from pydub import AudioSegment
 import os, tempfile
-from os import walk
+from os import listdir
+from os.path import isfile, isdir, join
 
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 
@@ -12,9 +13,17 @@ def toWAV(old_path, new_path):
     os.remove(old_path)
     print('.m4a audio file remove ok')
 
-    for root, dirs, files in walk('/static/tmp'):
-        print("路徑：", root)
-        print("  目錄：", dirs)
-        print("  檔案：", files)
+    print('查看/static/tmp...')
+    # 取得所有檔案與子目錄名稱
+    files = listdir(static_tmp_path)
+    # 以迴圈處理
+    for f in files:
+        # 產生檔案的絕對路徑
+        fullpath = join(static_tmp_path, f)
+        # 判斷 fullpath 是檔案還是目錄
+        if isfile(fullpath):
+            print("檔案：", f)
+        elif isdir(fullpath):
+            print("目錄：", f)
 
     return new_path

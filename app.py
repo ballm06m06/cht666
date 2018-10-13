@@ -3,8 +3,7 @@
 from flask import Flask, request, abort
 import json
 import tempfile, os
-from os import listdir
-from os.path import isfile, isdir, join
+
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -73,19 +72,6 @@ def handle_message(event):
     if isinstance(event.message, TextMessage):
         msg = event.message.text #message from user
         
-       # 取得所有檔案與子目錄名稱
-        files = listdir(static_tmp_path)
-
-        # 以迴圈處理
-        for f in files:
-                # 產生檔案的絕對路徑
-            fullpath = join(static_tmp_path, f)
-                # 判斷 fullpath 是檔案還是目錄
-            if isfile(fullpath):
-                print("檔案：", f)
-            elif isdir(fullpath):
-                print("目錄：", f)
-
         if msg == '123':
             line_bot_api.reply_message(
             event.reply_token,
@@ -115,7 +101,7 @@ def handle_message(event):
                         ),
                     ])))
             return 0
-            
+
         elif msg == 'flex':
             bubble = BubbleContainer(
             direction='ltr',
