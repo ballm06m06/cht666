@@ -3,6 +3,7 @@
 from flask import Flask, request, abort
 import json
 import tempfile, os
+from os import walk
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -71,6 +72,14 @@ def handle_message(event):
     if isinstance(event.message, TextMessage):
         msg = event.message.text #message from user
         
+        try:
+            for root, dirs, files in walk('/static/tmp'):
+                print("路徑：", root)
+                print("  目錄：", dirs)
+                print("  檔案：", files)
+        except Exception as e:
+            print(e)
+
         if msg == '123':
             line_bot_api.reply_message(
             event.reply_token,
@@ -245,10 +254,10 @@ def handle_message(event):
         os.rename(tempfile_path, dist_path)
 
         path = os.path.join('static', 'tmp', dist_name)
-        print('path: '+path)
+        print('.m4a path: '+path)
 
         new_path = toWAV(path, new_path)
-        print('new path:'+new_path)
+        print('.wav path:'+new_path)
 
         #OLAMI Audio
         olamiJson = json.loads(OLAMI_audioInput(new_path))
@@ -259,7 +268,7 @@ def handle_message(event):
             TextSendMessage(text='你說的是: '+response))
         
         os.remove(new_path)
-        print('new audio file remove ok')
+        print('.wav audio file remove ok')
     #Image
     elif isinstance(event.message, ImageMessage):
         ext = 'jpg'
