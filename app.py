@@ -114,6 +114,8 @@ def handle_message(event):
                             action=LocationAction(label="label6")
                         ),
                     ])))
+            return 0
+            
         elif msg == 'flex':
             bubble = BubbleContainer(
             direction='ltr',
@@ -219,6 +221,7 @@ def handle_message(event):
                 event.reply_token,
                 message
             )
+            return 0
 
 
         #OLAMI TEXT
