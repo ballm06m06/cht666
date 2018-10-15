@@ -68,13 +68,17 @@ def callback():
 @handler.add(MessageEvent, message=(TextMessage, ImageMessage, AudioMessage))
 def handle_message(event):
     
-    # Text 
+    if isinstance(event.source, SourceUser) or isinstance(event.source, SourceGroup) or isinstance(event.source, SourceRoom):
+        profile = line_bot_api.get_profile(event.source.user_id)
+        
+     # Text 
     if isinstance(event.message, TextMessage):
         msg = event.message.text #message from user
         
         if msg == '123':
             line_bot_api.reply_message(
-            event.reply_token,
+            event.reply_token,[
+            TextSendMessage(text=profile.display_name+'你喜歡哪一個呢？'),
             TextSendMessage(
                 text='Quick reply',
                 quick_reply=QuickReply(
@@ -99,7 +103,8 @@ def handle_message(event):
                         QuickReplyButton(
                             action=LocationAction(label="label6")
                         ),
-                    ])))
+                    ]))]
+                    )
             return 0
 
         elif msg == 'flex':
