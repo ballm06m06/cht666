@@ -290,13 +290,16 @@ def handle_follow(event):
 
 @handler.add(PostbackEvent)
 def handle_postback(event):
-    if event.postback.data == 'ping':
+
+    msg = event.postback.data
+
+    if msg == 'ping':
         line_bot_api.reply_message(
             event.reply_token, TextSendMessage(text='pong'))
-    elif event.postback.data == 'datetime_postback':
+    elif msg == 'datetime_postback':
         line_bot_api.reply_message(
             event.reply_token, TextSendMessage(text=event.postback.params['datetime']))
-    elif event.postback.data == 'date_postback':
+    elif msg == 'date_postback':
         line_bot_api.reply_message(
             event.reply_token, TextSendMessage(text=event.postback.params['date']))
 
