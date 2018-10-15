@@ -83,7 +83,7 @@ def handle_message(event):
                 quick_reply=QuickReply(
                     items=[
                         QuickReplyButton(
-                            action=PostbackAction(label="label1", data="data1", text="postback msg")
+                            action=PostbackAction(label="postback", data="data1")
                         ),
                         QuickReplyButton(
                             action=MessageAction(label="label2", text="text2")
