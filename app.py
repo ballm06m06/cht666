@@ -1,3 +1,5 @@
+#!/usr/local/bin/python
+# coding=utf-8
 # encoding: utf-8
 #heroku buildpacks:clear
 
@@ -44,8 +46,6 @@ line_bot_api = LineBotApi(line_channel_access_token)
 
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 
-reload(sys)     
-sys.setdefaultencoding("utf-8")
 
 @app.route('/')
 def index():
