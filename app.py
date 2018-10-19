@@ -1,5 +1,7 @@
 # encoding: utf-8
 #heroku buildpacks:clear
+#!/usr/bin/python
+#coding:utf-8
 from flask import Flask, request, abort
 import json
 import tempfile, os
@@ -219,9 +221,9 @@ def handle_message(event):
         intentJson = get_intent(msg)
 
         print(intentJson)
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=intentJson))
+        # line_bot_api.reply_message(
+        #     event.reply_token,
+        #     TextSendMessage(text=intentJson))
 
         #OLAMI TEXT
         # olamiJson = json.loads(OLAMI_textInput(msg))
