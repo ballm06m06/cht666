@@ -13,3 +13,6 @@ user = 'klrzdtfkbfsrej'
 pwd = '3508f0fa7f9819795b642f300bd774f6f0cba67d48783371f4289498c51aebfd'
 host = 'ec2-184-73-197-211.compute-1.amazonaws.com'
 dbport = '5432'
+
+#Dialogflow
+CLIENT_ACCESS_TOKEN = '334db1eb72464805a9310254eb2ffbba'

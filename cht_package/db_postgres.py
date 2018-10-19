@@ -1,7 +1,7 @@
 import psycopg2
 from cht_package.config import db,user,pwd,host,dbport
 
-
+#註冊
 def register_User(id, name, picUrl):
     try:
         conn = psycopg2.connect(database = db, user = user, 

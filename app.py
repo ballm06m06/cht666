@@ -31,11 +31,11 @@ from cht_package.config import line_channel_secret , line_channel_access_token
 
 from text_input.olami import OLAMI_textInput
 from audio_input.olami_audio import OLAMI_audioInput
+from dialogflow.nlp import get_intent
 
 from cht_package.db_postgres import register_User
 
 from cht_package.audioConvert import toWAV
-
 app = Flask(__name__)
 
 handler = WebhookHandler(line_channel_secret) 
@@ -107,6 +107,7 @@ def handle_message(event):
             return 0
 
         elif msg == 'flex':
+            
             bubble = BubbleContainer(
             direction='ltr',
             hero=ImageComponent(
@@ -213,14 +214,23 @@ def handle_message(event):
             )
             return 0
 
-
-        #OLAMI TEXT
-        olamiJson = json.loads(OLAMI_textInput(msg))
-        response = olamiJson["data"]["nli"][0]["desc_obj"]["result"]
         
+        #意圖判定
+        intentJson = get_intent(msg)
+
+        print(intentJson)
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text=response))
+            TextSendMessage(text=intentJson))
+
+        #OLAMI TEXT
+        # olamiJson = json.loads(OLAMI_textInput(msg))
+        # response = olamiJson["data"]["nli"][0]["desc_obj"]["result"]
+        
+        # line_bot_api.reply_message(
+        #     event.reply_token,
+        #     TextSendMessage(text=response))
+
 
     #Audio
     elif isinstance(event.message, AudioMessage):
