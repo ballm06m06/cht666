@@ -227,7 +227,7 @@ def handle_message(event):
             line_bot_api.reply_message(
              event.reply_token,
              TextSendMessage(text='intent: 水質資訊'))
-
+            
         elif intent == '溫度':
             line_bot_api.reply_message(
              event.reply_token,
