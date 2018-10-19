@@ -14,7 +14,7 @@ def get_intent(msg):
     
     try:
         result = json.loads(str(response.read(), encoding = "utf-8")) 
-        print(result)
+        print(result["metadata"]["intentName"])
         return result
     except Exception as e:
         print('nlp exception: '+ str(e))
