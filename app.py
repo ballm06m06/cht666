@@ -228,9 +228,6 @@ def handle_message(event):
         except Exception as e:
             print('nlp exception: '+str(e))
 
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text='intent: ' + nlpJson["metadata"]["intentName"]))
 
         #OLAMI TEXT
         # olamiJson = json.loads(OLAMI_textInput(msg))
