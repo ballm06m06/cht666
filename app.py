@@ -226,7 +226,7 @@ def handle_message(event):
             print(nlpJson["metadata"]["intentName"]
             
         except Exception as e:
-            print(e)
+            print('nlp exception: '+str(e))
 
         line_bot_api.reply_message(
             event.reply_token,
