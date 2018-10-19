@@ -1,10 +1,9 @@
 # encoding: utf-8
 #heroku buildpacks:clear
-#!/usr/bin/python
-#coding:utf-8
+
 from flask import Flask, request, abort
 import json
-import tempfile, os
+import tempfile, os, sys
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -44,6 +43,9 @@ handler = WebhookHandler(line_channel_secret)
 line_bot_api = LineBotApi(line_channel_access_token) 
 
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
+
+reload(sys)     
+sys.setdefaultencoding("utf-8")
 
 @app.route('/')
 def index():
