@@ -221,12 +221,11 @@ def handle_message(event):
 
         
         #意圖判定
-        try:
-            nlpJson = json.loads(str(response.read(), encoding = "utf-8")) 
-            print(nlpJson["metadata"]["intentName"]
-            
-        except Exception,e:
-            print('nlp exception: '+str(e))
+        nlpJson = get_intent(msg)
+        print(nlpJson["metadata"]["intentName"])
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text='intent: '+nlpJson["metadata"]["intentName"]))
 
 
         #OLAMI TEXT
