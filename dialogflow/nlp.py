@@ -11,16 +11,5 @@ def get_intent(msg):
     request.lang = 'zh-TW'
     request.query = msg
     response = request.getresponse()
-    
-    try:
-        result = json.loads(str(response.read(), encoding = "utf-8")) 
-        print(result)
-        return result
-    except Exception as e:
-        print(e)
-    
 
-
-    
-
-    #return str(response.read(), encoding = "utf-8")
+    return str(response.read(), encoding = "utf-8")
