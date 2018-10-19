@@ -11,6 +11,6 @@ def get_intent(msg):
     request.query = msg
     response = request.getresponse()
     
-    print(response.read())
+    print("".join( chr(x) for x in bytearray(response.read()) ))
 
     return response.read()
