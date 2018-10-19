@@ -1,6 +1,6 @@
 #!/usr/bin/python
-#coding:utf-8
-# encoding: utf-8
+#decoding:utf-8
+#encoding: utf-8
 #heroku buildpacks:clear
 
 from flask import Flask, request, abort
