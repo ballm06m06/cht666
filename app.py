@@ -220,7 +220,7 @@ def handle_message(event):
             return 0
 
         
-        #意圖判定
+        #意圖判定(main function)
         intent = get_intent(msg)
         
         if intent == '水質資訊':
@@ -243,7 +243,7 @@ def handle_message(event):
              event.reply_token,
              TextSendMessage(text='intent: 溶氧量'))
 
-        # intent: none >> OLAMI
+        # intent: none >> OLAMI(天氣、閒聊...)
         else:
 
             #OLAMI TEXT
