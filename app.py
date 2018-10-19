@@ -221,12 +221,12 @@ def handle_message(event):
 
         
         #意圖判定
-        nlpJson = get_intent(msg)
+        intent = get_intent(msg)
         
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text='intent: '+nlpJson['result']['metadata']['intentName']))
-
+        if intent == '溫度':
+            line_bot_api.reply_message(
+             event.reply_token,
+             TextSendMessage(text='intent: 溫度'))
 
         #OLAMI TEXT
         # olamiJson = json.loads(OLAMI_textInput(msg))

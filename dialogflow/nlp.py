@@ -16,6 +16,27 @@ def get_intent(msg):
         result = json.loads(str(response.read(), encoding = "utf-8")) 
         print(result)
         
-        return result
+        #找不到意圖 >> OLAMI
+        if result['result']['parameters'] == {}:
+            
+            return 'none'
+        #水質資訊
+        elif result['result']['parameters']['get_Water_Info'][0] == '水質資訊':
+
+            return '水質資訊'
+        #溫度
+        elif result['result']['parameters']['get_Water_Info'][0] == '溫度':
+
+            return '溫度'
+        #酸鹼度
+        elif result['result']['parameters']['get_Water_Info'][0] == '酸鹼度':
+
+            return '酸鹼度'
+        #溶氧量
+        elif result['result']['parameters']['get_Water_Info'][0] == '溶氧量':
+
+            return '溶氧量'
+
+            
     except Exception as e:
         print('nlp exception: '+ str(e))
