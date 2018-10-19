@@ -223,7 +223,7 @@ def handle_message(event):
 
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text='intent: ' + intentJson["metadata"]["intentName"]))
+            TextSendMessage(text='intent: ' + nlpJson["metadata"]["intentName"]))
 
         #OLAMI TEXT
         # olamiJson = json.loads(OLAMI_textInput(msg))
