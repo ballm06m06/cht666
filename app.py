@@ -219,6 +219,7 @@ def handle_message(event):
 
         
         #意圖判定
+        get_intent(msg)
         #nlpJson = json.loads(get_intent(msg))
 
         # line_bot_api.reply_message(
