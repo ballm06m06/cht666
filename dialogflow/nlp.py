@@ -15,6 +15,7 @@ def get_intent(msg):
     try:
         result = json.loads(str(response.read(), encoding = "utf-8")) 
         print(result)
+        return result
     except Exception as e:
         print(e)
     

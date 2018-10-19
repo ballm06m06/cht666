@@ -221,7 +221,7 @@ def handle_message(event):
 
         
         #意圖判定
-        get_intent(msg)
+        print(get_intent(msg)[["metadata"]["intentName"]])
         #nlpJson = json.loads(get_intent(msg))
 
         # line_bot_api.reply_message(
