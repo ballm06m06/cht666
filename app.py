@@ -1,5 +1,5 @@
-#!/usr/local/bin/python
-# coding=utf-8
+#!/usr/bin/python
+#coding:utf-8
 # encoding: utf-8
 #heroku buildpacks:clear
 
