@@ -78,6 +78,7 @@ def handle_message(event):
     if isinstance(event.message, TextMessage):
         msg = event.message.text #message from user
         
+        #quick reply test
         if msg == '123':
             line_bot_api.reply_message(
             event.reply_token,[
@@ -109,6 +110,7 @@ def handle_message(event):
                     )
             return 0
 
+        #flex test
         elif msg == 'flex':
             
             bubble = BubbleContainer(
@@ -322,19 +324,19 @@ def line_single_push(id,txt):
         TextSendMessage(text=txt))
     
 #push sticker    
-def line_single_sticker(id,packed_id,sticker_id):
+def line_single_sticker(id, packed_id, sticker_id):
     line_bot_api.push_message(id, 
         StickerSendMessage(package_id=packed_id,
     sticker_id=sticker_id))
 
 #push video    
-def line_single_video(id,content,preview):
+def line_single_video(id, content, preview):
     line_bot_api.push_message(id, 
         VideoSendMessage(original_content_url=content,
     preview_image_url=preview))
 
 #multicast
-def line_multicast(mlist,txt):
+def line_multicast(mlist, txt):
     line_bot_api.multicast(mlist, TextSendMessage(text=txt))
 
 # ================= 機器人區塊 End =================
