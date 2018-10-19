@@ -11,4 +11,6 @@ def get_intent(msg):
     request.query = msg
     response = request.getresponse()
     
+    print(response.read())
+
     return response.read()

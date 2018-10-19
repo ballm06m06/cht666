@@ -1,6 +1,5 @@
-#!/usr/bin/python
-#decoding:utf-8
-#encoding: utf-8
+
+# encoding: utf-8
 #heroku buildpacks:clear
 
 from flask import Flask, request, abort
@@ -220,9 +219,8 @@ def handle_message(event):
 
         
         #意圖判定
-        intentJson = get_intent(msg)
+        get_intent(msg)
 
-        print(intentJson)
         # line_bot_api.reply_message(
         #     event.reply_token,
         #     TextSendMessage(text=intentJson))
