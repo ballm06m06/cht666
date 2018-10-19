@@ -37,6 +37,5 @@ def get_intent(msg):
 
             return '溶氧量'
 
-            
     except Exception as e:
         print('nlp exception: '+ str(e))
