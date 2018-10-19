@@ -5,7 +5,7 @@
 from flask import Flask, request, abort
 import json
 import tempfile, os, sys
-import exceptions
+
 from linebot import (
     LineBotApi, WebhookHandler
 )
