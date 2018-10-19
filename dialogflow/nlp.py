@@ -16,5 +16,7 @@ def get_intent(msg):
     res = str(response.read(), encoding = "utf-8")
 
     print(res)
+    print(str(response.metadata, encoding = "utf-8"))
+    
 
-    return str(response.read(), encoding = "utf-8")
+    #return str(response.read(), encoding = "utf-8")
