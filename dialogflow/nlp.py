@@ -13,7 +13,8 @@ def get_intent(msg):
     response = request.getresponse()
     
     print(str(response.read(), encoding = "utf-8"))
-    nlpJson = json.loads(str(response.read(), encoding = "utf-8"))
+    res = str(response.read(), encoding = "utf-8")
+    nlpJson = json.loads(res)
     print(nlpJson)
 
     return str(response.read(), encoding = "utf-8")
