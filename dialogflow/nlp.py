@@ -12,11 +12,14 @@ def get_intent(msg):
     request.query = msg
     response = request.getresponse()
     
+    try:
+        result = json.loads(str(response.read(), encoding = "utf-8")) 
+        print(result)
+    except Exception as e:
+        print(e)
+    
 
-    res = str(response.read(), encoding = "utf-8")
 
-    print(res)
-    print(str(response.metadata, encoding = "utf-8"))
     
 
     #return str(response.read(), encoding = "utf-8")
