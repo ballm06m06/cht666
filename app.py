@@ -219,11 +219,11 @@ def handle_message(event):
 
         
         #意圖判定
-        nlpJson = json.loads(get_intent(msg))
+        #nlpJson = json.loads(get_intent(msg))
 
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text='intent: ' + nlpJson["metadata"]["intentName"]))
+            TextSendMessage(text='intent: ' + get_intent(msg)["metadata"]["intentName"]))
 
         #OLAMI TEXT
         # olamiJson = json.loads(OLAMI_textInput(msg))
