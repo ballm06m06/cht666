@@ -5,7 +5,7 @@
 from flask import Flask, request, abort
 import json
 import tempfile, os, sys
-
+import exceptions
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -225,7 +225,7 @@ def handle_message(event):
             nlpJson = json.loads(str(response.read(), encoding = "utf-8")) 
             print(nlpJson["metadata"]["intentName"]
             
-        except Exception as e:
+        except Exception,e:
             print('nlp exception: '+str(e))
 
 
