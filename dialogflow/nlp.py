@@ -12,7 +12,8 @@ def get_intent(msg):
     request.query = msg
     response = request.getresponse()
     
-    print(str(response, encoding = "utf-8"))
-    print(str(response.read(), encoding = "utf-8"))
+    print(response)
+    #print(str(response, encoding = "utf-8"))
+    #print(str(response.read(), encoding = "utf-8"))
 
     return str(response.read(), encoding = "utf-8")
