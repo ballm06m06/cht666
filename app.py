@@ -84,9 +84,12 @@ def handle_message(event):
         global first_add
         if first_add == True:
             
+            #register
             first_addFriend(msg, profile.user_id, profile.display_name, profile.picture_url)
-            #first_add = False
+
+            #intro
             return 0
+
         #quick reply test
         if msg == '123':
             line_bot_api.reply_message(
@@ -378,18 +381,20 @@ def line_multicast(mlist, txt):
 def first_addFriend(msg, id ,name, url):
 
     area_code = 100
+    global first_add
 
     while True:
-        line_single_push(id, '請問您是哪裡人呢？ (例如：新竹市)')
-        area_code = str(get_district(msg))
+        line_single_push(id, '請問您是哪裡人呢？\n (例如：新竹市)')
+        area_code = get_district(msg)
         if area_code != 100:
-            print('district code OK: '+ area_code)
-            return
+            print(name+' district code OK: '+ str(area_code))
+            first_add = False
+            break
     
-    line_single_push(id, 'area code: ' + area_code)
+    
     #註冊完給intro
-    #if register_User(profile.user_id, profile.display_name, profile.picture_url):
-    #first_add = False  
+    if register_User(id, name, url, area_code):
+        print(name+' register OK')
 
 
 # ================= 機器人區塊 End =================
