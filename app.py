@@ -383,7 +383,6 @@ def first_addFriend(msg, id ,name, url):
     area_code = 100
     global first_add
 
-    if area_code != 100 and area_code != 'none':
     while True:
         line_bot_api.reply_message(event.reply_token,[
             TextSendMessage(text='請問您是哪裡人呢？\n(例如：新竹市)')
@@ -397,8 +396,8 @@ def first_addFriend(msg, id ,name, url):
             #註冊完給intro
             if register_User(id, name, url, area_code):
                 print(name+' register OK')
-                
-            break
+
+            return
     
 
 
