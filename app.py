@@ -394,7 +394,7 @@ def first_addFriend(msg, id , name, url):
              #註冊完給intro
             if register_User(id, name, url, int(area_code)):
                 print(name+' register OK')
-
+                line_single_push(id, '感謝您提供的資訊')
             break
 
         else:
