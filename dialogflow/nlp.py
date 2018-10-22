@@ -145,8 +145,8 @@ def get_district(msg):
             return 21
         
         #not found
-        else
-            
+        else:
+    
             return 'none'
 
     except Exception as e:
