@@ -325,7 +325,7 @@ def handle_follow(event):
                 quick_reply=QuickReply(
                     items=[
                         QuickReplyButton(
-                            action=PostbackAction(label="新北市", data="action=district&area=新北市")
+                            action=PostbackAction(label="新北市", data={"action": "district","area": "新北市"})
                         ),
                         QuickReplyButton(
                             action=PostbackAction(label="桃園市", data="action=district&area=桃園市")
