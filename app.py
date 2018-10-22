@@ -336,7 +336,7 @@ def handle_follow(event):
         line_bot_api.reply_message(event.reply_token,[
             TextSendMessage(text=profile.display_name+' 歡迎加入'),
             StickerSendMessage(package_id=2,sticker_id=176),
-            TextSendMessage(text='請問您是哪裡人呢？ (例如：新竹市)')
+            TextSendMessage(text='請問您是哪裡人呢？\n(例如：新竹市)')
             ] )
 
         
@@ -388,9 +388,10 @@ def first_addFriend(msg, id ,name, url):
         area_code = get_district(msg)
         if area_code != 100 and area_code != 'none':
             print(name+' district code: '+ str(area_code))
+            return
             first_add = False
             break
-    print(name+' district code OK: '+ str(area_code))
+            print(name+' district code OK: '+ str(area_code))
     
     #註冊完給intro
     if register_User(id, name, url, area_code):
