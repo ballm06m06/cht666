@@ -337,9 +337,19 @@ def handle_follow(event):
             TextSendMessage(text=profile.display_name+' 歡迎加入'),
             StickerSendMessage(package_id=2,sticker_id=176),
             TextSendMessage(text='請問您是哪裡人呢？\n (例如：新竹市)'),
+            quick_reply=QuickReply(
+                    items=[
+                        QuickReplyButton(
+                            action=MessageAction(label="臺北市", text="臺北市")
+                        ),
+                        QuickReplyButton(
+                            action=MessageAction(label="新竹市", text="新竹市")
+                        ),
+                        QuickReplyButton(
+                            action=MessageAction(label="台中市", text="台中市")
+                        )
+                    ])
             ] )
-
-        
 
 
 #handle postback
@@ -393,15 +403,16 @@ def first_addFriend(msg, id , name, url):
 
              #註冊完給intro
             if register_User(id, name, url, int(area_code)):
-                print(name+' register OK')
+                
                 line_single_push(id, '感謝您提供的資訊')
             break
 
         else:
             line_single_push(id, '請問您是哪裡人呢？\n (例如：新竹市)')
+
         return
         
-    print(name+' district code OK: '+ str(area_code))
+    
     
    
 
