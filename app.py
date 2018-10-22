@@ -413,9 +413,7 @@ def get_userIntent(id, msg):
         olamiJson = json.loads(OLAMI_textInput(msg))
         response = olamiJson["data"]["nli"][0]["desc_obj"]["result"]
             
-        line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text=response))
+        line_single_push(id, response)
             
         return 0 
     
