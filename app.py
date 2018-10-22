@@ -84,7 +84,7 @@ def handle_message(event):
         if global first_add:
             line_single_push(profile.user_id, '新來的喔')
             first_add = False
-
+            return 0
         #quick reply test
         if msg == '123':
             line_bot_api.reply_message(
