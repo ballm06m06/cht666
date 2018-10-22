@@ -29,11 +29,11 @@ from linebot.models import (
     SeparatorComponent, QuickReply, QuickReplyButton
 )
 
-from cht_package.config import line_channel_secret , line_channel_access_token
+from cht_package.config import line_channel_secret, line_channel_access_token
 
 from text_input.olami import OLAMI_textInput
 from audio_input.olami_audio import OLAMI_audioInput
-from dialogflow.nlp import get_intent
+from dialogflow.nlp import get_intent, get_district
 
 from cht_package.db_postgres import register_User
 
@@ -316,13 +316,33 @@ def handle_follow(event):
     if isinstance(event.source, SourceUser) or isinstance(event.source, SourceGroup) or isinstance(event.source, SourceRoom):
         profile = line_bot_api.get_profile(event.source.user_id)
         #print(profile.display_name)
+        
+        line_bot_api.reply_message(event.reply_token,[
+            TextSendMessage(text=profile.display_name+' 歡迎加入'),
+            StickerSendMessage(package_id=2,sticker_id=176),
+            TextSendMessage(
+                text='請問您是哪裡人呢？ (例如：新竹市)',
+                quick_reply=QuickReply(
+                    items=[
+                        QuickReplyButton(
+                            action=MessageAction(label="新竹市", text="新竹市")
+                        ),
+                        QuickReplyButton(
+                            action=MessageAction(label="桃園市", text="桃園市")
+                        ),
+                        QuickReplyButton(
+                            action=MessageAction(label="臺中市", text="臺中市")
+                        )
+                    ]))
+        ] )
 
-        if register_User(profile.user_id, profile.display_name, profile.picture_url):
-            line_bot_api.reply_message(event.reply_token,[
-                TextSendMessage(text=profile.display_name+' 歡迎加入'),
-                StickerSendMessage(package_id=2,sticker_id=176),
-            ] )
+        msg = event.message.text
 
+        line_single_push(profile.user_id, msg)
+        #註冊完給intro
+        #if register_User(profile.user_id, profile.display_name, profile.picture_url):
+
+#handle postback
 @handler.add(PostbackEvent)
 def handle_postback(event):
 
