@@ -83,8 +83,8 @@ def handle_message(event):
 
         global first_add
         if first_add == True:
-            line_single_push(profile.user_id, '新來的喔')
             
+            first_addFriend(msg, profile.user_id, profile.display_name, profile.picture_url)
             #first_add = False
             return 0
         #quick reply test
@@ -386,9 +386,11 @@ def first_addFriend(msg, id ,name, url):
             print('district code OK: '+ area_code)
             return
     
+    line_single_push(id, 'area code: ' + area_code)
     #註冊完給intro
     #if register_User(profile.user_id, profile.display_name, profile.picture_url):
-    first_add = False  
+    #first_add = False  
+
 
 # ================= 機器人區塊 End =================
 
