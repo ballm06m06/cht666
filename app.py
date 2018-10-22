@@ -386,11 +386,11 @@ def first_addFriend(msg, id ,name, url):
     while True:
         line_single_push(id, '請問您是哪裡人呢？\n (例如：新竹市)')
         area_code = get_district(msg)
-        if area_code != 100:
-            print(name+' district code OK: '+ str(area_code))
+        if area_code != 100 & and area_code != 'none':
+            print(name+' district code: '+ str(area_code))
             first_add = False
             break
-    
+    print(name+' district code OK: '+ str(area_code))
     
     #註冊完給intro
     if register_User(id, name, url, area_code):
