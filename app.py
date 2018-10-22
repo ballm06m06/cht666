@@ -231,8 +231,29 @@ def handle_message(event):
             )
             return 0
 
-        #辨別意圖回傳對應結果
-        get_userIntent(msg)
+        
+        #意圖判定(main function)
+        intent = get_intent(msg)
+        
+        if intent == '水質資訊':
+            line_bot_api.reply_message(
+             event.reply_token,
+             TextSendMessage(text='intent: 水質資訊'))
+            
+        elif intent == '溫度':
+            line_bot_api.reply_message(
+             event.reply_token,
+             TextSendMessage(text='intent: 溫度'))
+
+        elif intent == '酸鹼度':
+            line_bot_api.reply_message(
+             event.reply_token,
+             TextSendMessage(text='intent: 酸鹼度'))
+        
+        elif intent == '溶氧量':
+            line_bot_api.reply_message(
+             event.reply_token,
+             TextSendMessage(text='intent: 溶氧量'))
 
         # intent: none >> OLAMI(天氣、閒聊...)
         else:
@@ -241,8 +262,9 @@ def handle_message(event):
             olamiJson = json.loads(OLAMI_textInput(msg))
             response = olamiJson["data"]["nli"][0]["desc_obj"]["result"]
             
-            #辨別意圖回傳對應結果
-            get_userIntent(msg)
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=response))
             
             return 0
 
@@ -400,29 +422,8 @@ def first_addFriend(msg, id , name, url):
             line_single_sticker(id, 1, 4)
         return
         
-def get_userIntent(msg):
-    #意圖判定(main function)
-    intent = get_intent(msg)
-        
-    if intent == '水質資訊':
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text='intent: 水質資訊'))
-            
-    elif intent == '溫度':
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text='intent: 溫度'))
-
-    elif intent == '酸鹼度':
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text='intent: 酸鹼度'))
-        
-    elif intent == '溶氧量':
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text='intent: 溶氧量'))
+    
+    
    
 
 
