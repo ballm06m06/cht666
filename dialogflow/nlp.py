@@ -151,3 +151,5 @@ def get_district(msg):
 
     except Exception as e:
         print('intent nlp exception: '+ str(e))
+
+

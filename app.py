@@ -232,42 +232,8 @@ def handle_message(event):
             return 0
 
         
-        #意圖判定(main function)
-        intent = get_intent(msg)
-        
-        if intent == '水質資訊':
-            line_bot_api.reply_message(
-             event.reply_token,
-             TextSendMessage(text='intent: 水質資訊'))
-            
-        elif intent == '溫度':
-            line_bot_api.reply_message(
-             event.reply_token,
-             TextSendMessage(text='intent: 溫度'))
-
-        elif intent == '酸鹼度':
-            line_bot_api.reply_message(
-             event.reply_token,
-             TextSendMessage(text='intent: 酸鹼度'))
-        
-        elif intent == '溶氧量':
-            line_bot_api.reply_message(
-             event.reply_token,
-             TextSendMessage(text='intent: 溶氧量'))
-
-        # intent: none >> OLAMI(天氣、閒聊...)
-        else:
-
-            #OLAMI TEXT
-            olamiJson = json.loads(OLAMI_textInput(msg))
-            response = olamiJson["data"]["nli"][0]["desc_obj"]["result"]
-            
-            line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text=response))
-            
-            return 0
-
+        #get user intent
+        get_userIntent(profile.user_id, msg)
 
     #Audio
     elif isinstance(event.message, AudioMessage):
@@ -309,10 +275,12 @@ def handle_message(event):
         olamiJson = json.loads(OLAMI_audioInput(new_path))
         response = olamiJson["data"]["asr"]["result"]
 
-        line_bot_api.reply_message(
+        """line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text='你說的是: '+response))
-        
+            TextSendMessage(text='你說的是: '+response))"""
+        #get user intent
+        get_userIntent(profile.user_id, response)
+
         os.remove(new_path)
         print('.wav audio file remove ok')
     #Image
@@ -422,7 +390,34 @@ def first_addFriend(msg, id , name, url):
             line_single_sticker(id, 1, 4)
         return
         
-    
+#get user intent
+def get_userIntent(id, msg):
+        
+    intent = get_intent(msg)
+        
+    if intent == '水質資訊':
+        line_single_push(id, 'intent:水質資料')
+            
+    elif intent == '溫度':
+        line_single_push(id, 'intent:溫度')
+
+    elif intent == '酸鹼度':
+        line_single_push(id, 'intent:酸鹼度')
+        
+    elif intent == '溶氧量':
+        line_single_push(id, 'intent:溶氧量')
+
+    # intent: none >> OLAMI(天氣、閒聊...)
+    else:
+        #OLAMI TEXT
+        olamiJson = json.loads(OLAMI_textInput(msg))
+        response = olamiJson["data"]["nli"][0]["desc_obj"]["result"]
+            
+        line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=response))
+            
+        return 0 
     
    
 
