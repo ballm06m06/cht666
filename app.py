@@ -81,8 +81,10 @@ def handle_message(event):
     if isinstance(event.message, TextMessage):
         msg = event.message.text #message from user
 
+        global first_add
         if first_add == True:
             line_single_push(profile.user_id, '新來的喔')
+            global first_add
             first_add = False
             return 0
         #quick reply test
@@ -322,7 +324,7 @@ def handle_follow(event):
 
     global first_add
     first_add = True
-    
+
     #Register
     if isinstance(event.source, SourceUser) or isinstance(event.source, SourceGroup) or isinstance(event.source, SourceRoom):
         profile = line_bot_api.get_profile(event.source.user_id)
@@ -376,11 +378,6 @@ def line_multicast(mlist, txt):
 def first_addFriend(msg, id ,name, url):
 
     area_code = 100
-
-    line_bot_api.reply_message(event.reply_token,[
-                TextSendMessage(text=name+' 歡迎加入'),
-                StickerSendMessage(package_id=2,sticker_id=176)
-            ] )
 
     while True:
         line_single_push(id, '請問您是哪裡人呢？ (例如：新竹市)')
