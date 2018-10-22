@@ -334,19 +334,28 @@ def handle_follow(event):
         #print(profile.display_name)
        
         line_bot_api.reply_message(event.reply_token,[
-            TextSendMessage(text=profile.display_name+' 歡迎加入'),
-            StickerSendMessage(package_id=2,sticker_id=176),
-            TextSendMessage(text='請問您是哪裡人呢？\n (例如：新竹市)',
+            TextSendMessage(text=profile.display_name+'您好！我是您的小幫手元元'),
+            StickerSendMessage(package_id=1,sticker_id=410),
+            TextSendMessage(text='為了提供更精確的服務，\n元元需要您的所在地(例:新竹市)',
                 quick_reply=QuickReply(
                     items=[
                         QuickReplyButton(
                             action=MessageAction(label="臺北市", text="臺北市")
                         ),
                         QuickReplyButton(
+                            action=MessageAction(label="桃園市", text="桃園市")
+                        ),
+                        QuickReplyButton(
                             action=MessageAction(label="新竹市", text="新竹市")
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label="台中市", text="台中市")
+                            action=MessageAction(label="臺中市", text="臺中市")
+                        ),
+                        QuickReplyButton(
+                            action=MessageAction(label="臺南市", text="臺南市")
+                        ),
+                        QuickReplyButton(
+                            action=MessageAction(label="高雄市", text="高雄市")
                         )
                     ]))
             ] )
@@ -405,11 +414,12 @@ def first_addFriend(msg, id , name, url):
             if register_User(id, name, url, int(area_code)):
                 
                 line_single_push(id, '感謝您提供的資訊')
+                line_single_sticker(id, 1, 106)
             break
 
         else:
-            line_single_push(id, '請問您是哪裡人呢？\n (例如：新竹市)')
-
+            line_single_push(id, '為了提供更精確的服務，以獲得更加的體驗\n我們需要您的所在地(例:新竹市)')
+            line_single_sticker(id, 1, 4)
         return
         
     
