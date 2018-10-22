@@ -336,7 +336,7 @@ def handle_follow(event):
         line_bot_api.reply_message(event.reply_token,[
             TextSendMessage(text=profile.display_name+'您好！我是您的小幫手元元'),
             StickerSendMessage(package_id=1,sticker_id=410),
-            TextSendMessage(text='為了提供更精確的服務，\n元元需要您的所在地(例:新竹市)',
+            TextSendMessage(text='為了提供更精確的服務\n元元需要您的所在地(例:新竹市)',
                 quick_reply=QuickReply(
                     items=[
                         QuickReplyButton(
@@ -418,7 +418,7 @@ def first_addFriend(msg, id , name, url):
             break
 
         else:
-            line_single_push(id, '為了提供更精確的服務，以獲得更加的體驗\n我們需要您的所在地(例:新竹市)')
+            line_single_push(id, '為了提供更精確的服務，以獲得完善的體驗\n元元需要您的所在地(例:新竹市)')
             line_single_sticker(id, 1, 4)
         return
         
