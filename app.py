@@ -383,19 +383,24 @@ def first_addFriend(msg, id ,name, url):
     area_code = 100
     global first_add
 
+    if area_code != 100 and area_code != 'none':
     while True:
-        line_single_push(id, '請問您是哪裡人呢？\n (例如：新竹市)')
+        line_bot_api.reply_message(event.reply_token,[
+            TextSendMessage(text='請問您是哪裡人呢？\n(例如：新竹市)')
+            ] )
+
         area_code = get_district(msg)
         if area_code != 100 and area_code != 'none':
             print(name+' district code: '+ str(area_code))
-            return
+            
             first_add = False
+            #註冊完給intro
+            if register_User(id, name, url, area_code):
+                print(name+' register OK')
+                
             break
-            print(name+' district code OK: '+ str(area_code))
     
-    #註冊完給intro
-    if register_User(id, name, url, area_code):
-        print(name+' register OK')
+
 
 
 # ================= 機器人區塊 End =================
