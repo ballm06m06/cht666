@@ -378,7 +378,7 @@ def line_multicast(mlist, txt):
     line_bot_api.multicast(mlist, TextSendMessage(text=txt))
 
 #register
-def first_addFriend(msg, id ,name, url):
+def first_addFriend(msg, id , name, url):
 
     area_code = 100
     global first_add
@@ -393,10 +393,10 @@ def first_addFriend(msg, id ,name, url):
 
              #註冊完給intro
             if register_User(id, name, url, int(area_code)):
-            print(name+' register OK')
+                print(name+' register OK')
 
             break
-            
+
         else:
             line_single_push(id, '請問您是哪裡人呢？\n (例如：新竹市)')
         return
