@@ -80,11 +80,11 @@ def handle_message(event):
      # Text 
     if isinstance(event.message, TextMessage):
         msg = event.message.text #message from user
-   
-        if first_add:
 
-            first_addFriend(msg, profile.user_id, profile.display_name, profile.picture_url)
-           
+        if first_add:
+            line_single_push(profile.user_id, '新來的喔')
+            first_add = False
+
         #quick reply test
         if msg == '123':
             line_bot_api.reply_message(
@@ -326,6 +326,11 @@ def handle_follow(event):
         profile = line_bot_api.get_profile(event.source.user_id)
         #print(profile.display_name)
        
+        line_bot_api.reply_message(event.reply_token,[
+            TextSendMessage(text=profile.display_name+' 歡迎加入'),
+            StickerSendMessage(package_id=2,sticker_id=176),
+            TextSendMessage(text='請問您是哪裡人呢？ (例如：新竹市)')
+            ] )
 
         
 
@@ -366,7 +371,6 @@ def line_multicast(mlist, txt):
     line_bot_api.multicast(mlist, TextSendMessage(text=txt))
 
 #register
-
 def first_addFriend(msg, id ,name, url):
 
     area_code = 100
