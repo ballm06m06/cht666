@@ -325,20 +325,24 @@ def handle_follow(event):
                 quick_reply=QuickReply(
                     items=[
                         QuickReplyButton(
-                            action=MessageAction(label="新竹市", text="新竹市")
+                            action=PostbackAction(label="新北市", data="action=district&area=新北市")
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label="桃園市", text="桃園市")
+                            action=PostbackAction(label="桃園市", data="action=district&area=桃園市")
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label="臺中市", text="臺中市")
+                            action=PostbackAction(label="新竹市", data="action=district&area=新竹市")
+                        ),
+                        QuickReplyButton(
+                            action=PostbackAction(label="臺中市", data="action=district&area=臺中市")
+                        ),
+                        QuickReplyButton(
+                            action=PostbackAction(label="高雄市", data="action=district&area=高雄市")
                         )
                     ]))
         ] )
 
-        msg = event.message.text
-
-        line_single_push(profile.user_id, msg)
+       
         #註冊完給intro
         #if register_User(profile.user_id, profile.display_name, profile.picture_url):
 
@@ -347,6 +351,10 @@ def handle_follow(event):
 def handle_postback(event):
 
     msg = event.postback.data
+    print('postback:'+msg)
+    if msg.action == 'district':
+        line_bot_api.reply_message(
+            event.reply_token, TextSendMessage(text=msg.area))
 
     if msg == 'ping':
         line_bot_api.reply_message(
