@@ -336,8 +336,8 @@ def handle_follow(event):
         line_bot_api.reply_message(event.reply_token,[
             TextSendMessage(text=profile.display_name+' 歡迎加入'),
             StickerSendMessage(package_id=2,sticker_id=176),
-            TextSendMessage(text='請問您是哪裡人呢？\n (例如：新竹市)'),
-            quick_reply=QuickReply(
+            TextSendMessage(text='請問您是哪裡人呢？\n (例如：新竹市)',
+                quick_reply=QuickReply(
                     items=[
                         QuickReplyButton(
                             action=MessageAction(label="臺北市", text="臺北市")
@@ -348,7 +348,7 @@ def handle_follow(event):
                         QuickReplyButton(
                             action=MessageAction(label="台中市", text="台中市")
                         )
-                    ])
+                    ]))
             ] )
 
 
