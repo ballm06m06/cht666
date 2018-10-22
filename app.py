@@ -352,9 +352,9 @@ def handle_postback(event):
 
     msg = event.postback.data
     print('postback:'+msg)
-    if msg.action == 'district':
+    if msg["action"] == "district":
         line_bot_api.reply_message(
-            event.reply_token, TextSendMessage(text=msg.area))
+            event.reply_token, TextSendMessage(text=msg["area"]))
 
     if msg == 'ping':
         line_bot_api.reply_message(
