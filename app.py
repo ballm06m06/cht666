@@ -384,9 +384,8 @@ def first_addFriend(msg, id ,name, url):
     global first_add
 
     while True:
-        line_bot_api.reply_message(event.reply_token,[
-            TextSendMessage(text='請問您是哪裡人呢？\n(例如：新竹市)')
-            ] )
+   
+        line_single_push(id, '請問您是哪裡人呢？\n(例如：新竹市)')
 
         area_code = get_district(msg)
         if area_code != 100 and area_code != 'none':
