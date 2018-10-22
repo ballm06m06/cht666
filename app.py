@@ -45,6 +45,8 @@ line_bot_api = LineBotApi(line_channel_access_token)
 
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 
+#first add
+first_add = False
 
 @app.route('/')
 def index():
@@ -71,13 +73,18 @@ def callback():
 @handler.add(MessageEvent, message=(TextMessage, ImageMessage, AudioMessage))
 def handle_message(event):
     
+    
     if isinstance(event.source, SourceUser) or isinstance(event.source, SourceGroup) or isinstance(event.source, SourceRoom):
         profile = line_bot_api.get_profile(event.source.user_id)
 
      # Text 
     if isinstance(event.message, TextMessage):
         msg = event.message.text #message from user
-        
+   
+        if first_add:
+
+            first_addFriend(msg, profile.user_id, profile.display_name, profile.picture_url)
+           
         #quick reply test
         if msg == '123':
             line_bot_api.reply_message(
@@ -312,49 +319,20 @@ def handle_message(event):
 
 @handler.add(FollowEvent)
 def handle_follow(event):
+
+    first_add = True
     #Register
     if isinstance(event.source, SourceUser) or isinstance(event.source, SourceGroup) or isinstance(event.source, SourceRoom):
         profile = line_bot_api.get_profile(event.source.user_id)
         #print(profile.display_name)
-        
-        line_bot_api.reply_message(event.reply_token,[
-            TextSendMessage(text=profile.display_name+' 歡迎加入'),
-            StickerSendMessage(package_id=2,sticker_id=176),
-            TextSendMessage(
-                text='請問您是哪裡人呢？ (例如：新竹市)',
-                quick_reply=QuickReply(
-                    items=[
-                        QuickReplyButton(
-                            action=PostbackAction(label="新北市", data={"action": "district","area": "新北市"})
-                        ),
-                        QuickReplyButton(
-                            action=PostbackAction(label="桃園市", data="action=district&area=桃園市")
-                        ),
-                        QuickReplyButton(
-                            action=PostbackAction(label="新竹市", data="action=district&area=新竹市")
-                        ),
-                        QuickReplyButton(
-                            action=PostbackAction(label="臺中市", data="action=district&area=臺中市")
-                        ),
-                        QuickReplyButton(
-                            action=PostbackAction(label="高雄市", data="action=district&area=高雄市")
-                        )
-                    ]))
-        ] )
-
        
-        #註冊完給intro
-        #if register_User(profile.user_id, profile.display_name, profile.picture_url):
+
+        
+
 
 #handle postback
 @handler.add(PostbackEvent)
 def handle_postback(event):
-
-    msg = event.postback.data
-    print('postback:'+msg)
-    if msg["action"] == "district":
-        line_bot_api.reply_message(
-            event.reply_token, TextSendMessage(text=msg["area"]))
 
     if msg == 'ping':
         line_bot_api.reply_message(
@@ -386,6 +364,28 @@ def line_single_video(id, content, preview):
 #multicast
 def line_multicast(mlist, txt):
     line_bot_api.multicast(mlist, TextSendMessage(text=txt))
+
+#register
+
+def first_addFriend(msg, id ,name, url):
+
+    area_code = 100
+
+    line_bot_api.reply_message(event.reply_token,[
+                TextSendMessage(text=name+' 歡迎加入'),
+                StickerSendMessage(package_id=2,sticker_id=176)
+            ] )
+
+    while True:
+        line_single_push(id, '請問您是哪裡人呢？ (例如：新竹市)')
+        area_code = get_district(msg)
+        if area_code != 100:
+            print('district code OK: '+ area_code)
+            return
+    
+    #註冊完給intro
+    #if register_User(profile.user_id, profile.display_name, profile.picture_url):
+    first_add = False  
 
 # ================= 機器人區塊 End =================
 
