@@ -320,7 +320,9 @@ def handle_message(event):
 @handler.add(FollowEvent)
 def handle_follow(event):
 
-    global first_add = True
+    global first_add
+    first_add = True
+    
     #Register
     if isinstance(event.source, SourceUser) or isinstance(event.source, SourceGroup) or isinstance(event.source, SourceRoom):
         profile = line_bot_api.get_profile(event.source.user_id)
