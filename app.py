@@ -84,7 +84,7 @@ def handle_message(event):
         global first_add
         if first_add == True:
             line_single_push(profile.user_id, '新來的喔')
-            global first_add
+            
             first_add = False
             return 0
         #quick reply test
