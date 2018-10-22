@@ -81,7 +81,7 @@ def handle_message(event):
     if isinstance(event.message, TextMessage):
         msg = event.message.text #message from user
 
-        if global first_add:
+        if first_add == True:
             line_single_push(profile.user_id, '新來的喔')
             first_add = False
             return 0
