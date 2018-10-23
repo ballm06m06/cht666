@@ -231,13 +231,13 @@ def handle_message(event):
             )
             return 0
 
-        elif msg = 'btntem':
+        elif msg == 'btntem':
             line_bot_api.reply_message(
                 event.reply_token,
                 btn_template()
             )
             return 0
-            
+
         #get user intent
         get_userIntent(profile.user_id, msg)
 
