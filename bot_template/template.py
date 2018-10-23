@@ -15,7 +15,7 @@ from linebot.models import (
 )
 
 
-def btn_template(maintitle, subtitle, pic_url, label1, text1, pb1, label2, text2, pb2, label3, text3, pb3):
+def btn_template(maintitle, subtitle, pic_url, label1, pb1, label2, pb2, label3, pb3):
 
     msg = buttons_template_message = TemplateSendMessage(
     alt_text='請選擇',
@@ -26,17 +26,14 @@ def btn_template(maintitle, subtitle, pic_url, label1, text1, pb1, label2, text2
         actions=[
             PostbackAction(
                 label=label1,
-                text=text1,
                 data=pb1
             ),
             PostbackAction(
                 label=label2,
-                text=text2,
                 data=pb2
             ),
             PostbackAction(
                 label=label3,
-                text=text3,
                 data=pb3
             ),
         ]
