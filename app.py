@@ -425,7 +425,7 @@ def get_userIntent(id, msg):
     
     #特定text不進入OLAMI
     elif msg in skip_list: 
-        return
+        return 0
     # intent: none >> OLAMI(天氣、閒聊...)
     else:
         #OLAMI TEXT
