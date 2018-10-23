@@ -30,7 +30,7 @@ from linebot.models import (
 )
 
 from cht_package.config import line_channel_secret, line_channel_access_token
-from bot_template.template import btn_template
+from bot_template.template import btn_template, carousel_template
 from text_input.olami import OLAMI_textInput
 from audio_input.olami_audio import OLAMI_audioInput
 from dialogflow.nlp import get_intent, get_district
@@ -238,7 +238,13 @@ def handle_message(event):
                 , 'func2', 'func2', 'func3', 'func3')
             )
             return 0
-
+        
+        elif msg == 'ctem':
+            line_bot_api.reply_message(
+                event.reply_token,
+                carousel_template
+            )
+            return 0
         #get user intent
         get_userIntent(profile.user_id, msg)
 
