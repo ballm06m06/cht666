@@ -242,10 +242,7 @@ def handle_message(event):
         elif msg == 'ctem':
             line_bot_api.reply_message(
                 event.reply_token,
-                carousel_template('hihi', 'hi', 'https://i.imgur.com/Wiqlff7.png', 'func1', 'func1', 'fun1'\
-                , 'func2', 'func2', 'func2', 'func3', 'func3', 'func3'\
-                'hihi2', 'hi2', 'https://i.imgur.com/Wiqlff7.png', 'func1', 'func1', 'fun1'\
-                , 'func2', 'func2', 'func2', 'func3', 'func3', 'func3')
+                carousel_template()
             )
             return 0
         #get user intent
