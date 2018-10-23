@@ -234,15 +234,18 @@ def handle_message(event):
         elif msg == 'btntem':
             line_bot_api.reply_message(
                 event.reply_token,
-                btn_template('hihi', 'hi', 'https://i.imgur.com/Wiqlff7.png', 'func1', 'func1'\
-                , 'func2', 'func2', 'func3', 'func3')
+                btn_template('hihi', 'hi', 'https://i.imgur.com/Wiqlff7.png', 'func1', 'func1', 'fun1'\
+                , 'func2', 'func2', 'func2', 'func3', 'func3', 'func3')
             )
             return 0
         
         elif msg == 'ctem':
             line_bot_api.reply_message(
                 event.reply_token,
-                carousel_template()
+                carousel_template('hihi', 'hi', 'https://i.imgur.com/Wiqlff7.png', , 'func1', 'func1', 'fun1'\
+                , 'func2', 'func2', 'func2', 'func3', 'func3', 'func3'\
+                'hihi', 'hi', 'https://i.imgur.com/Wiqlff7.png', , 'func1', 'func1', 'fun1'\
+                , 'func2', 'func2', 'func2', 'func3', 'func3', 'func3')
             )
             return 0
         #get user intent
@@ -345,6 +348,9 @@ def handle_follow(event):
 #handle postback
 @handler.add(PostbackEvent)
 def handle_postback(event):
+
+    msg = event.postback.data
+    print('post back:'+msg)
 
     if msg == 'ping':
         line_bot_api.reply_message(
