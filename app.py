@@ -30,7 +30,7 @@ from linebot.models import (
 )
 
 from cht_package.config import line_channel_secret, line_channel_access_token
-
+from bot_template import btn_template
 from text_input.olami import OLAMI_textInput
 from audio_input.olami_audio import OLAMI_audioInput
 from dialogflow.nlp import get_intent, get_district
@@ -231,7 +231,13 @@ def handle_message(event):
             )
             return 0
 
-        
+        elif msg = 'btntem':
+            line_bot_api.reply_message(
+                event.reply_token,
+                btn_template()
+            )
+            return 0
+            
         #get user intent
         get_userIntent(profile.user_id, msg)
 
