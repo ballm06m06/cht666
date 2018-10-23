@@ -409,12 +409,12 @@ def first_addFriend(msg, id , name, url):
 #get user intent
 def get_userIntent(id, msg):
     
+    intent = get_intent(msg)
+
     #特定text不進入OLAMI
     if msg in skip_list: 
         return 0
         
-    intent = get_intent(msg)
-
     elif intent == '水質資訊':
         line_single_push(id, 'intent:水質資料')
             
