@@ -30,7 +30,7 @@ from linebot.models import (
 )
 
 from cht_package.config import line_channel_secret, line_channel_access_token
-from bot_template.template import btn_template, carousel_template
+from bot_template.template import skip_list, btn_template, carousel_template
 from text_input.olami import OLAMI_textInput
 from audio_input.olami_audio import OLAMI_audioInput
 from dialogflow.nlp import get_intent, get_district
@@ -422,7 +422,10 @@ def get_userIntent(id, msg):
         
     elif intent == '溶氧量':
         line_single_push(id, 'intent:溶氧量')
-
+    
+    #特定text不進入OLAMI
+    elif msg in skip_list: 
+        return
     # intent: none >> OLAMI(天氣、閒聊...)
     else:
         #OLAMI TEXT

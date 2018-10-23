@@ -14,6 +14,8 @@ from linebot.models import (
     SeparatorComponent, QuickReply, QuickReplyButton
 )
 
+#跳脫不進入olami (template's text save here)
+skip_list = ['func1','func2','fun3']
 
 def btn_template(maintitle, subtitle, pic_url, label1, text1, pb1, label2, text2, pb2, label3, text3, pb3):
 
