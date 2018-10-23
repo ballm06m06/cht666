@@ -244,7 +244,7 @@ def handle_message(event):
                 event.reply_token,
                 carousel_template('hihi', 'hi', 'https://i.imgur.com/Wiqlff7.png', 'func1', 'func1', 'fun1'\
                 , 'func2', 'func2', 'func2', 'func3', 'func3', 'func3'\
-                'hihi2', 'hi2', 'https://i.imgur.com/Wiqlff7.png', , 'func1', 'func1', 'fun1'\
+                'hihi2', 'hi2', 'https://i.imgur.com/Wiqlff7.png', 'func1', 'func1', 'fun1'\
                 , 'func2', 'func2', 'func2', 'func3', 'func3', 'func3')
             )
             return 0
