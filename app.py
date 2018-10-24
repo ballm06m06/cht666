@@ -436,7 +436,8 @@ def get_userIntent(id, msg):
         response = olamiJson["data"]["nli"][0]["desc_obj"]["result"]
         test = olamiJson["data"]["nli"][0]["data_obj"][0]
 
-        line_single_push(id, test)
+        
+        line_single_push(id, response)
             
         return 0 
     
