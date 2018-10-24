@@ -432,7 +432,7 @@ def get_userIntent(id, msg):
     # intent: none >> OLAMI(天氣、閒聊...)
     else:
         #OLAMI TEXT
-        olamiJson = json.loads(OLAMI_textInput(msg))data_obj
+        olamiJson = json.loads(OLAMI_textInput(msg))
         response = olamiJson["data"]["nli"][0]["desc_obj"]["result"]
         test = olamiJson["data"]["nli"][0]["data_obj"][0]
 
