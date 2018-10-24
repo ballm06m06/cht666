@@ -428,8 +428,8 @@ def get_userIntent(id, msg):
         line_single_push(id, 'intent:溶氧量')
     
     elif intent == '氣象':
-
-        try:
+        line_single_push(id, 'intent:氣象')
+        '''try:
             #OLAMI get weather info
             olamiJson = json.loads(OLAMI_textInput(msg))
             #response = olamiJson["data"]["nli"][0]["desc_obj"]["result"]
@@ -437,7 +437,7 @@ def get_userIntent(id, msg):
             line_single_push(id, test)
 
         except Exception as e:
-            print('get weather info exception:'+str(e))
+            print('get weather info exception:'+str(e))'''
 
     # intent: none >> OLAMI(天氣、閒聊...)
     else:
