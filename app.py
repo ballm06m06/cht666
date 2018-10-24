@@ -434,9 +434,9 @@ def get_userIntent(id, msg):
         #OLAMI TEXT
         olamiJson = json.loads(OLAMI_textInput(msg))
         response = olamiJson["data"]["nli"][0]["desc_obj"]["result"]
-        test = olamiJson["data"]["nli"][0]["data_obj"][0]
+        #test = olamiJson["data"]["nli"][0]["data_obj"][0]
 
-        
+
         line_single_push(id, response)
             
         return 0 
