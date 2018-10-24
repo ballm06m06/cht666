@@ -37,6 +37,11 @@ def get_intent(msg):
 
             return '溶氧量'
 
+       #氣象
+        elif result['result']['metadata']['intentName'] == '氣象':
+
+            return '氣象'
+
     except Exception as e:
         print('intent nlp exception: '+ str(e))
 
