@@ -433,7 +433,8 @@ def get_userIntent(id, msg):
             #OLAMI get weather info
             olamiJson = json.loads(OLAMI_textInput(msg))
             #response = olamiJson["data"]["nli"][0]["desc_obj"]["result"]
-            test = olamiJson["data"]["nli"][0]["data_obj"][0]
+            
+            test = olamiJson["data"]["nli"][0]["data_obj"][0]["temperature_low"]
             line_single_push(id, test)
 
         except Exception as e:
