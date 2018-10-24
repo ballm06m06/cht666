@@ -15,7 +15,7 @@ def get_intent(msg):
     try:
         result = json.loads(str(response.read(), encoding = "utf-8")) 
         print(result)
-        
+        print(result['result']['metadata']['intentName'])
         #找不到意圖 >> OLAMI
         if result['result']['parameters'] == {}:
             
@@ -39,7 +39,7 @@ def get_intent(msg):
 
        #氣象
         elif result['result']['metadata']['intentName'] == '氣象':
-
+            
             return '氣象'
 
     except Exception as e:
