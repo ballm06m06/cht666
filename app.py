@@ -30,7 +30,7 @@ from linebot.models import (
 )
 
 from cht_package.config import line_channel_secret, line_channel_access_token
-from bot_template.template import skip_list, btn_template, carousel_template
+from bot.template import skip_list, btn_template, carousel_template
 from text_input.olami import OLAMI_textInput
 from audio_input.olami_audio import OLAMI_audioInput
 from dialogflow.nlp import get_intent, get_district
@@ -414,7 +414,7 @@ def get_userIntent(id, msg):
     #特定text不進入OLAMI
     if msg in skip_list: 
         return 0
-        
+
     elif intent == '水質資訊':
         line_single_push(id, 'intent:水質資料')
             
@@ -434,7 +434,8 @@ def get_userIntent(id, msg):
         #OLAMI TEXT
         olamiJson = json.loads(OLAMI_textInput(msg))
         response = olamiJson["data"]["nli"][0]["desc_obj"]["result"]
-            
+        
+        print('OLAMI JSON:'+olamiJson)
         line_single_push(id, response)
             
         return 0 
