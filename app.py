@@ -433,7 +433,7 @@ def get_userIntent(id, msg):
             #OLAMI get weather info
             olamiJson = json.loads(OLAMI_textInput(msg))
             #best
-            #response = olamiJson["data"]["nli"][0]["desc_obj"]["result"]
+            response = olamiJson["data"]["nli"][0]["desc_obj"]["result"]
 
             temperature_low = olamiJson["data"]["nli"][0]["data_obj"][0]["temperature_low"]
             temperature_high = olamiJson["data"]["nli"][0]["data_obj"][0]["temperature_high"]
