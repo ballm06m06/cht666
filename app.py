@@ -45,6 +45,8 @@ line_bot_api = LineBotApi(line_channel_access_token)
 
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 
+#user id
+user_id = ''
 #first add
 first_add = False
 
@@ -76,7 +78,7 @@ def handle_message(event):
     
     if isinstance(event.source, SourceUser) or isinstance(event.source, SourceGroup) or isinstance(event.source, SourceRoom):
         profile = line_bot_api.get_profile(event.source.user_id)
-
+        user_id = profile.user_id
      # Text 
     if isinstance(event.message, TextMessage):
         msg = event.message.text #message from user
@@ -244,6 +246,7 @@ def handle_message(event):
                 event.reply_token,
                 carousel_template()
             )
+            print(user_id)
             return 0
         #get user intent
         get_userIntent(profile.user_id, msg)
