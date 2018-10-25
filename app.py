@@ -437,9 +437,9 @@ def get_userIntent(id, msg):
             temperature_low = olamiJson["data"]["nli"][0]["data_obj"][0]["temperature_low"]
             temperature_high = olamiJson["data"]["nli"][0]["data_obj"][0]["temperature_high"]
             #桃園市中壢區
-            city = data["data"]["nli"][0]["data_obj"][0]['city']
+            city = olamiJson["data"]["nli"][0]["data_obj"][0]['city']
             #['2018年10月25日', '晴', '東北東風和風', '最高溫度25.0℃', '最低溫度21.8℃。']
-            description = data["data"]["nli"][0]["data_obj"][0]['description'].split(',')
+            description = olamiJson["data"]["nli"][0]["data_obj"][0]['description'].split(',')
 
 
             line_single_push(id, description[0]+description[1])
