@@ -433,23 +433,32 @@ def get_userIntent(id, msg):
             #OLAMI get weather info
             olamiJson = json.loads(OLAMI_textInput(msg))
             #response = olamiJson["data"]["nli"][0]["desc_obj"]["result"]
-            
-            test = olamiJson["data"]["nli"][0]["data_obj"][0]["temperature_low"]
-            line_single_push(id, test)
+
+            temperature_low = olamiJson["data"]["nli"][0]["data_obj"][0]["temperature_low"]
+            temperature_high = olamiJson["data"]["nli"][0]["data_obj"][0]["temperature_high"]
+            #桃園市中壢區
+            city = data["data"]["nli"][0]["data_obj"][0]['city']
+            #['2018年10月25日', '晴', '東北東風和風', '最高溫度25.0℃', '最低溫度21.8℃。']
+            description = data["data"]["nli"][0]["data_obj"][0]['description'].split(',')
+
+
+            line_single_push(id, description[0]+description[1])
 
         except Exception as e:
+            line_single_push(id, '對不起，您的說法我還不懂，能換個說法嗎？')
             print('get weather info exception:'+str(e))
 
     # intent: none >> OLAMI(天氣、閒聊...)
     else:
-        #OLAMI TEXT
-        olamiJson = json.loads(OLAMI_textInput(msg))
-        response = olamiJson["data"]["nli"][0]["desc_obj"]["result"]
-        #test = olamiJson["data"]["nli"][0]["data_obj"][0]
-
-
-        line_single_push(id, response)
+        try:
+            #OLAMI TEXT
+            olamiJson = json.loads(OLAMI_textInput(msg))
+            response = olamiJson["data"]["nli"][0]["desc_obj"]["result"]
             
+            line_single_push(id, response)
+        except Exception as e:
+            print('nlp exception:'+str(e))
+            line_single_push(id, '對不起，您的說法我還不懂，能換個說法嗎？')
         return 0 
     
    
