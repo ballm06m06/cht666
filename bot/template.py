@@ -161,5 +161,5 @@ def main_carosel(name):
                 )
             ]
         )
-    )
-    return carousel_template_message
+        )
+        return carousel_template_message
