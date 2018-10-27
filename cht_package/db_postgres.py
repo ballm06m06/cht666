@@ -18,13 +18,13 @@ def register_User(id, name, picUrl, areaCode):
         print('register exception:' + str(e))
         return False
 
-def user_notify_open(id):
+def user_notify_open(mid):
     try:
         conn = psycopg2.connect(database = db, user = user, 
                                         password = pwd, host = host, port=dbport)
         print('Opened DB successfully')
         cur = conn.cursor()
-        cur.execute("UPDATE chtUser SET isNotify = '1' WHERE id = %s ",(id,))
+        cur.execute("UPDATE chtUser SET isNotify = '1' WHERE id = %s",(mid,))
        
         conn.close()
         return True
@@ -33,15 +33,14 @@ def user_notify_open(id):
         print('exception:' + str(e))
         return False
 
-def user_notify_close(id):
+def user_notify_close(mid):
     try:
         conn = psycopg2.connect(database = db, user = user, 
                                         password = pwd, host = host, port=dbport)
         print('Opened DB successfully')
         cur = conn.cursor()
-        cur.execute("UPDATE chtUser SET isNotify = '0' WHERE id = %s ",(id,))
+        cur.execute("UPDATE chtUser SET isNotify = '0' WHERE id = %s",(mid,))
         conn.commit()
-    
         conn.close()
         return True
 
