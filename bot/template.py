@@ -13,7 +13,7 @@ from linebot.models import (
     TextComponent, SpacerComponent, IconComponent, ButtonComponent,
     SeparatorComponent, QuickReply, QuickReplyButton
 )
-import datetime
+from datetime import datetime,timezone,timedelta
 from cht_package.fishstatus import fish_dict, fish_0, fish_1, fish_2, fish_3, fish_4, fish_5, fish_6, fish_7, fish_8, fish_9
 from cht_package.db_postgres import new_record
 
@@ -177,10 +177,14 @@ def get_totalFishStatus(count, mlist, ph, do, tmp , id):
     warn_url="https://i.imgur.com/z4TThML.png"
     fatal_url="https://i.imgur.com/eVUPJvP.png"
 
-    i = datetime.datetime.now()
-    mdatetime = '%s-%s-%s' % (i.year, i.month, i.day) +'  '+ str(i.hour)+':'+str(i.minute)
-    print(i.strftime('%H:%M'))
-    print('%s-%s-%s' % (i.year, i.month, i.day))
+    dt = datetime.utcnow()
+    
+    local_dt = dt.astimezone(tzutc_8)
+    print(local_dt)
+    print(local_dt.strftime('%Y-%m-%d %H:%M'))
+  
+    mdatetime = local_dt.strftime('%Y-%m-%d %H:%M')
+
 
 
     for i in range(0,len(mlist)):
