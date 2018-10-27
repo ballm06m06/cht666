@@ -128,8 +128,8 @@ def handle_message(event):
                     )
             return 0
 
-        #flex test
-        elif msg == 'flex':
+        
+        elif msg == '檢查魚塭狀況':
                 mlist = get_userFishType(profile.user_id)
                 do = get_do_value()
                 ph = get_ph_value()
@@ -348,11 +348,11 @@ def get_userIntent(id, name, msg):
         ph = get_ph_value()
         tmp = get_tmp_value()
 
-        line_single_push(id, '水質資料:'+do+','+ph+','+tmp)
+        line_single_push(id, '溫度:'+tmp+'°C\n'+  '溶氧量:'+do+'mg/L\n' + '酸鹼度:'+ph)
             
     elif intent == '溫度':
         tmp = get_tmp_value()
-        line_single_push(id, '溫度:'+tmp)
+        line_single_push(id, '溫度:'+tmp+'°C')
 
     elif intent == '酸鹼度':
         ph = get_ph_value()
@@ -360,7 +360,7 @@ def get_userIntent(id, name, msg):
         
     elif intent == '溶氧量':
         do = get_do_value()
-        line_single_push(id, '溶氧量:'+do)
+        line_single_push(id, '溶氧量:'+do+'mg/L')
     
     elif intent == 'help':
         line_single_push(id, 'help')
