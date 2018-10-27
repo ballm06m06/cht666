@@ -41,7 +41,7 @@ from cht_package.audioConvert import toWAV
 
 from bot.cht_sensor import get_do_value, get_ph_value, get_tmp_value
 from bot.get_userFishType import get_userFishType
-
+from cht_package.db_postgres import user_notify_open, user_notify_close, user_notify_query
 app = Flask(__name__)
 
 handler = WebhookHandler(line_channel_secret) 
@@ -146,6 +146,15 @@ def handle_message(event):
                     message
                 )
                 return 0
+        
+        elif msg == '設定定時推播':
+            confirm_template = ConfirmTemplate(text='要開啟定時推播嗎?', actions=[
+            PostbackAction(label='開啟', data='開啟'),
+            PostbackAction(label='關閉', data='關閉'),
+        ])
+        
+        elif msg == '近期天氣查詢':
+
 
         elif msg == 'btntem':
             
@@ -272,16 +281,16 @@ def handle_postback(event):
     msg = event.postback.data
     print('post back:'+msg)
 
-    if msg == 'ping':
+    if msg == '開啟':
+        user_notify_open(user_id)
         line_bot_api.reply_message(
-            event.reply_token, TextSendMessage(text='pong'))
-    elif msg == 'datetime_postback':
+            event.reply_token, TextSendMessage(text='定時推播已開啟'))
+  
+    elif msg == '關閉':
+        user_notify_close(user_id)
         line_bot_api.reply_message(
-            event.reply_token, TextSendMessage(text=event.postback.params['datetime']))
-    elif msg == 'date_postback':
-        line_bot_api.reply_message(
-            event.reply_token, TextSendMessage(text=event.postback.params['date']))
 
+            event.reply_token, TextSendMessage(text='定時推播已關閉'))
 #push text
 def line_single_push(id,txt):
     line_bot_api.push_message(id, 

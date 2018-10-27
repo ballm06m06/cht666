@@ -17,3 +17,54 @@ def register_User(id, name, picUrl, areaCode):
     except Exception as e:
         print('register exception:' + str(e))
         return False
+
+def user_notify_open(id):
+    try:
+        conn = psycopg2.connect(database = db, user = user, 
+                                        password = pwd, host = host, port=dbport)
+        print('Opened DB successfully')
+        cur = conn.cursor()
+        cur.execute("UPDATE chtUser SET isNotify = 1 WHERE ID = (%s) ", (id))
+        conn.commit()
+        print('%更改成功'%(name))
+        conn.close()
+        return True
+
+    except Exception as e:
+        print('exception:' + str(e))
+        return False
+
+def user_notify_close(id):
+    try:
+        conn = psycopg2.connect(database = db, user = user, 
+                                        password = pwd, host = host, port=dbport)
+        print('Opened DB successfully')
+        cur = conn.cursor()
+        cur.execute("UPDATE chtUser SET isNotify = 0 WHERE ID = (%s) ", (id))
+        conn.commit()
+        print('%更改成功'%(name))
+        conn.close()
+        return True
+
+    except Exception as e:
+        print('exception:' + str(e))
+        return False
+
+def user_notify_query(id):
+    try:
+        conn = psycopg2.connect(database = db, user = user, 
+                                        password = pwd, host = host, port=dbport)
+        print('Opened DB successfully')
+        cur = conn.cursor()
+        print('Opened database successfully')
+        cur = conn.cursor()
+
+        cur.execute("SELECT isNotify from chtUser WHERE ID = (%s)", (id))
+        rows = cur.fetchall()
+
+        print(rows)
+        conn.close()
+
+    except Exception as e:
+        print('exception:' + str(e))
+        return False
