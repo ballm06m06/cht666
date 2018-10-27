@@ -169,7 +169,7 @@ def main_carosel(name):
 def get_totalFishStatus(count, list, ph, do, tmp):
     
     i = datetime.datetime.now()
-    mdatetime = "'%s-%s-%s ' % (i.year, i.month, i.day)" + i.strftime('%H:%M')
+    mdatetime = '%s-%s-%s' % (i.year, i.month, i.day) +' '+ i.strftime('%H:%M')
     print(i.strftime('%H:%M'))
     print('%s-%s-%s' % (i.year, i.month, i.day))
 
