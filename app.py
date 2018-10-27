@@ -30,7 +30,7 @@ from linebot.models import (
 )
 
 from cht_package.config import line_channel_secret, line_channel_access_token
-from bot.template import skip_list, btn_template, carousel_template, main_carosel
+from bot.template import skip_list, btn_template, carousel_template, main_carosel, get_all_data
 from text_input.olami import OLAMI_textInput
 from audio_input.olami_audio import OLAMI_audioInput
 from dialogflow.nlp import get_intent, get_district
@@ -130,7 +130,7 @@ def handle_message(event):
         #flex test
         elif msg == 'flex':
             
-            bubble = BubbleContainer(
+            '''bubble = BubbleContainer(
             direction='ltr',
             hero=ImageComponent(
                 url='https://example.com/cafe.jpg',
@@ -229,10 +229,10 @@ def handle_message(event):
                 ]
             ),
         )
-            message = FlexSendMessage(alt_text="hello", contents=bubble)
+            message = FlexSendMessage(alt_text="hello", contents=bubble)'''
             line_bot_api.reply_message(
                 event.reply_token,
-                message
+                get_all_data()
             )
             return 0
 
