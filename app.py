@@ -157,12 +157,12 @@ def handle_message(event):
                             ),
                             SeparatorComponent(margin='xxl')
                         ]
-                    ),
-                    footer=BoxComponent(
+                    )
+                    '''footer=BoxComponent(
                         layout='vertical',
                         spacing='sm',
                         contents=[
-                            '''# callAction, separator, websiteAction
+                            # callAction, separator, websiteAction
                             SpacerComponent(size='sm'),
                             # callAction
                             ButtonComponent(
@@ -177,9 +177,9 @@ def handle_message(event):
                                 style='link',
                                 height='sm',
                                 action=URIAction(label='WEBSITE', uri="https://example.com")
-                            )'''
+                            )
                         ]
-                    ),
+                    )'''
                 )
                 message = FlexSendMessage(alt_text="hello", contents=bubble)
 
