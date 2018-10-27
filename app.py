@@ -90,7 +90,7 @@ def handle_message(event):
     if isinstance(event.message, TextMessage):
         msg = event.message.text #message from user
 
-        printTime(10)
+        printTime(profile.user_id, 10)
         
 
         global first_add
@@ -437,14 +437,16 @@ def get_userIntent(id, name, msg):
         ]
     )
 
-def printTime(inc):
+def printTime(id, inc):
     print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
     do = get_do_value()
     ph = get_ph_value()
     tmp = get_tmp_value()
 
-    line_single_push(user_id, '溫度:')
+    line_bot_api.push_message(id, 
+        TextSendMessage(text='hi')
+    
     t = Timer(inc, printTime, (inc,))
     t.start()
 
