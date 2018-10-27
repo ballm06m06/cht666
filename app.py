@@ -151,10 +151,13 @@ def handle_message(event):
             confirm_template = ConfirmTemplate(text='要開啟定時推播嗎?', actions=[
             PostbackAction(label='開啟', data='開啟'),
             PostbackAction(label='關閉', data='關閉'),
-        ])
+            ])
+            template_message = TemplateSendMessage(
+            alt_text='設定定時推播', template=confirm_template)
+            line_bot_api.reply_message(event.reply_token, template_message)
         
         elif msg == '近期天氣查詢':
-            
+
             line_bot_api.reply_message(
                 event.reply_token,
                 '天氣'
