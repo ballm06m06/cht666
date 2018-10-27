@@ -403,11 +403,1091 @@ def get_totalFishStatus(count, mlist, ph, do, tmp):
         )
         message = FlexSendMessage(alt_text="魚塭狀態", contents=bubble)
         return message
-'''    elif count == 3:
+    elif count == 3:
+        bubble = BubbleContainer(
+            direction='ltr',
+            body=BoxComponent(
+            layout='vertical',
+            contents=[                    
+            # title
+            BoxComponent(
+            layout='vertical',
+            contents=[
+                TextComponent(text='魚塭狀態', weight='bold', size='sm', color='#1DB446'),
+                TextComponent(text='魚塭資訊回傳', weight='bold', size='xxl', margin='md'),
+                TextComponent(text='新北市板橋區', size='xs', color='#aaaaaa', margin='sm', wrap=True),
+                SeparatorComponent(margin='xxl'),
+                TextComponent(text='種類', size="md", weight="bold", wrap=True, spacing='sm', margin='md'),
+                ]
+            ),
+
+            # fish 
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[0])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[0], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[1])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[1], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[2])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[2], align="end", gravity="center") 
+            ]
+            ),
+                            
+            SeparatorComponent(margin='xxl'),
+            TextComponent(text="水質資訊", size="md", weight="bold", wrap=True, spacing='sm', margin='md'),
+
+            # water-ph
+            BoxComponent(
+                layout='horizontal',
+                margin='md',
+                spacing='sm',
+                contents=[
+                                    
+                    TextComponent(text="ph值", size="sm", color="#555555", align="start"),
+                    TextComponent(text=ph, siz="sm", color=number_color['phcolor'], align="end")
+                ]
+            ),
+            # water-do
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[
+                TextComponent(text="溶氧量(mg/L)", size="sm", color="#555555", flex=0),
+                TextComponent(text=do, siz="sm", color=number_color['docolor'], align="end")
+                ]
+            ),
+
+            # water-tmp
+            BoxComponent(
+                layout='horizontal',
+                margin='md',
+                spacing='sm',
+                contents=[
+                    TextComponent(text="水溫(°C)", size="sm", color="#555555", flex=0),
+                    TextComponent(text=tmp, siz="sm", color=number_color['tmpcolor'], align="end")
+                ]
+                )
+            ]
+            ),
+
+            #
+            footer=BoxComponent(
+                layout='vertical',
+                margin='md',
+                spacing='md',
+                contents=[
+                    TextComponent(text="日期時間", size="xs", color="#aaaaaa", flex=0),
+                    TextComponent(text=mdatetime, size="xs", color="#aaaaaa", align="end")
+                ]
+                )
+        )
+        message = FlexSendMessage(alt_text="魚塭狀態", contents=bubble)
+        return message
     elif count == 4:
+        bubble = BubbleContainer(
+            direction='ltr',
+            body=BoxComponent(
+            layout='vertical',
+            contents=[                    
+            # title
+            BoxComponent(
+            layout='vertical',
+            contents=[
+                TextComponent(text='魚塭狀態', weight='bold', size='sm', color='#1DB446'),
+                TextComponent(text='魚塭資訊回傳', weight='bold', size='xxl', margin='md'),
+                TextComponent(text='新北市板橋區', size='xs', color='#aaaaaa', margin='sm', wrap=True),
+                SeparatorComponent(margin='xxl'),
+                TextComponent(text='種類', size="md", weight="bold", wrap=True, spacing='sm', margin='md'),
+                ]
+            ),
+
+            # fish 
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[0])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[0], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[1])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[1], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[2])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[2], align="end", gravity="center") 
+            ]
+            ),
+             BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[3])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[3], align="end", gravity="center") 
+            ]
+            ),
+                            
+            SeparatorComponent(margin='xxl'),
+            TextComponent(text="水質資訊", size="md", weight="bold", wrap=True, spacing='sm', margin='md'),
+
+            # water-ph
+            BoxComponent(
+                layout='horizontal',
+                margin='md',
+                spacing='sm',
+                contents=[
+                                    
+                    TextComponent(text="ph值", size="sm", color="#555555", align="start"),
+                    TextComponent(text=ph, siz="sm", color=number_color['phcolor'], align="end")
+                ]
+            ),
+            # water-do
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[
+                TextComponent(text="溶氧量(mg/L)", size="sm", color="#555555", flex=0),
+                TextComponent(text=do, siz="sm", color=number_color['docolor'], align="end")
+                ]
+            ),
+
+            # water-tmp
+            BoxComponent(
+                layout='horizontal',
+                margin='md',
+                spacing='sm',
+                contents=[
+                    TextComponent(text="水溫(°C)", size="sm", color="#555555", flex=0),
+                    TextComponent(text=tmp, siz="sm", color=number_color['tmpcolor'], align="end")
+                ]
+                )
+            ]
+            ),
+
+            #
+            footer=BoxComponent(
+                layout='vertical',
+                margin='md',
+                spacing='md',
+                contents=[
+                    TextComponent(text="日期時間", size="xs", color="#aaaaaa", flex=0),
+                    TextComponent(text=mdatetime, size="xs", color="#aaaaaa", align="end")
+                ]
+                )
+        )
+        message = FlexSendMessage(alt_text="魚塭狀態", contents=bubble)
+        return message
     elif count == 5:
+        bubble = BubbleContainer(
+            direction='ltr',
+            body=BoxComponent(
+            layout='vertical',
+            contents=[                    
+            # title
+            BoxComponent(
+            layout='vertical',
+            contents=[
+                TextComponent(text='魚塭狀態', weight='bold', size='sm', color='#1DB446'),
+                TextComponent(text='魚塭資訊回傳', weight='bold', size='xxl', margin='md'),
+                TextComponent(text='新北市板橋區', size='xs', color='#aaaaaa', margin='sm', wrap=True),
+                SeparatorComponent(margin='xxl'),
+                TextComponent(text='種類', size="md", weight="bold", wrap=True, spacing='sm', margin='md'),
+                ]
+            ),
+
+            # fish 
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[0])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[0], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[1])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[1], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[2])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[2], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[3])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[3], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[4])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[4], align="end", gravity="center") 
+            ]
+            ),
+                            
+            SeparatorComponent(margin='xxl'),
+            TextComponent(text="水質資訊", size="md", weight="bold", wrap=True, spacing='sm', margin='md'),
+
+            # water-ph
+            BoxComponent(
+                layout='horizontal',
+                margin='md',
+                spacing='sm',
+                contents=[
+                                    
+                    TextComponent(text="ph值", size="sm", color="#555555", align="start"),
+                    TextComponent(text=ph, siz="sm", color=number_color['phcolor'], align="end")
+                ]
+            ),
+            # water-do
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[
+                TextComponent(text="溶氧量(mg/L)", size="sm", color="#555555", flex=0),
+                TextComponent(text=do, siz="sm", color=number_color['docolor'], align="end")
+                ]
+            ),
+
+            # water-tmp
+            BoxComponent(
+                layout='horizontal',
+                margin='md',
+                spacing='sm',
+                contents=[
+                    TextComponent(text="水溫(°C)", size="sm", color="#555555", flex=0),
+                    TextComponent(text=tmp, siz="sm", color=number_color['tmpcolor'], align="end")
+                ]
+                )
+            ]
+            ),
+
+            #
+            footer=BoxComponent(
+                layout='vertical',
+                margin='md',
+                spacing='md',
+                contents=[
+                    TextComponent(text="日期時間", size="xs", color="#aaaaaa", flex=0),
+                    TextComponent(text=mdatetime, size="xs", color="#aaaaaa", align="end")
+                ]
+                )
+        )
+        message = FlexSendMessage(alt_text="魚塭狀態", contents=bubble)
+        return message
     elif count == 6:
+        bubble = BubbleContainer(
+            direction='ltr',
+            body=BoxComponent(
+            layout='vertical',
+            contents=[                    
+            # title
+            BoxComponent(
+            layout='vertical',
+            contents=[
+                TextComponent(text='魚塭狀態', weight='bold', size='sm', color='#1DB446'),
+                TextComponent(text='魚塭資訊回傳', weight='bold', size='xxl', margin='md'),
+                TextComponent(text='新北市板橋區', size='xs', color='#aaaaaa', margin='sm', wrap=True),
+                SeparatorComponent(margin='xxl'),
+                TextComponent(text='種類', size="md", weight="bold", wrap=True, spacing='sm', margin='md'),
+                ]
+            ),
+
+            # fish 
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[0])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[0], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[1])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[1], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[2])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[2], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[3])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[3], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[4])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[4], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[5])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[5], align="end", gravity="center") 
+            ]
+            ),
+                            
+            SeparatorComponent(margin='xxl'),
+            TextComponent(text="水質資訊", size="md", weight="bold", wrap=True, spacing='sm', margin='md'),
+
+            # water-ph
+            BoxComponent(
+                layout='horizontal',
+                margin='md',
+                spacing='sm',
+                contents=[
+                                    
+                    TextComponent(text="ph值", size="sm", color="#555555", align="start"),
+                    TextComponent(text=ph, siz="sm", color=number_color['phcolor'], align="end")
+                ]
+            ),
+            # water-do
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[
+                TextComponent(text="溶氧量(mg/L)", size="sm", color="#555555", flex=0),
+                TextComponent(text=do, siz="sm", color=number_color['docolor'], align="end")
+                ]
+            ),
+
+            # water-tmp
+            BoxComponent(
+                layout='horizontal',
+                margin='md',
+                spacing='sm',
+                contents=[
+                    TextComponent(text="水溫(°C)", size="sm", color="#555555", flex=0),
+                    TextComponent(text=tmp, siz="sm", color=number_color['tmpcolor'], align="end")
+                ]
+                )
+            ]
+            ),
+
+            #
+            footer=BoxComponent(
+                layout='vertical',
+                margin='md',
+                spacing='md',
+                contents=[
+                    TextComponent(text="日期時間", size="xs", color="#aaaaaa", flex=0),
+                    TextComponent(text=mdatetime, size="xs", color="#aaaaaa", align="end")
+                ]
+                )
+        )
+        message = FlexSendMessage(alt_text="魚塭狀態", contents=bubble)
+        return message
     elif count == 7:
+        bubble = BubbleContainer(
+            direction='ltr',
+            body=BoxComponent(
+            layout='vertical',
+            contents=[                    
+            # title
+            BoxComponent(
+            layout='vertical',
+            contents=[
+                TextComponent(text='魚塭狀態', weight='bold', size='sm', color='#1DB446'),
+                TextComponent(text='魚塭資訊回傳', weight='bold', size='xxl', margin='md'),
+                TextComponent(text='新北市板橋區', size='xs', color='#aaaaaa', margin='sm', wrap=True),
+                SeparatorComponent(margin='xxl'),
+                TextComponent(text='種類', size="md", weight="bold", wrap=True, spacing='sm', margin='md'),
+                ]
+            ),
+
+            # fish 
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[0])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[0], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[1])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[1], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[2])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[2], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[3])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[3], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[4])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[4], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[5])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[5], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[6])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[6], align="end", gravity="center") 
+            ]
+            ),
+                            
+            SeparatorComponent(margin='xxl'),
+            TextComponent(text="水質資訊", size="md", weight="bold", wrap=True, spacing='sm', margin='md'),
+
+            # water-ph
+            BoxComponent(
+                layout='horizontal',
+                margin='md',
+                spacing='sm',
+                contents=[
+                                    
+                    TextComponent(text="ph值", size="sm", color="#555555", align="start"),
+                    TextComponent(text=ph, siz="sm", color=number_color['phcolor'], align="end")
+                ]
+            ),
+            # water-do
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[
+                TextComponent(text="溶氧量(mg/L)", size="sm", color="#555555", flex=0),
+                TextComponent(text=do, siz="sm", color=number_color['docolor'], align="end")
+                ]
+            ),
+
+            # water-tmp
+            BoxComponent(
+                layout='horizontal',
+                margin='md',
+                spacing='sm',
+                contents=[
+                    TextComponent(text="水溫(°C)", size="sm", color="#555555", flex=0),
+                    TextComponent(text=tmp, siz="sm", color=number_color['tmpcolor'], align="end")
+                ]
+                )
+            ]
+            ),
+
+            #
+            footer=BoxComponent(
+                layout='vertical',
+                margin='md',
+                spacing='md',
+                contents=[
+                    TextComponent(text="日期時間", size="xs", color="#aaaaaa", flex=0),
+                    TextComponent(text=mdatetime, size="xs", color="#aaaaaa", align="end")
+                ]
+                )
+        )
+        message = FlexSendMessage(alt_text="魚塭狀態", contents=bubble)
+        return message
     elif count == 8:
+        bubble = BubbleContainer(
+            direction='ltr',
+            body=BoxComponent(
+            layout='vertical',
+            contents=[                    
+            # title
+            BoxComponent(
+            layout='vertical',
+            contents=[
+                TextComponent(text='魚塭狀態', weight='bold', size='sm', color='#1DB446'),
+                TextComponent(text='魚塭資訊回傳', weight='bold', size='xxl', margin='md'),
+                TextComponent(text='新北市板橋區', size='xs', color='#aaaaaa', margin='sm', wrap=True),
+                SeparatorComponent(margin='xxl'),
+                TextComponent(text='種類', size="md", weight="bold", wrap=True, spacing='sm', margin='md'),
+                ]
+            ),
+
+            # fish 
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[0])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[0], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[1])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[1], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[2])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[2], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[3])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[3], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[4])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[4], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[5])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[5], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[6])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[6], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[7])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[7], align="end", gravity="center") 
+            ]
+            ),
+                            
+            SeparatorComponent(margin='xxl'),
+            TextComponent(text="水質資訊", size="md", weight="bold", wrap=True, spacing='sm', margin='md'),
+
+            # water-ph
+            BoxComponent(
+                layout='horizontal',
+                margin='md',
+                spacing='sm',
+                contents=[
+                                    
+                    TextComponent(text="ph值", size="sm", color="#555555", align="start"),
+                    TextComponent(text=ph, siz="sm", color=number_color['phcolor'], align="end")
+                ]
+            ),
+            # water-do
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[
+                TextComponent(text="溶氧量(mg/L)", size="sm", color="#555555", flex=0),
+                TextComponent(text=do, siz="sm", color=number_color['docolor'], align="end")
+                ]
+            ),
+
+            # water-tmp
+            BoxComponent(
+                layout='horizontal',
+                margin='md',
+                spacing='sm',
+                contents=[
+                    TextComponent(text="水溫(°C)", size="sm", color="#555555", flex=0),
+                    TextComponent(text=tmp, siz="sm", color=number_color['tmpcolor'], align="end")
+                ]
+                )
+            ]
+            ),
+
+            #
+            footer=BoxComponent(
+                layout='vertical',
+                margin='md',
+                spacing='md',
+                contents=[
+                    TextComponent(text="日期時間", size="xs", color="#aaaaaa", flex=0),
+                    TextComponent(text=mdatetime, size="xs", color="#aaaaaa", align="end")
+                ]
+                )
+        )
+        message = FlexSendMessage(alt_text="魚塭狀態", contents=bubble)
+        return message
     elif count == 9:
-    elif count == 10:'''
+        bubble = BubbleContainer(
+            direction='ltr',
+            body=BoxComponent(
+            layout='vertical',
+            contents=[                    
+            # title
+            BoxComponent(
+            layout='vertical',
+            contents=[
+                TextComponent(text='魚塭狀態', weight='bold', size='sm', color='#1DB446'),
+                TextComponent(text='魚塭資訊回傳', weight='bold', size='xxl', margin='md'),
+                TextComponent(text='新北市板橋區', size='xs', color='#aaaaaa', margin='sm', wrap=True),
+                SeparatorComponent(margin='xxl'),
+                TextComponent(text='種類', size="md", weight="bold", wrap=True, spacing='sm', margin='md'),
+                ]
+            ),
+
+            # fish 
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[0])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[0], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[1])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[1], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[2])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[2], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[3])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[3], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[4])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[4], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[5])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[5], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[6])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[6], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[7])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[7], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[8])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[8], align="end", gravity="center") 
+            ]
+            ),
+                            
+            SeparatorComponent(margin='xxl'),
+            TextComponent(text="水質資訊", size="md", weight="bold", wrap=True, spacing='sm', margin='md'),
+
+            # water-ph
+            BoxComponent(
+                layout='horizontal',
+                margin='md',
+                spacing='sm',
+                contents=[
+                                    
+                    TextComponent(text="ph值", size="sm", color="#555555", align="start"),
+                    TextComponent(text=ph, siz="sm", color=number_color['phcolor'], align="end")
+                ]
+            ),
+            # water-do
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[
+                TextComponent(text="溶氧量(mg/L)", size="sm", color="#555555", flex=0),
+                TextComponent(text=do, siz="sm", color=number_color['docolor'], align="end")
+                ]
+            ),
+
+            # water-tmp
+            BoxComponent(
+                layout='horizontal',
+                margin='md',
+                spacing='sm',
+                contents=[
+                    TextComponent(text="水溫(°C)", size="sm", color="#555555", flex=0),
+                    TextComponent(text=tmp, siz="sm", color=number_color['tmpcolor'], align="end")
+                ]
+                )
+            ]
+            ),
+
+            #
+            footer=BoxComponent(
+                layout='vertical',
+                margin='md',
+                spacing='md',
+                contents=[
+                    TextComponent(text="日期時間", size="xs", color="#aaaaaa", flex=0),
+                    TextComponent(text=mdatetime, size="xs", color="#aaaaaa", align="end")
+                ]
+                )
+        )
+        message = FlexSendMessage(alt_text="魚塭狀態", contents=bubble)
+        return message
+    elif count == 10:
+        bubble = BubbleContainer(
+            direction='ltr',
+            body=BoxComponent(
+            layout='vertical',
+            contents=[                    
+            # title
+            BoxComponent(
+            layout='vertical',
+            contents=[
+                TextComponent(text='魚塭狀態', weight='bold', size='sm', color='#1DB446'),
+                TextComponent(text='魚塭資訊回傳', weight='bold', size='xxl', margin='md'),
+                TextComponent(text='新北市板橋區', size='xs', color='#aaaaaa', margin='sm', wrap=True),
+                SeparatorComponent(margin='xxl'),
+                TextComponent(text='種類', size="md", weight="bold", wrap=True, spacing='sm', margin='md'),
+                ]
+            ),
+
+            # fish 
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[0])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[0], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[1])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[1], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[2])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[2], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[3])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[3], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[4])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[4], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[5])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[5], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[6])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[6], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[7])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[7], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[8])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[8], align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[9])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[9], align="end", gravity="center") 
+            ]
+            ),
+                            
+            SeparatorComponent(margin='xxl'),
+            TextComponent(text="水質資訊", size="md", weight="bold", wrap=True, spacing='sm', margin='md'),
+
+            # water-ph
+            BoxComponent(
+                layout='horizontal',
+                margin='md',
+                spacing='sm',
+                contents=[
+                                    
+                    TextComponent(text="ph值", size="sm", color="#555555", align="start"),
+                    TextComponent(text=ph, siz="sm", color=number_color['phcolor'], align="end")
+                ]
+            ),
+            # water-do
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[
+                TextComponent(text="溶氧量(mg/L)", size="sm", color="#555555", flex=0),
+                TextComponent(text=do, siz="sm", color=number_color['docolor'], align="end")
+                ]
+            ),
+
+            # water-tmp
+            BoxComponent(
+                layout='horizontal',
+                margin='md',
+                spacing='sm',
+                contents=[
+                    TextComponent(text="水溫(°C)", size="sm", color="#555555", flex=0),
+                    TextComponent(text=tmp, siz="sm", color=number_color['tmpcolor'], align="end")
+                ]
+                )
+            ]
+            ),
+
+            #
+            footer=BoxComponent(
+                layout='vertical',
+                margin='md',
+                spacing='md',
+                contents=[
+                    TextComponent(text="日期時間", size="xs", color="#aaaaaa", flex=0),
+                    TextComponent(text=mdatetime, size="xs", color="#aaaaaa", align="end")
+                ]
+                )
+        )
+        message = FlexSendMessage(alt_text="魚塭狀態", contents=bubble)
+        return message
