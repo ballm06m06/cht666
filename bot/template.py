@@ -260,6 +260,6 @@ def get_all_data():
             ),
             )
 
-                message = FlexSendMessage(alt_text="hello", contents=bubble)
+        message = FlexSendMessage(alt_text="hello", contents=bubble)
           
-                return message
+        return message
