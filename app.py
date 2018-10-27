@@ -146,28 +146,20 @@ def handle_message(event):
                                 ]
                             ),
                             # fish
-                            BoxComponent(
-                                layout='horizontal',
-                                margin='md',
-                                spacing='sm',
-                                contents=[
-                                    
-                                    TextComponent(text="吳郭魚", size="xl", wrap=True, gravity="center"),
-                                    SeparatorComponent(gravity="center"),
-                                    ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url="https://i.imgur.com/6C044b5.png", align="end", gravity="center") 
-                                ]
-                            ),
-                            BoxComponent(
-                                layout='horizontal',
-                                margin='md',
-                                spacing='sm',
-                                contents=[
-                                    
-                                    TextComponent(text="小魚", size="xl", wrap=True, gravity="center"),
-                                    SeparatorComponent(gravity="center"),
-                                    ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url="https://i.imgur.com/6C044b5.png", align="end", gravity="center") 
-                                ]
-                            ),
+                            for i in range(0,2):
+                                print('物種No:'+str(i+1))
+                                BoxComponent(
+                                    layout='horizontal',
+                                    margin='md',
+                                    spacing='sm',
+                                    contents=[
+                                        
+                                        TextComponent(text="吳郭魚", size="xl", wrap=True, gravity="center"),
+                                        SeparatorComponent(gravity="center"),
+                                        ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url="https://i.imgur.com/6C044b5.png", align="end", gravity="center") 
+                                    ]
+                                ),
+                            
                             
 
                             SeparatorComponent(margin='xxl'),
