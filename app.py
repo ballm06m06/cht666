@@ -371,7 +371,7 @@ def get_userIntent(id, name, msg):
         line_single_push(id, '溶氧量:'+do+'mg/L')
     
     elif intent == 'help':
-        line_single_push(id, 'help')
+        line_single_push(id, '可以試著跟我打招呼叫出功能表或是直接說出您想要的東西唷～')
     
     elif intent == '氣象':
         
