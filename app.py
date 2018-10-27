@@ -147,7 +147,7 @@ def handle_message(event):
                             ),
 
                             # fish 
-                            get_fish_status()
+                            get_fish_status(),
                             
                             
 
