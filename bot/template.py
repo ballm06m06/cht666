@@ -103,7 +103,7 @@ def main_carosel(name):
         template=CarouselTemplate(
             columns=[
                 CarouselColumn(
-                    thumbnail_image_url='https://i.imgur.com/Wiqlff7.png',
+                    thumbnail_image_url='https://i.imgur.com/1pXEHa7.jpg',
                     title=name+' 您好!',
                     text='歡迎使用Fish Farmer \n 請選擇以下的服務',
                     actions=[
@@ -122,7 +122,7 @@ def main_carosel(name):
                     ]
                 ),
                 CarouselColumn(
-                    thumbnail_image_url='https://i.imgur.com/Wiqlff7.png',
+                    thumbnail_image_url='https://i.imgur.com/Vwygl9y.jpg',
                     title='設定',
                     text='請選擇以下的服務',
                     actions=[
@@ -141,7 +141,7 @@ def main_carosel(name):
                     ]
                 ),
                 CarouselColumn(
-                    thumbnail_image_url='https://example.com/item2.jpg',
+                    thumbnail_image_url='https://i.imgur.com/44QGjEq.jpg',
                     title='關於我們',
                     text='一群為Hackthon而生的孩子們',
                     actions=[
