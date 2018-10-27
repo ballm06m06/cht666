@@ -91,7 +91,7 @@ def handle_message(event):
         msg = event.message.text #message from user
 
         
-    
+        auto_timer(profile.user_id, 15)
 
         global first_add
         if first_add == True:
@@ -196,7 +196,7 @@ def handle_message(event):
             )
             return 0
 
-        auto_timer(profile.user_id, 15)
+        
 
     #Audio
     elif isinstance(event.message, AudioMessage):
