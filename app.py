@@ -468,8 +468,9 @@ def get_userIntent(id, name, msg):
         return 0 
     
 def get_fish_status():
+    final = ''
     for i in range(0,3):
-        BoxComponent(
+        final+=str(BoxComponent(
         ayout='horizontal',
         margin='md',
         spacing='sm',
@@ -478,7 +479,7 @@ def get_fish_status():
             SeparatorComponent(gravity="center"),
             ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url="https://i.imgur.com/6C044b5.png", align="end", gravity="center") 
         ]
-        )+','
+        )+',')
 # ================= 機器人區塊 End =================
 
 import os
