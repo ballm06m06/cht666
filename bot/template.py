@@ -171,7 +171,7 @@ def main_carosel(name):
 def get_totalFishStatus(count, mlist, ph, do, tmp):
     print(mlist)
     score_count = 0
-    result = []
+    result_number_color = []
     result_url=""
     ok_url="https://i.imgur.com/6C044b5.png"
     warn_url="https://i.imgur.com/z4TThML.png"
@@ -221,6 +221,7 @@ def get_totalFishStatus(count, mlist, ph, do, tmp):
 
     if count == 1:
         ftype=mlist[0]
+        ptint('ftype:'+str(ftype))
         bubble = BubbleContainer(
             direction='ltr',
             body=BoxComponent(
