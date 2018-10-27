@@ -221,7 +221,7 @@ def get_totalFishStatus(count, mlist, ph, do, tmp):
 
     if count == 1:
         ftype=mlist[0]
-        ptint('ftype:'+str(ftype))
+        print('ftype:'+str(ftype))
         bubble = BubbleContainer(
             direction='ltr',
             body=BoxComponent(
