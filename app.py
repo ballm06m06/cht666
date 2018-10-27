@@ -129,7 +129,7 @@ def handle_message(event):
             return 0
 
         
-        elif msg == '檢視魚塭狀況':
+        elif msg == '檢視魚塭狀態':
                 mlist = get_userFishType(profile.user_id)
                 do = get_do_value()
                 ph = get_ph_value()
