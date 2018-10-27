@@ -15,7 +15,7 @@ from linebot.models import (
 )
 import datetime
 from cht_package.fishstatus import fish_dict, fish_0, fish_1, fish_2, fish_3, fish_4, fish_5, fish_6, fish_7, fish_8, fish_9
-
+from cht_package.db_postgres import new_record
 
 #跳脫不進入olami (template's text save here)
 skip_list = ['func1', 'func2', 'func3', '檢視魚塭狀態', '魚塭異常總覽' , '近期天氣查詢']
@@ -168,7 +168,7 @@ def main_carosel(name):
         return carousel_template_message
 
 
-def get_totalFishStatus(count, mlist, ph, do, tmp):
+def get_totalFishStatus(count, mlist, ph, do, tmp , id):
     print(mlist)
     score_count = 0
     number_color = {'tmpcolor':'', 'phcolor':'', 'docolor':''}
@@ -176,6 +176,12 @@ def get_totalFishStatus(count, mlist, ph, do, tmp):
     ok_url="https://i.imgur.com/6C044b5.png"
     warn_url="https://i.imgur.com/z4TThML.png"
     fatal_url="https://i.imgur.com/eVUPJvP.png"
+
+    i = datetime.datetime.now()
+    mdatetime = '%s-%s-%s' % (i.year, i.month, i.day) +'  '+ str(i.hour-4)+':'+str(i.minute)
+    print(i.strftime('%H:%M'))
+    print('%s-%s-%s' % (i.year, i.month, i.day))
+
 
     for i in range(0,len(mlist)):
         print(mlist[i])
@@ -191,6 +197,7 @@ def get_totalFishStatus(count, mlist, ph, do, tmp):
             print('溫度嚴重警告')
             score_count+=4
             number_color['tmpcolor'] = '#ff0000'
+            new_record(id, '溫度', float(tmp)+'°C','溫度異常',mdatetime)
             
         if float(ph) >= float(fish_dict[i][2]) and float(ph) <= float(fish_dict[i][3]):
             print('ph正常')
@@ -203,6 +210,7 @@ def get_totalFishStatus(count, mlist, ph, do, tmp):
             print('ph嚴重警告')
             score_count+=4
             number_color['phcolor'] = '#ff0000'
+            new_record(id, 'ph', float(ph),'ph值異常',mdatetime)
 
         if float(do) >= float(fish_dict[i][4]) and float(do) <= 12:
             print('do正常')
@@ -216,6 +224,7 @@ def get_totalFishStatus(count, mlist, ph, do, tmp):
             print('do嚴重警告')
             score_count+=4
             number_color['docolor'] = '#ff0000'
+            new_record(id, 'do', float(do)+'mg/L','溶氧量異常',mdatetime)
 
         if score_count == 0:
             result_url.append(ok_url)
@@ -224,11 +233,7 @@ def get_totalFishStatus(count, mlist, ph, do, tmp):
         else:
             result_url.append(fatal_url)
 
-    i = datetime.datetime.now()
-    mdatetime = '%s-%s-%s' % (i.year, i.month, i.day) +'  '+ str(i.hour-4)+':'+str(i.minute)
-    print(i.strftime('%H:%M'))
-    print('%s-%s-%s' % (i.year, i.month, i.day))
-
+    
     if count == 1:
         
         bubble = BubbleContainer(

@@ -66,3 +66,18 @@ def user_notify_query(id):
     except Exception as e:
         print('exception:' + str(e))
         return False
+
+def new_record(id, sensortype, value, desc, time):
+    try:
+        conn = psycopg2.connect(database = db, user = user, 
+                                        password = pwd, host = host, port=dbport)
+        print('Opened DB successfully')
+        cur = conn.cursor()
+        cur.execute("INSERT INTO chtHistory (ID,sensorType,value,description,time)  VALUES (%s, %s, %s, %s, %s)", (id, sensortype, value, desc, time))
+        conn.commit()
+        conn.close()
+        return True
+
+    except Exception as e:
+        print('insert record exception:' + str(e))
+        return False

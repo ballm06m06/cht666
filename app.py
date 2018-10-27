@@ -143,7 +143,7 @@ def handle_message(event):
                     line_single_push(profile.user_id, '您還沒新增魚種唷~\n快去功能表新增吧！')
                     return 0
                 
-                message = get_totalFishStatus(len(mlist),mlist, ph, do, tmp)
+                message = get_totalFishStatus(len(mlist),mlist, ph, do, tmp, user_id)
 
                 line_bot_api.reply_message(
                     event.reply_token,
