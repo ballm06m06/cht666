@@ -8,7 +8,7 @@ def register_User(id, name, picUrl, areaCode, notify):
                                         password = pwd, host = host, port=dbport)
         print('Opened DB successfully')
         cur = conn.cursor()
-        cur.execute("INSERT INTO chtUser (ID,NAME,PicUrl,areaCode,notify)  VALUES (%s, %s, %s, %s, %s)", (id, name, picUrl,areaCode,notify))
+        cur.execute("INSERT INTO chtUser (ID,NAME,PicUrl,areaCode,isNotify)  VALUES (%s, %s, %s, %s, %s)", (id, name, picUrl, areaCode, '1'))
         conn.commit()
         print('%s註冊成功'%(name))
         conn.close()
