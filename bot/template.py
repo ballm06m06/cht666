@@ -243,7 +243,7 @@ def get_totalFishStatus(count, mlist, ph, do, tmp):
             margin='md',
             spacing='sm',
             contents=[             
-            TextComponent(text=fish_dict[mlist[0]][5], size="xl", wrap=True, gravity="center"),
+            TextComponent(text=(fish_dict[mlist[0]][5]), size="xl", wrap=True, gravity="center"),
             SeparatorComponent(gravity="center"),
             ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url, align="end", gravity="center") 
             ]
