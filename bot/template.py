@@ -178,7 +178,7 @@ def get_totalFishStatus(count, mlist, ph, do, tmp , id):
     fatal_url="https://i.imgur.com/eVUPJvP.png"
 
     i = datetime.datetime.now()
-    mdatetime = '%s-%s-%s' % (i.year, i.month, i.day) +'  '+ str(i.hour-4)+':'+str(i.minute)
+    mdatetime = '%s-%s-%s' % (i.year, i.month, i.day) +'  '+ str(i.hour)+':'+str(i.minute)
     print(i.strftime('%H:%M'))
     print('%s-%s-%s' % (i.year, i.month, i.day))
 
