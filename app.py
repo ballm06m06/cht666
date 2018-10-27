@@ -157,8 +157,8 @@ def handle_message(event):
                             ),
                             SeparatorComponent(margin='xxl')
                         ]
-                    )
-                    '''footer=BoxComponent(
+                    ),
+                    footer=BoxComponent(
                         layout='vertical',
                         spacing='sm',
                         contents=[
@@ -179,7 +179,7 @@ def handle_message(event):
                                 action=URIAction(label='WEBSITE', uri="https://example.com")
                             )
                         ]
-                    )'''
+                    )
                 )
                 message = FlexSendMessage(alt_text="hello", contents=bubble)
 
