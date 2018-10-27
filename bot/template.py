@@ -171,7 +171,7 @@ def main_carosel(name):
 def get_totalFishStatus(count, mlist, ph, do, tmp):
     print(mlist)
     score_count = 0
-    result_number_color = []
+    number_color = {'tmpcolor':'', 'phcolor':'', 'docolor':''}
     result_url=""
     ok_url="https://i.imgur.com/6C044b5.png"
     warn_url="https://i.imgur.com/z4TThML.png"
@@ -182,30 +182,40 @@ def get_totalFishStatus(count, mlist, ph, do, tmp):
         
         if float(tmp) >= float(fish_dict[i][0]) and float(tmp) <= float(fish_dict[i][1]):
             print('溫度正常')
+            number_color['tmpcolor'] = '#111111'
         elif float(tmp) >= float(fish_dict[i][0]-5) and float(tmp) <= float(fish_dict[i][1]+5):
             print('溫度警告')
             score_count+=1
+            number_color['tmpcolor'] = '#111111'
         else:
             print('溫度嚴重警告')
             score_count+=4
+            number_color['tmpcolor'] = '#ff0000'
             
         if float(ph) >= float(fish_dict[i][2]) and float(ph) <= float(fish_dict[i][3]):
             print('ph正常')
+            number_color['phcolor'] = '#111111'
         elif float(ph) >= float(fish_dict[i][2]-1) and float(ph) <= float(fish_dict[i][3]+1):
             print('ph警告')
             score_count+=1
+            number_color['phcolor'] = '#111111'
         else:
             print('ph嚴重警告')
             score_count+=4
+            number_color['phcolor'] = '#ff0000'
 
         if float(do) >= float(fish_dict[i][4]) and float(do) <= 12:
             print('do正常')
+            number_color['docolor'] = '#111111'
         elif float(do) >= float(fish_dict[i][4]-1) and float(do) <= 15:
             print('do警告')
             score_count+=1
+            number_color['docolor'] = '#111111'
+
         else:
             print('do嚴重警告')
             score_count+=4
+            number_color['docolor'] = '#ff0000'
 
         if score_count == 0:
             result_url = ok_url
@@ -261,7 +271,7 @@ def get_totalFishStatus(count, mlist, ph, do, tmp):
                 contents=[
                                     
                     TextComponent(text="ph值", size="sm", color="#555555", align="start"),
-                    TextComponent(text=ph, siz="sm", color="#111111", align="end")
+                    TextComponent(text=ph, siz="sm", color=number_color['phcolor'], align="end")
                 ]
             ),
             # water-do
@@ -271,7 +281,7 @@ def get_totalFishStatus(count, mlist, ph, do, tmp):
             spacing='sm',
             contents=[
                 TextComponent(text="溶氧量(mg/L)", size="sm", color="#555555", flex=0),
-                TextComponent(text=do, siz="sm", color="#111111", align="end")
+                TextComponent(text=do, siz="sm", color=number_color['docolor'], align="end")
                 ]
             ),
 
@@ -282,7 +292,7 @@ def get_totalFishStatus(count, mlist, ph, do, tmp):
                 spacing='sm',
                 contents=[
                     TextComponent(text="水溫(°C)", size="sm", color="#555555", flex=0),
-                    TextComponent(text=tmp, siz="sm", color="#111111", align="end")
+                    TextComponent(text=tmp, siz="sm", color=number_color['tmpcolor'], align="end")
                 ]
                 )
             ]
