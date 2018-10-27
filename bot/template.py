@@ -122,7 +122,7 @@ def main_carosel(name):
                     ]
                 ),
                 CarouselColumn(
-                    thumbnail_image_url='https://i.imgur.com/Vwygl9y.jpg',
+                    thumbnail_image_url='https://i.imgur.com/Ro3oQBA.jpg',
                     title='設定',
                     text='請選擇以下的服務',
                     actions=[
