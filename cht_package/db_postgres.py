@@ -26,7 +26,7 @@ def user_notify_open(id):
         cur = conn.cursor()
         cur.execute("UPDATE chtUser SET isNotify = '1' WHERE ID = (%s) ", (id))
         conn.commit()
-        print('%更改成功'%(name))
+       
         conn.close()
         return True
 
@@ -42,7 +42,7 @@ def user_notify_close(id):
         cur = conn.cursor()
         cur.execute("UPDATE chtUser SET isNotify = '0' WHERE ID = (%s) ", (id))
         conn.commit()
-        print('%更改成功'%(name))
+    
         conn.close()
         return True
 
