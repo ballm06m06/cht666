@@ -138,56 +138,21 @@ def handle_message(event):
                             BoxComponent(
                                 layout='vertical',
                                 contents=[
-                                TextComponent(text='魚塭狀態', weight='bold', size='sm', color='#1DB446'),
-                                TextComponent(text='魚塭資訊回傳', weight='bold', size='xxl', margin='md'),
-                                TextComponent(text='新北市板橋區', size='xs', color='#aaaaaa', margin='sm', wrap=True),
-                                SeparatorComponent(margin='xxl')
+                                    TextComponent(text='魚塭狀態', weight='bold', size='sm', color='#1DB446'),
+                                    TextComponent(text='魚塭資訊回傳', weight='bold', size='xxl', margin='md'),
+                                    TextComponent(text='新北市板橋區', size='xs', color='#aaaaaa', margin='sm', wrap=True),
+                                    SeparatorComponent(margin='xxl')
                                 ]
                             ),
-                            # info
+                            # fish
                             BoxComponent(
-                                layout='vertical',
-                                margin='lg',
-                                spacing='sm',
+                                layout='horizontal',
+                                margin='xs',
+                                spacing='sm'
                                 contents=[
-                                    BoxComponent(
-                                        layout='baseline',
-                                        spacing='sm',
-                                        contents=[
-                                            TextComponent(
-                                                text='Place',
-                                                color='#aaaaaa',
-                                                size='sm',
-                                                flex=1
-                                            ),
-                                            TextComponent(
-                                                text='Shinjuku, Tokyo',
-                                                wrap=True,
-                                                color='#666666',
-                                                size='sm',
-                                                flex=5
-                                            )
-                                        ],
-                                    ),
-                                    BoxComponent(
-                                        layout='baseline',
-                                        spacing='sm',
-                                        contents=[
-                                            TextComponent(
-                                                text='Time',
-                                                color='#aaaaaa',
-                                                size='sm',
-                                                flex=1
-                                            ),
-                                            TextComponent(
-                                                text="10:00 - 23:00",
-                                                wrap=True,
-                                                color='#666666',
-                                                size='sm',
-                                                flex=5,
-                                            ),
-                                        ],
-                                    ),
+                                    TextComponent(text="吳郭魚", size="xl", wrap=True,gravity="center"),
+                                    ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url="https://i.imgur.com/6C044b5.png", align="end", gravity="center"),
+                                    SeparatorComponent(margin='xxl')
                                 ],
                             )
                         ],
