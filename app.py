@@ -149,7 +149,7 @@ def handle_message(event):
                         layout='baseline',
                         margin='md',
                         contents=[
-                            IconComponent(size='sm', url='https://example.com/gold_star.png'),
+                            IconComponent(size='sm', url='https://i.imgur.com/QiTvzLn.png'),
                             IconComponent(size='sm', url='https://example.com/grey_star.png'),
                             IconComponent(size='sm', url='https://example.com/gold_star.png'),
                             IconComponent(size='sm', url='https://example.com/gold_star.png'),
@@ -240,7 +240,7 @@ def handle_message(event):
             
             line_bot_api.reply_message(
                 event.reply_token,
-                btn_template('hihi', 'hi', 'https://i.imgur.com/QiTvzLn.png', 'func1', 'func1', 'fun1'\
+                btn_template('hihi', 'hi', 'https://i.imgur.com/Wiqlff7.png', 'func1', 'func1', 'fun1'\
                 , 'func2', 'func2', 'func2', 'func3', 'func3', 'func3')
             )
             return 0
