@@ -182,7 +182,7 @@ def handle_message(event):
                                     
                                     TextComponent(text="溶氧量(mg/L)", size="sm", color="#555555", flex=0),
                                     
-                                    TextComponent(text="3.5, siz="sm", color="#111111", align="end")
+                                    TextComponent(text="3.5", siz="sm", color="#111111", align="end")
                                 ]
                             ),
                             # water-tmp
