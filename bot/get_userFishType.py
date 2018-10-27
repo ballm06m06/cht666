@@ -4,7 +4,7 @@ import json
 
 
 def get_userFishType(id):
-    my_data = {'id': 'U5'} 
+    my_data = {'id': 'U6'} 
 
     r = requests.post('https://cht666-node.herokuapp.com/fishowner/id', data = my_data)
 
