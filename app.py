@@ -226,7 +226,7 @@ def handle_message(event):
             message = FlexSendMessage(alt_text="hello", contents=bubble)
             line_bot_api.reply_message(
                 event.reply_token,
-                get_all_data()
+                message
             )
             return 0
 
