@@ -172,7 +172,7 @@ def get_totalFishStatus(count, mlist, ph, do, tmp):
     print(mlist)
     score_count = 0
     number_color = {'tmpcolor':'', 'phcolor':'', 'docolor':''}
-    result_url=""
+    result_url=[]
     ok_url="https://i.imgur.com/6C044b5.png"
     warn_url="https://i.imgur.com/z4TThML.png"
     fatal_url="https://i.imgur.com/eVUPJvP.png"
@@ -218,11 +218,11 @@ def get_totalFishStatus(count, mlist, ph, do, tmp):
             number_color['docolor'] = '#ff0000'
 
         if score_count == 0:
-            result_url = ok_url
+            result_url.append(ok_url)
         elif score_count >=1 and score_count <=4:
-            result_url = warn_url
+            result_url.append(warn_url)
         else:
-            result_url = fatal_url
+            result_url.append(fatal_url)
 
     i = datetime.datetime.now()
     mdatetime = '%s-%s-%s' % (i.year, i.month, i.day) +'  '+ str(i.hour-4)+':'+str(i.minute)
@@ -256,7 +256,7 @@ def get_totalFishStatus(count, mlist, ph, do, tmp):
             contents=[             
             TextComponent(text=fish_dict[int(mlist[0])][5], size="xl", wrap=True, gravity="center"),
             SeparatorComponent(gravity="center"),
-            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url, align="end", gravity="center") 
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[0], align="end", gravity="center") 
             ]
             ),
                             
@@ -338,7 +338,7 @@ def get_totalFishStatus(count, mlist, ph, do, tmp):
             contents=[             
             TextComponent(text=fish_dict[int(mlist[0])][5], size="xl", wrap=True, gravity="center"),
             SeparatorComponent(gravity="center"),
-            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url, align="end", gravity="center") 
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[0], align="end", gravity="center") 
             ]
             ),
             BoxComponent(
@@ -348,7 +348,7 @@ def get_totalFishStatus(count, mlist, ph, do, tmp):
             contents=[             
             TextComponent(text=fish_dict[int(mlist[1])][5], size="xl", wrap=True, gravity="center"),
             SeparatorComponent(gravity="center"),
-            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url, align="end", gravity="center") 
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url[1], align="end", gravity="center") 
             ]
             ),
                             
