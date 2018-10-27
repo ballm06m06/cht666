@@ -164,8 +164,7 @@ def main_carosel(name):
         )
         return carousel_template_message
 
-#檢視魚塭狀態
-def get_all_data():
+
      bubble = BubbleContainer(
             direction='ltr',
             
