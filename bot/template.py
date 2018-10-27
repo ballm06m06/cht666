@@ -129,7 +129,7 @@ def main_carosel(name):
                         URIAction(
                             label='魚種設定',
                             uri='http://example.com/2'
-                        )
+                        ),
                         MessageAction(
                             label='設定定時推播',
                             text='設定定時推播'
@@ -148,11 +148,11 @@ def main_carosel(name):
                         URIAction(
                             label='Facebook',
                             uri='http://example.com/2'
-                        )
+                        ),
                         URIAction(
                             label='Instagram',
                             uri='http://example.com/2'
-                        )
+                        ),
                        URIAction(
                             label='作品集',
                             uri='http://example.com/2'
