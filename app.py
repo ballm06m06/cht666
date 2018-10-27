@@ -87,7 +87,10 @@ def handle_message(event):
      # Text 
     if isinstance(event.message, TextMessage):
         msg = event.message.text #message from user
+
+
         timer(10)
+
         global first_add
         if first_add == True:
             
@@ -434,7 +437,10 @@ def get_userIntent(id, name, msg):
 
 def timer(n):
     while True:
-        line_single_push(id, '溫度:'+tmp+'°C\n'+  '溶氧量:'+do+'mg/L\n' + '酸鹼度:'+ph)
+        do = get_do_value()
+        ph = get_ph_value()
+        tmp = get_tmp_value()
+        line_single_push(user_id, '溫度:'+tmp+'°C\n'+  '溶氧量:'+do+'mg/L\n' + '酸鹼度:'+ph)
 # ================= 機器人區塊 End =================
 
 import os
