@@ -169,7 +169,7 @@ def main_carosel(name):
 
 
 def get_totalFishStatus(count, mlist, ph, do, tmp):
-    print('list:'+mlist)
+    print(mlist)
     score_count = 0
     result = []
     result_url=""
