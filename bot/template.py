@@ -214,7 +214,7 @@ def get_totalFishStatus(count, list, ph, do, tmp):
                 contents=[
                                     
                     TextComponent(text="ph值", size="sm", color="#555555", align="start"),
-                    TextComponent(text="8.9", siz="sm", color="#111111", align="end")
+                    TextComponent(text=ph, siz="sm", color="#111111", align="end")
                 ]
             ),
             # water-do
@@ -224,7 +224,7 @@ def get_totalFishStatus(count, list, ph, do, tmp):
             spacing='sm',
             contents=[
                 TextComponent(text="溶氧量(mg/L)", size="sm", color="#555555", flex=0),
-                TextComponent(text="3.5", siz="sm", color="#111111", align="end")
+                TextComponent(text=do, siz="sm", color="#111111", align="end")
                 ]
             ),
 
@@ -235,7 +235,7 @@ def get_totalFishStatus(count, list, ph, do, tmp):
                 spacing='sm',
                 contents=[
                     TextComponent(text="水溫(°C)", size="sm", color="#555555", flex=0),
-                    TextComponent(text="23", siz="sm", color="#111111", align="end")
+                    TextComponent(text=tmp, siz="sm", color="#111111", align="end")
                 ]
                 )
             ]
