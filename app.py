@@ -91,8 +91,6 @@ def handle_message(event):
         msg = event.message.text #message from user
 
         
-        printInfo()
-
         global first_add
         if first_add == True:
             
@@ -440,25 +438,8 @@ def get_userIntent(id, name, msg):
     )
 
 
-def auto_timer(id, n):
-    while True:
-        print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-        do = get_do_value()
-        ph = get_ph_value()
-        tmp = get_tmp_value()
 
-        line_single_push(id, '溫度:'+tmp+'°C\n'+  '溶氧量:'+do+'mg/L\n' + '酸鹼度:'+ph)
-        time.sleep(n)
 
-def printInfo():  
-    print("start" )
-    do = get_do_value()
-    ph = get_ph_value()
-    tmp = get_tmp_value()
-
-    line_single_push(id, '溫度:'+tmp+'°C\n'+  '溶氧量:'+do+'mg/L\n' + '酸鹼度:'+ph)
-    timer = threading.Timer(30,printInfo)
-    timer.start()
 # ================= 機器人區塊 End =================
 
 import os
