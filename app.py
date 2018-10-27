@@ -237,10 +237,10 @@ def handle_message(event):
             return 0
 
         elif msg == 'btntem':
-            ok_path = '/app/static/test.jpg'
+            
             line_bot_api.reply_message(
                 event.reply_token,
-                btn_template('hihi', 'hi', ok_path, 'func1', 'func1', 'fun1'\
+                btn_template('hihi', 'hi', 'https://i.imgur.com/QiTvzLn.png', 'func1', 'func1', 'fun1'\
                 , 'func2', 'func2', 'func2', 'func3', 'func3', 'func3')
             )
             return 0
