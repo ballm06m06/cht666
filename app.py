@@ -157,6 +157,18 @@ def handle_message(event):
                                     ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url="https://i.imgur.com/6C044b5.png", align="end", gravity="center") 
                                 ]
                             ),
+                            BoxComponent(
+                                layout='horizontal',
+                                margin='md',
+                                spacing='sm',
+                                contents=[
+                                    
+                                    TextComponent(text="小魚", size="xl", wrap=True, gravity="center"),
+                                    SeparatorComponent(gravity="center"),
+                                    ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url="https://i.imgur.com/6C044b5.png", align="end", gravity="center") 
+                                ]
+                            ),
+                            
 
                             SeparatorComponent(margin='xxl'),
                             TextComponent(text="水質資訊", size="md", weight="bold", wrap=True, spacing='sm', margin='md'),
@@ -168,7 +180,7 @@ def handle_message(event):
                                 spacing='sm',
                                 contents=[
                                     
-                                    TextComponent(text="ph值", size="sm", color="#555555", flex=0),
+                                    TextComponent(text="ph值", size="sm", color="#555555", align="start"),
                                     
                                     TextComponent(text="8.9", siz="sm", color="#111111", align="end")
                                 ]
