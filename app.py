@@ -6,7 +6,7 @@ from flask import Flask, request, abort
 import json
 import tempfile, os, sys
 from datetime import datetime
-from threading import Timer
+import time
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -90,7 +90,7 @@ def handle_message(event):
     if isinstance(event.message, TextMessage):
         msg = event.message.text #message from user
 
-        printTime(profile.user_id, 15)
+        auto_timer(profile.user_id, 15)
     
 
         global first_add
@@ -437,15 +437,12 @@ def get_userIntent(id, name, msg):
         ]
     )
 
-def printTime(id, inc):
 
-    print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-
-    line_single_push(id, 'hi')
-
-    t = Timer(inc, printTime, (inc,))
-    t.start()
-
+def auto_timer(id, n):
+    while True:
+        print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+        line_single_push(id, 'hi')
+        time.sleep(n)
 # ================= 機器人區塊 End =================
 
 import os
