@@ -6,7 +6,7 @@ from flask import Flask, request, abort
 import json
 import tempfile, os, sys
 from datetime import datetime
-import time
+from threading import Timer
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -54,6 +54,8 @@ static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 user_id = ''
 #first add
 first_add = False
+
+printTime(5)
 
 @app.route('/')
 def index():
@@ -435,17 +437,10 @@ def get_userIntent(id, name, msg):
         ]
     )
 
-def timer(n):
-    while True:
-
-        do = get_do_value()
-        ph = get_ph_value()
-        tmp = get_tmp_value()
-
-        line_single_push(user_id, '溫度:'+tmp+'°C\n'+  '溶氧量:'+do+'mg/L\n' + '酸鹼度:'+ph)
-
-        print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-        time.sleep(n)
+def printTime(inc):
+    print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+    t = Timer(inc, printTime, (inc,))
+    t.start()
 
 # ================= 機器人區塊 End =================
 
