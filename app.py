@@ -253,7 +253,7 @@ def handle_message(event):
             )
             return 0
         #get user intent
-        get_userIntent(profile.user_id, msg)
+        get_userIntent(profile.user_id, profile.display_name, msg)
 
     #Audio
     elif isinstance(event.message, AudioMessage):
@@ -299,7 +299,7 @@ def handle_message(event):
             event.reply_token,
             TextSendMessage(text='你說的是: '+response))"""
         #get user intent
-        get_userIntent(profile.user_id, response)
+        get_userIntent(profile.user_id, profile.display_name, msg)
 
         os.remove(new_path)
         print('.wav audio file remove ok')
@@ -414,7 +414,7 @@ def first_addFriend(msg, id , name, url):
         return
         
 #get user intent
-def get_userIntent(id, msg):
+def get_userIntent(id, name, msg):
     
     intent = get_intent(msg)
 
@@ -423,7 +423,7 @@ def get_userIntent(id, msg):
         return 0
     
     elif intent == '喚醒':
-        main_carosel()
+        main_carosel(name)
 
     elif intent == '水質資訊':
 
