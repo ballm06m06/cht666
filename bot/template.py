@@ -169,7 +169,7 @@ def main_carosel(name):
 
 
 def get_totalFishStatus(count, mlist, ph, do, tmp):
-
+    print('list:'+mlist)
     score_count = 0
     result = []
     result_url=""
@@ -220,6 +220,7 @@ def get_totalFishStatus(count, mlist, ph, do, tmp):
     print('%s-%s-%s' % (i.year, i.month, i.day))
 
     if count == 1:
+        ftype=mlist[0]
         bubble = BubbleContainer(
             direction='ltr',
             body=BoxComponent(
