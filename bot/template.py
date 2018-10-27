@@ -178,7 +178,8 @@ def get_totalFishStatus(count, mlist, ph, do, tmp , id):
     fatal_url="https://i.imgur.com/eVUPJvP.png"
 
     dt = datetime.utcnow()
-    
+    dt = dt.replace(tzinfo=timezone.utc)
+    tzutc_8 = timezone(timedelta(hours=8))
     local_dt = dt.astimezone(tzutc_8)
     print(local_dt)
     print(local_dt.strftime('%Y-%m-%d %H:%M'))
