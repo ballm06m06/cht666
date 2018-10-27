@@ -14,7 +14,7 @@ from linebot.models import (
     SeparatorComponent, QuickReply, QuickReplyButton
 )
 import datetime
-
+from cht_package.fishstatus import fish_dict
 
 
 #跳脫不進入olami (template's text save here)
@@ -169,7 +169,50 @@ def main_carosel(name):
 
 
 def get_totalFishStatus(count, list, ph, do, tmp):
-    
+
+    score_count = 0
+    result = []
+    result_url=""
+    ok_url="https://i.imgur.com/6C044b5.png"
+    warn_url="https://i.imgur.com/z4TThML.png"
+    fatal_url="https://i.imgur.com/eVUPJvP.png"
+
+    for i in range(0,len(list)):
+        print(list[i])
+        
+        if float(tmp) >= float(fish_dict[i][0]) and float(tmp) <= float(fish_dict[i][1]):
+            print('溫度正常')
+        elif float(tmp) >= float(fish_dict[i][0]-5) and float(tmp) <= float(fish_dict[i][1]+5):
+            print('溫度警告')
+            score_count+=1
+        else:
+            print('溫度嚴重警告')
+            score_count+=4
+            
+        if float(ph) >= float(fish_dict[i][2]) and float(ph) <= float(fish_dict[i][3]):
+            print('ph正常')
+        elif float(ph) >= float(fish_dict[i][2]-1) and float(ph) <= float(fish_dict[i][3]+1):
+            print('ph警告')
+            score_count+=1
+        else:
+            print('ph嚴重警告')
+            score_count+=4
+
+        if float(do) >= float(fish_dict[i][4]) and float(do) <= 12:
+            print('do正常')
+        elif float(do) >= float(fish_dict[i][4]-1) and float(do) <= 15:
+            print('do警告')
+            score_count+=1
+        else:
+            print('do嚴重警告')
+            score_count+=4
+
+        if score_count == 0:
+            result_url = ok_url
+        elif score_count >=1 and score_count <=4:
+            result_url = warn_url
+        else:
+            result_url = fatal_url
 
     i = datetime.datetime.now()
     mdatetime = '%s-%s-%s' % (i.year, i.month, i.day) +'  '+ str(i.hour-4)+':'+str(i.minute)
@@ -200,9 +243,9 @@ def get_totalFishStatus(count, list, ph, do, tmp):
             margin='md',
             spacing='sm',
             contents=[             
-            TextComponent(text=list[0], size="xl", wrap=True, gravity="center"),
+            TextComponent(text=fish_dict[list[0]][5], size="xl", wrap=True, gravity="center"),
             SeparatorComponent(gravity="center"),
-            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url="https://i.imgur.com/6C044b5.png", align="end", gravity="center") 
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url, align="end", gravity="center") 
             ]
             ),
                             
