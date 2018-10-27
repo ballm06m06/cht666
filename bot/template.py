@@ -14,7 +14,7 @@ from linebot.models import (
     SeparatorComponent, QuickReply, QuickReplyButton
 )
 import datetime
-from cht_package.fishstatus import fish_dict, fish_0
+from cht_package.fishstatus import fish_dict, fish_0, fish_1, fish_2, fish_3, fish_4, fish_5, fish_6, fish_7, fish_8, fish_9
 
 
 #跳脫不進入olami (template's text save here)
