@@ -312,7 +312,97 @@ def get_totalFishStatus(count, mlist, ph, do, tmp):
         message = FlexSendMessage(alt_text="魚塭狀態", contents=bubble)
         return message
         
-'''    elif count == 2:
+    elif count == 2:
+        bubble = BubbleContainer(
+            direction='ltr',
+            body=BoxComponent(
+            layout='vertical',
+            contents=[                    
+            # title
+            BoxComponent(
+            layout='vertical',
+            contents=[
+                TextComponent(text='魚塭狀態', weight='bold', size='sm', color='#1DB446'),
+                TextComponent(text='魚塭資訊回傳', weight='bold', size='xxl', margin='md'),
+                TextComponent(text='新北市板橋區', size='xs', color='#aaaaaa', margin='sm', wrap=True),
+                SeparatorComponent(margin='xxl'),
+                TextComponent(text='種類', size="md", weight="bold", wrap=True, spacing='sm', margin='md'),
+                ]
+            ),
+
+            # fish 
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[0])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url, align="end", gravity="center") 
+            ]
+            ),
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[             
+            TextComponent(text=fish_dict[int(mlist[1])][5], size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url, align="end", gravity="center") 
+            ]
+            ),
+                            
+            SeparatorComponent(margin='xxl'),
+            TextComponent(text="水質資訊", size="md", weight="bold", wrap=True, spacing='sm', margin='md'),
+
+            # water-ph
+            BoxComponent(
+                layout='horizontal',
+                margin='md',
+                spacing='sm',
+                contents=[
+                                    
+                    TextComponent(text="ph值", size="sm", color="#555555", align="start"),
+                    TextComponent(text=ph, siz="sm", color=number_color['phcolor'], align="end")
+                ]
+            ),
+            # water-do
+            BoxComponent(
+            layout='horizontal',
+            margin='md',
+            spacing='sm',
+            contents=[
+                TextComponent(text="溶氧量(mg/L)", size="sm", color="#555555", flex=0),
+                TextComponent(text=do, siz="sm", color=number_color['docolor'], align="end")
+                ]
+            ),
+
+            # water-tmp
+            BoxComponent(
+                layout='horizontal',
+                margin='md',
+                spacing='sm',
+                contents=[
+                    TextComponent(text="水溫(°C)", size="sm", color="#555555", flex=0),
+                    TextComponent(text=tmp, siz="sm", color=number_color['tmpcolor'], align="end")
+                ]
+                )
+            ]
+            ),
+
+            #
+            footer=BoxComponent(
+                layout='vertical',
+                margin='md',
+                spacing='md',
+                contents=[
+                    TextComponent(text="日期時間", size="xs", color="#aaaaaa", flex=0),
+                    TextComponent(text=mdatetime, size="xs", color="#aaaaaa", align="end")
+                ]
+                )
+        )
+        message = FlexSendMessage(alt_text="魚塭狀態", contents=bubble)
+        return message
     elif count == 3:
     elif count == 4:
     elif count == 5:
@@ -320,4 +410,4 @@ def get_totalFishStatus(count, mlist, ph, do, tmp):
     elif count == 7:
     elif count == 8:
     elif count == 9:
-    elif count == 10:'''
+    elif count == 10:
