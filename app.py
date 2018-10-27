@@ -40,6 +40,7 @@ from cht_package.db_postgres import register_User
 from cht_package.audioConvert import toWAV
 
 from bot.cht_sensor import get_do_value, get_ph_value, get_tmp_value
+from bot.get_userFishType import get_userFishType
 
 app = Flask(__name__)
 

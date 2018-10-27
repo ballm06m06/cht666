@@ -15,6 +15,8 @@ from linebot.models import (
 )
 import datetime
 
+
+
 #跳脫不進入olami (template's text save here)
 skip_list = ['func1', 'func2', 'func3', '檢視魚塭狀態', '魚塭異常總覽' , '近期天氣查詢']
 
@@ -168,8 +170,9 @@ def main_carosel(name):
 
 def get_totalFishStatus(count, list, ph, do, tmp):
     
+
     i = datetime.datetime.now()
-    mdatetime = '%s-%s-%s' % (i.year, i.month, i.day) +' '+ i.hour-4+':'+i.minute
+    mdatetime = '%s-%s-%s' % (i.year, i.month, i.day) +' '+ str(i.hour-4)+':'+str(i.minute)
     print(i.strftime('%H:%M'))
     print('%s-%s-%s' % (i.year, i.month, i.day))
 
