@@ -150,6 +150,7 @@ def handle_message(event):
                                 margin='xs',
                                 spacing='sm',
                                 contents=[
+                                    TextComponent(text='種類', size="md", weight="bold", wrap=True),
                                     TextComponent(text="吳郭魚", size="xl", wrap=True, gravity="center"),
                                     SeparatorComponent(gravity="center"),
                                     ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url="https://i.imgur.com/6C044b5.png", align="end", gravity="center") 
