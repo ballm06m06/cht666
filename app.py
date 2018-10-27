@@ -55,7 +55,7 @@ user_id = ''
 #first add
 first_add = False
 
-printTime(5)
+
 
 @app.route('/')
 def index():
@@ -90,7 +90,7 @@ def handle_message(event):
     if isinstance(event.message, TextMessage):
         msg = event.message.text #message from user
 
-
+        printTime(5)
         
 
         global first_add
