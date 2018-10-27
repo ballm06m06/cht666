@@ -15,9 +15,8 @@ def get_userFishType(id):
         jsonData = json.loads(r.text)
         #print(len(jsonData['response']))
         #print(jsonData['response'][0]['fishtype'])
-        mlist = jsonData['response'][0]['fishtype'].split(',')
-        
         try:
+            
             mlist = []
             mlist = jsonData['response'][0]['fishtype'].split(',')
             
