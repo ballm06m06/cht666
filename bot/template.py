@@ -168,7 +168,7 @@ def main_carosel(name):
         return carousel_template_message
 
 
-def get_totalFishStatus(count, list, ph, do, tmp):
+def get_totalFishStatus(count, mlist, ph, do, tmp):
 
     score_count = 0
     result = []
@@ -177,8 +177,8 @@ def get_totalFishStatus(count, list, ph, do, tmp):
     warn_url="https://i.imgur.com/z4TThML.png"
     fatal_url="https://i.imgur.com/eVUPJvP.png"
 
-    for i in range(0,len(list)):
-        print(list[i])
+    for i in range(0,len(mlist)):
+        print(mlist[i])
         
         if float(tmp) >= float(fish_dict[i][0]) and float(tmp) <= float(fish_dict[i][1]):
             print('溫度正常')
@@ -243,7 +243,7 @@ def get_totalFishStatus(count, list, ph, do, tmp):
             margin='md',
             spacing='sm',
             contents=[             
-            TextComponent(text=fish_dict[list[0]][5], size="xl", wrap=True, gravity="center"),
+            TextComponent(text=fish_dict[mlist[0]][5], size="xl", wrap=True, gravity="center"),
             SeparatorComponent(gravity="center"),
             ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url, align="end", gravity="center") 
             ]
