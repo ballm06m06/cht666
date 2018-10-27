@@ -3,13 +3,3 @@ from cht_package.db_postgres import user_notify_query
 from datetime import datetime
 import time
 import json
-
-
-
-
-def timer(n):
-    while True:
-        
-        
-# 5s
-timer(5)
