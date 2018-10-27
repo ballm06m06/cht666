@@ -151,8 +151,8 @@ def handle_message(event):
                                 spacing='sm',
                                 contents=[
                                     TextComponent(text="吳郭魚", size="xl", wrap=True,gravity="center"),
-                                    ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url="https://i.imgur.com/6C044b5.png", align="end", gravity="center")
-                                   
+                                    SeparatorComponent(margin='xxl'),
+                                    ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url="https://i.imgur.com/6C044b5.png", align="end", gravity="center") 
                                 ]
                             ),
                             SeparatorComponent(margin='xxl')
@@ -162,7 +162,7 @@ def handle_message(event):
                         layout='vertical',
                         spacing='sm',
                         contents=[
-                            # callAction, separator, websiteAction
+                            '''# callAction, separator, websiteAction
                             SpacerComponent(size='sm'),
                             # callAction
                             ButtonComponent(
@@ -177,7 +177,7 @@ def handle_message(event):
                                 style='link',
                                 height='sm',
                                 action=URIAction(label='WEBSITE', uri="https://example.com")
-                            )
+                            )'''
                         ]
                     ),
                 )
