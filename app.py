@@ -38,6 +38,9 @@ from dialogflow.nlp import get_intent, get_district
 from cht_package.db_postgres import register_User
 
 from cht_package.audioConvert import toWAV
+
+from bot.cht_sensor import get_do_value, get_ph_value, get_tmp_value
+
 app = Flask(__name__)
 
 handler = WebhookHandler(line_channel_secret) 
@@ -246,7 +249,6 @@ def handle_message(event):
                 event.reply_token,
                 carousel_template()
             )
-            print(user_id)
             return 0
         #get user intent
         get_userIntent(profile.user_id, msg)
@@ -419,16 +421,24 @@ def get_userIntent(id, msg):
         return 0
 
     elif intent == '水質資訊':
-        line_single_push(id, 'intent:水質資料')
+
+        do = get_do_value()
+        ph = get_ph_value()
+        tmp = get_tmp_value()
+
+        line_single_push(id, '水質資料:'+do+','+ph+','+tmp)
             
     elif intent == '溫度':
-        line_single_push(id, 'intent:溫度')
+        tmp = get_tmp_value()
+        line_single_push(id, '溫度:'+tmp)
 
     elif intent == '酸鹼度':
-        line_single_push(id, 'intent:酸鹼度')
+        ph = get_ph_value()
+        line_single_push(id, '酸鹼度:'+ph)
         
     elif intent == '溶氧量':
-        line_single_push(id, 'intent:溶氧量')
+        do = get_do_value()
+        line_single_push(id, '溶氧量:'+do)
     
     elif intent == '氣象':
         
