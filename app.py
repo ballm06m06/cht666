@@ -159,7 +159,7 @@ def handle_message(event):
                             ),
 
                             SeparatorComponent(margin='xxl'),
-                            TextComponent(text="水質資訊", size="md", weight="bold", wrap=True, spacing='sm')
+                            TextComponent(text="水質資訊", size="md", weight="bold", wrap=True, spacing='sm'),
 
                             # water-ph
                             BoxComponent(
