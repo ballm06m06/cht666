@@ -50,7 +50,7 @@ def get_intent(msg):
             return '溶氧量'
         
         #help
-        elif result['result']['parameters']['get_Water_Info'][0] == 'help':
+        elif result['result']['metadata']['intentName'] == 'help':
 
             return 'help'
 
