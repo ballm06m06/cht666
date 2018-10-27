@@ -9,7 +9,7 @@ import json
 
 def timer(n):
     while True:
-        print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-        time.sleep(n)
+        
+        
 # 5s
 timer(5)

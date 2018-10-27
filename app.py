@@ -5,7 +5,8 @@
 from flask import Flask, request, abort
 import json
 import tempfile, os, sys
-
+from datetime import datetime
+import time
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -86,7 +87,7 @@ def handle_message(event):
      # Text 
     if isinstance(event.message, TextMessage):
         msg = event.message.text #message from user
-
+        timer(10)
         global first_add
         if first_add == True:
             
@@ -430,6 +431,10 @@ def get_userIntent(id, name, msg):
             ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url="https://i.imgur.com/6C044b5.png", align="end", gravity="center") 
         ]
     )
+
+def timer(n):
+    while True:
+        line_single_push(id, '溫度:'+tmp+'°C\n'+  '溶氧量:'+do+'mg/L\n' + '酸鹼度:'+ph)
 # ================= 機器人區塊 End =================
 
 import os
