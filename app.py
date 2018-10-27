@@ -130,11 +130,19 @@ def handle_message(event):
 
         #flex test
         elif msg == 'flex':
+                mlist = get_userFishType(profile.user_id)
                 do = get_do_value()
                 ph = get_ph_value()
                 tmp = get_tmp_value()
 
-                message = get_totalFishStatus(1,['小蝦','ok'], ph, do, tmp)
+                if len(mlist) < 1:
+                    line_bot_api.reply_message(
+                    event.reply_token,
+                        '您還沒新增魚種唷\n快去功能表新增吧！'
+                    )
+                    return 0
+
+                message = get_totalFishStatus(len(mlist),['小蝦','ok'], ph, do, tmp)
 
                 line_bot_api.reply_message(
                     event.reply_token,
