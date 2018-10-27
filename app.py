@@ -422,12 +422,11 @@ def get_userIntent(id, name, msg):
     if msg in skip_list: 
         return 0
     
-    elif intent == '喚醒':      
-        line_bot_api.reply_message(
-                event.reply_token,
-                main_carosel(name)
-            )
-            
+    elif intent == '喚醒':
+        
+        line_single_push(id, main_carosel(name))
+
+
     elif intent == '水質資訊':
 
         do = get_do_value()
