@@ -155,7 +155,7 @@ def handle_message(event):
                                     SeparatorComponent(margin='xxl')
                                 ]
                             )
-                        ],
+                        ]
                     ),
                     footer=BoxComponent(
                         layout='vertical',
