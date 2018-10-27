@@ -90,7 +90,7 @@ def handle_message(event):
     if isinstance(event.message, TextMessage):
         msg = event.message.text #message from user
 
-        printTime(5)
+        printTime(10)
         
 
         global first_add
@@ -439,6 +439,12 @@ def get_userIntent(id, name, msg):
 
 def printTime(inc):
     print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+
+    do = get_do_value()
+    ph = get_ph_value()
+    tmp = get_tmp_value()
+
+    line_single_push(user_id, '溫度:'+tmp+'°C\n'+  '溶氧量:'+do+'mg/L\n' + '酸鹼度:'+ph)
     t = Timer(inc, printTime, (inc,))
     t.start()
 
