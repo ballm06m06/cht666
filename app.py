@@ -154,7 +154,12 @@ def handle_message(event):
         ])
         
         elif msg == '近期天氣查詢':
-
+            
+            line_bot_api.reply_message(
+                event.reply_token,
+                '天氣'
+            )
+            return 0
 
         elif msg == 'btntem':
             
