@@ -162,22 +162,8 @@ def handle_message(event):
                         layout='vertical',
                         spacing='sm',
                         contents=[
-                            # callAction, separator, websiteAction
-                            SpacerComponent(size='sm'),
-                            # callAction
-                            ButtonComponent(
-                                style='link',
-                                height='sm',
-                                action=URIAction(label='CALL', uri='tel:000000'),
-                            ),
-                            # separator
-                            SeparatorComponent(),
-                            # websiteAction
-                            ButtonComponent(
-                                style='link',
-                                height='sm',
-                                action=URIAction(label='WEBSITE', uri="https://example.com")
-                            )
+                            TextComponent(text="日期時間", size="xs", color="#aaaaaa", flex=0),
+                            TextComponent(text="2018-10-28 14:20", size="xs", color="#aaaaaa", align="end")
                         ]
                     )
                 )
