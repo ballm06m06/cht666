@@ -403,11 +403,11 @@ def get_totalFishStatus(count, mlist, ph, do, tmp):
         )
         message = FlexSendMessage(alt_text="魚塭狀態", contents=bubble)
         return message
-    elif count == 3:
+'''    elif count == 3:
     elif count == 4:
     elif count == 5:
     elif count == 6:
     elif count == 7:
     elif count == 8:
     elif count == 9:
-    elif count == 10:
+    elif count == 10:'''
