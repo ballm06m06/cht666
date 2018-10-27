@@ -140,7 +140,7 @@ def handle_message(event):
                                 contents=[
                                 TextComponent(text='魚塭狀態', weight='bold', size='sm', color='#1DB446'),
                                 TextComponent(text='魚塭資訊回傳', weight='bold', size='xxl', margin='md'),
-                                TextComponent(text='台北板橋魚塭', size='xs', color='#aaaaaa', wrap=True),
+                                TextComponent(text='台北板橋魚塭', size='xs', color='#aaaaaa', margin='sm', wrap=True),
                                 SeparatorComponent(margin='xxl')
                                 ]
                             ),
