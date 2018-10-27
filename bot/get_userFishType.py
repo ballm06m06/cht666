@@ -12,9 +12,13 @@ def get_userFishType(id):
         #print (r.text)
         jsonData = json.loads(r.text)
         #print(len(jsonData['response']))
+        try:
+            mlist = []
+            for i in range(0,len(jsonData['response'])):
+                mlist.append(jsonData['response'][i]['fishtype'])
+            
+            return mlist
+        except Exception as e:
+            print('get user fish type exception:'+str(e))
+            return []
         
-        mlist = []
-        for i in range(0,len(jsonData['response'])):
-            mlist.append(jsonData['response'][i]['fishtype'])
-        
-        return mlist
