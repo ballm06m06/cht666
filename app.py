@@ -90,7 +90,7 @@ def handle_message(event):
     if isinstance(event.message, TextMessage):
         msg = event.message.text #message from user
 
-        auto_timer(profile.user_id, 15)
+        
     
 
         global first_add
@@ -195,6 +195,8 @@ def handle_message(event):
                 main_carosel(profile.display_name)
             )
             return 0
+
+        auto_timer(profile.user_id, 15)
 
     #Audio
     elif isinstance(event.message, AudioMessage):
@@ -441,7 +443,11 @@ def get_userIntent(id, name, msg):
 def auto_timer(id, n):
     while True:
         print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-        line_single_push(id, 'hi')
+        do = get_do_value()
+        ph = get_ph_value()
+        tmp = get_tmp_value()
+
+        line_single_push(id, '溫度:'+tmp+'°C\n'+  '溶氧量:'+do+'mg/L\n' + '酸鹼度:'+ph)
         time.sleep(n)
 # ================= 機器人區塊 End =================
 
