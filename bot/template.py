@@ -190,7 +190,7 @@ def get_totalFishStatus(count, list):
             margin='md',
             spacing='sm',
             contents=[             
-            TextComponent(text="吳郭魚", size="xl", wrap=True, gravity="center"),
+            TextComponent(text=list[0], size="xl", wrap=True, gravity="center"),
             SeparatorComponent(gravity="center"),
             ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url="https://i.imgur.com/6C044b5.png", align="end", gravity="center") 
             ]
