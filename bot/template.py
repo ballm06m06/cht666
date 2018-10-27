@@ -13,6 +13,7 @@ from linebot.models import (
     TextComponent, SpacerComponent, IconComponent, ButtonComponent,
     SeparatorComponent, QuickReply, QuickReplyButton
 )
+import datetime
 
 #跳脫不進入olami (template's text save here)
 skip_list = ['func1', 'func2', 'func3', '檢視魚塭狀態', '魚塭異常總覽' , '近期天氣查詢']
@@ -165,7 +166,13 @@ def main_carosel(name):
         return carousel_template_message
 
 
-def get_totalFishStatus(count, list):
+def get_totalFishStatus(count, list, ph, do, tmp):
+    
+    i = datetime.datetime.now()
+    mdatetime = "'%s-%s-%s ' % (i.year, i.month, i.day)" + i.strftime('%H:%M')
+    print(i.strftime('%H:%M'))
+    print('%s-%s-%s' % (i.year, i.month, i.day))
+
     if count == 1:
         bubble = BubbleContainer(
             direction='ltr',
@@ -241,7 +248,7 @@ def get_totalFishStatus(count, list):
                 spacing='md',
                 contents=[
                     TextComponent(text="日期時間", size="xs", color="#aaaaaa", flex=0),
-                    TextComponent(text="2018-10-28 14:20", size="xs", color="#aaaaaa", align="end")
+                    TextComponent(text=mdatetime, size="xs", color="#aaaaaa", align="end")
                 ]
                 )
         )

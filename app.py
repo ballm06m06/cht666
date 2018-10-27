@@ -129,8 +129,11 @@ def handle_message(event):
 
         #flex test
         elif msg == 'flex':
-                
-                message = get_totalFishStatus(1,['小蝦','ok'])
+                do = get_do_value()
+                ph = get_ph_value()
+                tmp = get_tmp_value()
+
+                message = get_totalFishStatus(1,['小蝦','ok'], ph, do, tmp)
 
                 line_bot_api.reply_message(
                     event.reply_token,
@@ -392,7 +395,7 @@ def get_userIntent(id, name, msg):
             line_single_push(id, '對不起，您的說法我還不懂，能換個說法嗎？')
         return 0 
     
-def get_fish_status():
+
     for i in range(0,3):
         BoxComponent(
         ayout='horizontal',
