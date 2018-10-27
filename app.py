@@ -142,7 +142,7 @@ def handle_message(event):
                                     TextComponent(text='魚塭資訊回傳', weight='bold', size='xxl', margin='md'),
                                     TextComponent(text='新北市板橋區', size='xs', color='#aaaaaa', margin='sm', wrap=True),
                                     SeparatorComponent(margin='xxl'),
-                                    TextComponent(text='種類', size="md", weight="bold", wrap=True, spacing='sm'),
+                                    TextComponent(text='種類', size="md", weight="bold", wrap=True, spacing='sm', margin='md'),
                                 ]
                             ),
                             # fish
@@ -159,7 +159,7 @@ def handle_message(event):
                             ),
 
                             SeparatorComponent(margin='xxl'),
-                            TextComponent(text="水質資訊", size="md", weight="bold", wrap=True, spacing='sm'),
+                            TextComponent(text="水質資訊", size="md", weight="bold", wrap=True, spacing='sm', margin='md'),
 
                             # water-ph
                             BoxComponent(
@@ -202,6 +202,7 @@ def handle_message(event):
                     #
                     footer=BoxComponent(
                         layout='vertical',
+                        margin='md',
                         spacing='md',
                         contents=[
                             TextComponent(text="日期時間", size="xs", color="#aaaaaa", flex=0),
