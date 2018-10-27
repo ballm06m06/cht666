@@ -133,11 +133,10 @@ def handle_message(event):
                     direction='ltr',
                     body=BoxComponent(
                         layout='vertical',
-                        contents=[
-                            
+                        contents=[                    
                             # title
                             BoxComponent(
-                        
+                                layout='vertical',
                                 contents=[
                                 TextComponent(text='魚塭狀態', weight='bold', size='sm', color='#1DB446'),
                                 TextComponent(text='魚塭資訊回傳', weight='bold', size='xxl', margin='md'),
