@@ -147,7 +147,6 @@ def handle_message(event):
                             ),
 
                             # fish 
-'''                           
                             BoxComponent(
                                 layout='horizontal',
                                 margin='md',
@@ -157,8 +156,8 @@ def handle_message(event):
                                     SeparatorComponent(gravity="center"),
                                     ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url="https://i.imgur.com/6C044b5.png", align="end", gravity="center") 
                                     ]
-                            ),'''
-                            fish_status_creater()
+                            ),
+                            
                             
 
                             SeparatorComponent(margin='xxl'),
@@ -478,20 +477,6 @@ def get_userIntent(id, name, msg):
         return 0 
     
    
-def fish_status_creater():
-    component = ''
-    for i in range(0,3):
-        component+=str(BoxComponent(
-            layout='horizontal',
-            margin='md',
-            spacing='sm',
-            contents=[
-                TextComponent(text="吳郭魚", size="xl", wrap=True, gravity="center"),
-                SeparatorComponent(gravity="center"),
-                ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url="https://i.imgur.com/6C044b5.png", align="end", gravity="center") 
-            ]
-            ),)
-    return component
 
 # ================= 機器人區塊 End =================
 
