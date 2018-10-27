@@ -255,12 +255,13 @@ def handle_message(event):
         #get user intent
         elif get_userIntent(profile.user_id, profile.display_name, msg) == 'wakeup':
             
+            line_single_push(profile.user_id,profile.display_name+' 主人您好!')
             line_bot_api.reply_message(
                 event.reply_token,
                 main_carosel(profile.display_name)
             )
             return 0
-            
+
     #Audio
     elif isinstance(event.message, AudioMessage):
         ext = 'm4a'
