@@ -131,31 +131,15 @@ def handle_message(event):
         elif msg == 'flex':
                 bubble = BubbleContainer(
                     direction='ltr',
-                    hero=ImageComponent(
-                        url='https://example.com/cafe.jpg',
-                        size='full',
-                        aspect_ratio='20:13',
-                        aspect_mode='cover',
-                        action=URIAction(uri='http://example.com', label='label')
-                    ),
                     body=BoxComponent(
                         layout='vertical',
                         contents=[
-                            # title
-                            TextComponent(text='魚塭狀態', weight='bold', size='xl'),
+                            
                             # review
                             BoxComponent(
-                                layout='baseline',
-                                margin='md',
-                                contents=[
-                                    IconComponent(size='sm', url='https://example.com/gold_star.png'),
-                                    IconComponent(size='sm', url='https://example.com/grey_star.png'),
-                                    IconComponent(size='sm', url='https://example.com/gold_star.png'),
-                                    IconComponent(size='sm', url='https://example.com/gold_star.png'),
-                                    IconComponent(size='sm', url='https://example.com/grey_star.png'),
-                                    TextComponent(text='4.0', size='sm', color='#999999', margin='md',
-                                                flex=0)
-                                ]
+                                TextComponent(text='魚塭狀態', weight='bold', size='sm', color='#1DB446'),
+                                TextComponent(text='魚塭資訊回傳', weight='bold', size='xxl', margin='md'),
+                                TextComponent(text='台北板橋魚塭', size='xs', color='#aaaaaa', wrap=True)
                             ),
                             # info
                             BoxComponent(
