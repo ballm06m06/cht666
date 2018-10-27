@@ -24,7 +24,7 @@ def user_notify_open(id):
                                         password = pwd, host = host, port=dbport)
         print('Opened DB successfully')
         cur = conn.cursor()
-        cur.execute("UPDATE chtUser SET isNotify = '1' WHERE ID = (%s) ", (id))
+        cur.execute("UPDATE chtUser SET isNotify = '1' WHERE ID = {0} ".format(id))
         conn.commit()
        
         conn.close()
@@ -40,7 +40,7 @@ def user_notify_close(id):
                                         password = pwd, host = host, port=dbport)
         print('Opened DB successfully')
         cur = conn.cursor()
-        cur.execute("UPDATE chtUser SET isNotify = '0' WHERE ID = (%s) ", (id))
+        cur.execute("UPDATE chtUser SET isNotify = '1' WHERE ID = {0} ".format(id))
         conn.commit()
     
         conn.close()
