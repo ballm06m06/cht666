@@ -90,8 +90,8 @@ def handle_message(event):
     if isinstance(event.message, TextMessage):
         msg = event.message.text #message from user
 
-        printTime(profile.user_id, 10)
-        
+        printTime(profile.user_id, 15)
+    
 
         global first_add
         if first_add == True:
@@ -438,15 +438,11 @@ def get_userIntent(id, name, msg):
     )
 
 def printTime(id, inc):
+
     print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
-    do = get_do_value()
-    ph = get_ph_value()
-    tmp = get_tmp_value()
+    line_single_push(id, 'hi')
 
-    line_bot_api.push_message(id, 
-        TextSendMessage(text='hi')
-    
     t = Timer(inc, printTime, (inc,))
     t.start()
 
