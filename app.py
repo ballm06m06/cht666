@@ -319,7 +319,7 @@ def first_addFriend(msg, id , name, url):
 
              #註冊完給intro
             if register_User(id, name, url, int(area_code)):
-                
+                first_add = False
                 line_single_push(id, '感謝您提供的資訊')
                 line_single_sticker(id, 1, 106)
             break
