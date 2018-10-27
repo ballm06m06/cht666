@@ -197,7 +197,7 @@ def get_totalFishStatus(count, mlist, ph, do, tmp , id):
             print('溫度嚴重警告')
             score_count+=4
             number_color['tmpcolor'] = '#ff0000'
-            new_record(id, '溫度', float(tmp)+'°C','溫度異常',mdatetime)
+            new_record(id, '溫度', str(tmp)+'°C','溫度異常',mdatetime)
             
         if float(ph) >= float(fish_dict[i][2]) and float(ph) <= float(fish_dict[i][3]):
             print('ph正常')
@@ -210,7 +210,7 @@ def get_totalFishStatus(count, mlist, ph, do, tmp , id):
             print('ph嚴重警告')
             score_count+=4
             number_color['phcolor'] = '#ff0000'
-            new_record(id, 'ph', float(ph),'ph值異常',mdatetime)
+            new_record(id, 'ph', str(ph),'ph值異常',mdatetime)
 
         if float(do) >= float(fish_dict[i][4]) and float(do) <= 12:
             print('do正常')
@@ -224,7 +224,7 @@ def get_totalFishStatus(count, mlist, ph, do, tmp , id):
             print('do嚴重警告')
             score_count+=4
             number_color['docolor'] = '#ff0000'
-            new_record(id, 'do', float(do)+'mg/L','溶氧量異常',mdatetime)
+            new_record(id, 'do', str(do)+'mg/L','溶氧量異常',mdatetime)
 
         if score_count == 0:
             result_url.append(ok_url)
