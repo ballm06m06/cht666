@@ -253,8 +253,14 @@ def handle_message(event):
             )
             return 0
         #get user intent
-        get_userIntent(profile.user_id, profile.display_name, msg)
-
+        elif get_userIntent(profile.user_id, profile.display_name, msg) == 'wakeup':
+            
+            line_bot_api.reply_message(
+                event.reply_token,
+                main_carosel(profile.display_name)
+            )
+            return 0
+            
     #Audio
     elif isinstance(event.message, AudioMessage):
         ext = 'm4a'
@@ -424,8 +430,7 @@ def get_userIntent(id, name, msg):
     
     elif intent == '喚醒':
         
-        line_single_push(id, main_carosel(name))
-
+        return 'wakeup'
 
     elif intent == '水質資訊':
 
