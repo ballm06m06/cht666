@@ -444,7 +444,7 @@ def printTime(inc):
     ph = get_ph_value()
     tmp = get_tmp_value()
 
-    line_single_push(user_id, '溫度:'+tmp+'°C\n'+  '溶氧量:'+do+'mg/L\n' + '酸鹼度:'+ph)
+    line_single_push(user_id, '溫度:')
     t = Timer(inc, printTime, (inc,))
     t.start()
 
