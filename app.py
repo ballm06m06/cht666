@@ -453,6 +453,9 @@ def get_userIntent(id, name, msg):
         do = get_do_value()
         line_single_push(id, '溶氧量:'+do)
     
+    elif intent == 'help':
+        line_single_push(id, 'help')
+    
     elif intent == '氣象':
         
         try:

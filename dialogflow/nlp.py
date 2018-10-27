@@ -48,6 +48,11 @@ def get_intent(msg):
         elif result['result']['parameters']['get_Water_Info'][0] == '溶氧量':
 
             return '溶氧量'
+        
+        #help
+        elif result['result']['parameters']['get_Water_Info'][0] == 'help':
+
+            return 'help'
 
 
     except Exception as e:
