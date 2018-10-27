@@ -147,16 +147,7 @@ def handle_message(event):
                             ),
 
                             # fish 
-                            BoxComponent(
-                                layout='horizontal',
-                                margin='md',
-                                spacing='sm',
-                                contents=[             
-                                    TextComponent(text="吳郭魚", size="xl", wrap=True, gravity="center"),
-                                    SeparatorComponent(gravity="center"),
-                                    ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url="https://i.imgur.com/6C044b5.png", align="end", gravity="center") 
-                                    ]
-                            ),
+                            get_fish_status()
                             
                             
 
@@ -476,8 +467,18 @@ def get_userIntent(id, name, msg):
             line_single_push(id, '對不起，您的說法我還不懂，能換個說法嗎？')
         return 0 
     
-   
-
+def get_fish_status():
+    for i in range(0,3):
+        BoxComponent(
+        ayout='horizontal',
+        margin='md',
+        spacing='sm',
+        contents=[             
+            TextComponent(text="吳郭魚", size="xl", wrap=True, gravity="center"),
+            SeparatorComponent(gravity="center"),
+            ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url="https://i.imgur.com/6C044b5.png", align="end", gravity="center") 
+        ]
+    )
 # ================= 機器人區塊 End =================
 
 import os
