@@ -220,7 +220,7 @@ def get_totalFishStatus(count, mlist, ph, do, tmp):
     print('%s-%s-%s' % (i.year, i.month, i.day))
 
     if count == 1:
-        ftype=fish_dict[mlist[0]][5]
+        ftype=fish_dict[int(mlist[0])][5]
         print('ftype:'+str(ftype))
 
         bubble = BubbleContainer(
