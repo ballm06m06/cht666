@@ -220,8 +220,9 @@ def get_totalFishStatus(count, mlist, ph, do, tmp):
     print('%s-%s-%s' % (i.year, i.month, i.day))
 
     if count == 1:
-        ftype=mlist[0]
+        ftype=fish_dict[mlist[0]][5]
         print('ftype:'+str(ftype))
+
         bubble = BubbleContainer(
             direction='ltr',
             body=BoxComponent(
@@ -245,7 +246,7 @@ def get_totalFishStatus(count, mlist, ph, do, tmp):
             margin='md',
             spacing='sm',
             contents=[             
-            TextComponent(text=(fish_dict[1][5]), size="xl", wrap=True, gravity="center"),
+            TextComponent(text=ftype, size="xl", wrap=True, gravity="center"),
             SeparatorComponent(gravity="center"),
             ImageComponent(size= "xs", aspectRatio="20:13", aspectMode="fit", url=result_url, align="end", gravity="center") 
             ]
