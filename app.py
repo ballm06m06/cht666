@@ -132,7 +132,13 @@ def handle_message(event):
             
             bubble = BubbleContainer(
             direction='ltr',
-            
+            hero=ImageComponent(
+                url='https://example.com/cafe.jpg',
+                size='full',
+                aspect_ratio='20:13',
+                aspect_mode='cover',
+                action=URIAction(uri='http://example.com', label='label')
+            ),
             body=BoxComponent(
                 layout='vertical',
                 contents=[
