@@ -22,6 +22,11 @@ def get_intent(msg):
             
             return 'none'
 
+        #喚醒
+        elif result['result']['metadata']['intentName'] == '喚醒':
+            
+            return '喚醒'
+
         #氣象
         elif result['result']['metadata']['intentName'] == '氣象':
             

@@ -15,7 +15,7 @@ from linebot.models import (
 )
 
 #跳脫不進入olami (template's text save here)
-skip_list = ['func1', 'func2', 'func3']
+skip_list = ['func1', 'func2', 'func3', '檢視魚塭狀態', '魚塭異常總覽' , '近期天氣查詢']
 
 def btn_template(maintitle, subtitle, pic_url, label1, text1, pb1, label2, text2, pb2, label3, text3, pb3):
 
@@ -87,6 +87,74 @@ def carousel_template():
                         ),
                         URIAction(
                             label='uri2',
+                            uri='http://example.com/2'
+                        )
+                    ]
+                )
+            ]
+        )
+    )
+    return carousel_template_message
+
+
+def main_carosel(name):
+        carousel_template_message = TemplateSendMessage(
+        alt_text='歡迎使用',
+        template=CarouselTemplate(
+            columns=[
+                CarouselColumn(
+                    thumbnail_image_url='https://example.com/item1.jpg',
+                    title=name+' 您好!',
+                    text='歡迎使用Fish Farmer \n 請選擇以下的服務',
+                    actions=[
+                        MessageAction(
+                            label='檢視魚塭狀態',
+                            text='檢視魚塭狀態'
+                        ),
+                        MessageAction(
+                            label='魚塭異常總覽',
+                            text='魚塭異常總覽'
+                        ),
+                        MessageAction(
+                            label='近期天氣查詢',
+                            text='近期天氣查詢'
+                        ),
+                    ]
+                ),
+                CarouselColumn(
+                    thumbnail_image_url='https://example.com/item2.jpg',
+                    title='設定',
+                    text='請選擇以下的服務',
+                    actions=[
+                        URIAction(
+                            label='魚種設定',
+                            uri='http://example.com/2'
+                        )
+                        MessageAction(
+                            label='設定定時推播',
+                            text='設定定時推播'
+                        ),
+                        MessageAction(
+                            label='設定人生',
+                            text='設定人生'
+                        ),
+                    ]
+                ),
+                CarouselColumn(
+                    thumbnail_image_url='https://example.com/item2.jpg',
+                    title='關於我們',
+                    text='一群為Hackthon而生的孩子們',
+                    actions=[
+                        URIAction(
+                            label='Facebook',
+                            uri='http://example.com/2'
+                        )
+                        URIAction(
+                            label='Instagram',
+                            uri='http://example.com/2'
+                        )
+                       URIAction(
+                            label='作品集',
                             uri='http://example.com/2'
                         )
                     ]

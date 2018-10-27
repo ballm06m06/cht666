@@ -30,7 +30,7 @@ from linebot.models import (
 )
 
 from cht_package.config import line_channel_secret, line_channel_access_token
-from bot.template import skip_list, btn_template, carousel_template
+from bot.template import skip_list, btn_template, carousel_template, main_carosel
 from text_input.olami import OLAMI_textInput
 from audio_input.olami_audio import OLAMI_audioInput
 from dialogflow.nlp import get_intent, get_district
@@ -421,6 +421,9 @@ def get_userIntent(id, msg):
     #特定text不進入OLAMI
     if msg in skip_list: 
         return 0
+    
+    elif intent == '喚醒':
+        main_carosel()
 
     elif intent == '水質資訊':
 
