@@ -136,7 +136,9 @@ def handle_message(event):
                 '天氣'
             )
             return 0
-
+        elif msg == '123':
+            
+            line_template_push(user_id, '選單', main_carosel(profile.display_name))
         
         #get user intent
         elif get_userIntent(profile.user_id, profile.display_name, msg) == 'wakeup':
@@ -148,18 +150,7 @@ def handle_message(event):
             )
             return 0
 
-        else:
 
-            try:
-                #OLAMI TEXT
-                olamiJson = json.loads(OLAMI_textInput(msg))
-                response = olamiJson["data"]["nli"][0]["desc_obj"]["result"]
-                
-                line_single_push(id, response)
-            except Exception as e:
-                print('nlp exception:'+str(e))
-                line_single_push(id, '對不起，您的說法我還不懂，能換個說法嗎？')
-            return 0 
         
 
     #Audio
@@ -276,6 +267,11 @@ def line_single_push(id,txt):
     line_bot_api.push_message(id, 
         TextSendMessage(text=txt))
     
+def line_template_push(id,name,template): 
+     line_bot_api.push_message(id, 
+        TemplateSendMessage(
+            alt_text=name, template=template))
+
 #push sticker    
 def line_single_sticker(id, packed_id, sticker_id):
     line_bot_api.push_message(id, 
