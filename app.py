@@ -15,7 +15,7 @@ from linebot.exceptions import (
 )
 
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,VideoSendMessage,
+    MessageEvent, TextMessage, TextSendMessage,VideoSendMessage,ImageSendMessage,
     SourceUser, SourceGroup, SourceRoom,
     TemplateSendMessage, ConfirmTemplate, MessageAction,
     ButtonsTemplate, ImageCarouselTemplate, ImageCarouselColumn, URIAction,
@@ -132,7 +132,7 @@ def handle_message(event):
         
         elif msg == '近期天氣查詢':
 
-            line_single_push(profile.user_id, 'weather')
+            line_single_push(profile.user_id, '系統建置中')
         
             return 0
         
