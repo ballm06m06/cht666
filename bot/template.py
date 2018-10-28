@@ -148,7 +148,7 @@ def main_carosel(name):
                         ),
                         URIAction(
                             label='Instagram',
-                            uri='line://app/614111124-2yA3xvBp'
+                            uri='line://app/1614111124-BRab2P9z'
                         )
                     ]
                 )
