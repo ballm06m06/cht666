@@ -137,7 +137,7 @@ def handle_message(event):
             return 0
         
         elif msg == '異常現象':
-            line_single_img(profile.user_id,'https://www.cwb.gov.tw/V7/prevent/typhoon/Data/PTA_NEW/imgs/products/2018102706_PTA_0_download.png','https://www.cwb.gov.tw/V7/prevent/typhoon/Data/PTA_NEW/imgs/products/2018102706_PTA_0_download.png')
+            line_single_img(profile.user_id,'https://www.cwb.gov.tw/V7/prevent/typhoon/Data/PTA_NEW/imgs/products/2018102706_PTA_0_download.png')
   
         #get user intent
         elif get_userIntent(profile.user_id, profile.display_name, msg) == 'wakeup':
