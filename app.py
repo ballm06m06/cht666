@@ -147,9 +147,19 @@ def handle_message(event):
                 main_carosel(profile.display_name)
             )
             return 0
+
         else:
 
-            get_userIntent(profile.user_id, profile.display_name, msg)
+            try:
+                #OLAMI TEXT
+                olamiJson = json.loads(OLAMI_textInput(msg))
+                response = olamiJson["data"]["nli"][0]["desc_obj"]["result"]
+                
+                line_single_push(id, response)
+            except Exception as e:
+                print('nlp exception:'+str(e))
+                line_single_push(id, '對不起，您的說法我還不懂，能換個說法嗎？')
+            return 0 
         
 
     #Audio
