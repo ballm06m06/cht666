@@ -18,7 +18,7 @@ from cht_package.fishstatus import fish_dict, fish_0, fish_1, fish_2, fish_3, fi
 from cht_package.db_postgres import new_record
 
 #跳脫不進入olami (template's text save here)
-skip_list = ['func1', 'func2', 'func3', '檢視魚塭狀態', '魚塭異常總覽' , '近期天氣查詢']
+skip_list = ['func1', 'func2', 'func3', '檢視魚塭狀態', '魚塭異常總覽' , '近期天氣查詢', '設定定時推播']
 
 def btn_template(maintitle, subtitle, pic_url, label1, text1, pb1, label2, text2, pb2, label3, text3, pb3):
 
@@ -131,7 +131,7 @@ def main_carosel(name):
                     actions=[
                         URIAction(
                             label='魚種設定',
-                            uri='http://example.com/2'
+                            uri='https://line.me/R/ti/p/%40dih9899p'
                         ),
                         MessageAction(
                             label='設定定時推播',
