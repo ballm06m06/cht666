@@ -132,11 +132,12 @@ def handle_message(event):
         
         elif msg == '近期天氣查詢':
 
-            line_bot_api.reply_message(
-                event.reply_token,
-                '天氣'
-            )
+            line_single_push(profile.user_id, 'weather')
+        
             return 0
+        
+        elif msg == '異常現象':
+            line_single_img('U65bb04e5925b912fe5662bd2ab5a9215','https://www.cwb.gov.tw/V7/prevent/typhoon/Data/PTA_NEW/imgs/products/2018102706_PTA_0_download.png','https://www.cwb.gov.tw/V7/prevent/typhoon/Data/PTA_NEW/imgs/products/2018102706_PTA_0_download.png')
   
         #get user intent
         elif get_userIntent(profile.user_id, profile.display_name, msg) == 'wakeup':
@@ -278,7 +279,13 @@ def line_single_video(id, content, preview):
     line_bot_api.push_message(id, 
         VideoSendMessage(original_content_url=content,
     preview_image_url=preview))
-
+#push img    
+def line_single_img(id,content):
+    line_bot_api.push_message(id, 
+        ImageSendMessage(
+    original_content_url=content,
+    preview_image_url=content
+))
 #multicast
 def line_multicast(mlist, txt):
     line_bot_api.multicast(mlist, TextSendMessage(text=txt))
