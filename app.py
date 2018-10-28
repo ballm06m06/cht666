@@ -138,7 +138,6 @@ def handle_message(event):
             )
             return 0
   
-        
         #get user intent
         elif get_userIntent(profile.user_id, profile.display_name, msg) == 'wakeup':
             
