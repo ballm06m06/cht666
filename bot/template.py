@@ -131,7 +131,7 @@ def main_carosel(name):
                     actions=[
                         URIAction(
                             label='魚種設定',
-                            uri='https://line.me/R/ti/p/%40dih9899p'
+                            uri='line://app/1614111124-Kr9g1GkV'
                         ),
                         MessageAction(
                             label='設定定時推播',
