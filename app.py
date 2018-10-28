@@ -100,40 +100,9 @@ def handle_message(event):
             #intro
             return 0
 
-        #quick reply test
-        if msg == '123':
-            line_bot_api.reply_message(
-            event.reply_token,[
-            TextSendMessage(
-                text=profile.display_name+'你喜歡哪一個呢？',
-                quick_reply=QuickReply(
-                    items=[
-                        QuickReplyButton(
-                            action=PostbackAction(label="postback", data="data1")
-                        ),
-                        QuickReplyButton(
-                            action=MessageAction(label="label2", text="text2")
-                        ),
-                        QuickReplyButton(
-                            action=DatetimePickerAction(label="label3",
-                                                        data="date_postback",
-                                                        mode="date")
-                        ),
-                        QuickReplyButton(
-                            action=CameraAction(label="label4")
-                        ),
-                        QuickReplyButton(
-                            action=CameraRollAction(label="label5")
-                        ),
-                        QuickReplyButton(
-                            action=LocationAction(label="label6")
-                        ),
-                    ]))]
-                    )
-            return 0
-
+       
         
-        elif msg == '檢視魚塭狀態':
+        if msg == '檢視魚塭狀態':
                 mlist = get_userFishType(profile.user_id)
                 do = get_do_value()
                 ph = get_ph_value()
@@ -178,7 +147,9 @@ def handle_message(event):
                 main_carosel(profile.display_name)
             )
             return 0
+        else:
 
+            get_userIntent(profile.user_id, profile.display_name, msg)
         
 
     #Audio
