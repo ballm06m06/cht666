@@ -114,14 +114,11 @@ def main_carosel(name):
                             label='檢視魚塭狀態',
                             text='檢視魚塭狀態'
                         ),
-                        MessageAction(
-                            label='魚塭異常總覽',
-                            text='魚塭異常總覽'
-                        ),
+                       
                         MessageAction(
                             label='近期天氣查詢',
                             text='近期天氣查詢'
-                        ),
+                        )
                     ]
                 ),
                 CarouselColumn(
@@ -136,11 +133,8 @@ def main_carosel(name):
                         MessageAction(
                             label='設定定時推播',
                             text='設定定時推播'
-                        ),
-                        MessageAction(
-                            label='設定人生',
-                            text='設定人生'
-                        ),
+                        )
+                        
                     ]
                 ),
                 CarouselColumn(
@@ -150,15 +144,11 @@ def main_carosel(name):
                     actions=[
                         URIAction(
                             label='Facebook',
-                            uri='http://example.com/2'
+                            uri='line://app/1614111124-pLab1QZn'
                         ),
                         URIAction(
                             label='Instagram',
-                            uri='http://example.com/2'
-                        ),
-                       URIAction(
-                            label='作品集',
-                            uri='http://example.com/2'
+                            uri='line://app/614111124-2yA3xvBp'
                         )
                     ]
                 )

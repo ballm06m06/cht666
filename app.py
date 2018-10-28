@@ -330,6 +330,7 @@ def first_addFriend(msg, id , name, url):
                 first_add = False
                 line_single_push(id, '感謝您提供的資訊')
                 line_single_sticker(id, 1, 106)
+                line_single_push(id ,main_carosel(name))
             break
 
         else:
@@ -373,7 +374,7 @@ def get_userIntent(id, name, msg):
     elif intent == 'help':
         line_single_push(id, '可以試著跟我打招呼叫出功能表或是直接說出您想要的東西唷～')
     
-    
+
     # intent: none >> OLAMI(天氣、閒聊...)
     else:
         try:
