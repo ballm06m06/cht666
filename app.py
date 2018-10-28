@@ -98,6 +98,7 @@ def handle_message(event):
             first_addFriend(msg, profile.user_id, profile.display_name, profile.picture_url)
 
             #intro
+            line_bot_api.reply_message(event.reply_token, main_carosel(profile.display_name))
             return 0
 
        
@@ -136,9 +137,7 @@ def handle_message(event):
                 '天氣'
             )
             return 0
-        elif msg == '123':
-            
-            line_template_push(user_id, '選單', main_carosel(profile.display_name))
+  
         
         #get user intent
         elif get_userIntent(profile.user_id, profile.display_name, msg) == 'wakeup':
@@ -267,10 +266,7 @@ def line_single_push(id,txt):
     line_bot_api.push_message(id, 
         TextSendMessage(text=txt))
     
-def line_template_push(id,name,template): 
-     line_bot_api.push_message(id, 
-        TemplateSendMessage(
-            alt_text=name, template=template))
+
 
 #push sticker    
 def line_single_sticker(id, packed_id, sticker_id):
@@ -307,7 +303,7 @@ def first_addFriend(msg, id , name, url):
                 first_add = False
                 line_single_push(id, '感謝您提供的資訊')
                 line_single_sticker(id, 1, 106)
-                line_single_push(id ,main_carosel(name))
+                
             break
 
         else:
