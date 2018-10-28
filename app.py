@@ -196,7 +196,7 @@ def handle_message(event):
             event.reply_token,
             TextSendMessage(text='你說的是: '+response))"""
         #get user intent
-        get_userIntent(profile.user_id, profile.display_name, msg)
+        get_userIntent(profile.user_id, profile.display_name, response)
 
         os.remove(new_path)
         print('.wav audio file remove ok')
