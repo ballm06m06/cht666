@@ -16,11 +16,14 @@
 * 功能畫面(1)
     ![Imgur](https://i.imgur.com/gbyPjuL.jpg)
 
+
 * 功能畫面(2)
     ![Imgur](https://i.imgur.com/68BLYGp.jpg)
 
+
 * 魚塭整體資訊
     ![Imgur](https://i.imgur.com/Y5htjDQ.png)
+
 
 * 語音辨識
 
