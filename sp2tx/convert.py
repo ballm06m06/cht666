@@ -7,7 +7,7 @@ from google.cloud.speech import enums
 from google.cloud.speech import types
 
 
-credential_path = "/app/sp2tx/credential/fintechbd99846f49cd.json"
+credential_path = "/app/sp2tx/credential/fintech-bd99846f49cd.json"
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = crendential_path
 # Instantiates a client
 # client = speech.SpeechClient()
