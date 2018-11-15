@@ -1,4 +1,7 @@
 cht_package/
+sp2tx/
+audio_input/
+text_input/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
