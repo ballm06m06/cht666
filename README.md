@@ -23,6 +23,7 @@
     ![Imgur](https://i.imgur.com/Y5htjDQ.png)
 
 * 語音辨識
+
     ![Imgur](https://i.imgur.com/pXX4hhu.png)
 
 ---
