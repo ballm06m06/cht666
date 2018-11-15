@@ -53,4 +53,4 @@ def get_sp2tx(audio_path):
 
     for result in response.results:
         print('Transcript: {}'.format(result.alternatives[0].transcript))
-        return result.alternatives[0].transcript)
+        return result.alternatives[0].transcript
