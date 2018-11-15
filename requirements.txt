@@ -3,3 +3,4 @@ flask
 psycopg2
 pydub
 apiai
+google-cloud-speech

@@ -43,6 +43,8 @@ from cht_package.audioConvert import toWAV
 from bot.cht_sensor import get_do_value, get_ph_value, get_tmp_value
 from bot.get_userFishType import get_userFishType
 from cht_package.db_postgres import user_notify_open, user_notify_close, user_notify_query
+
+from sp2tx.convert import get_sp2tx
 app = Flask(__name__)
 
 handler = WebhookHandler(line_channel_secret) 
@@ -189,12 +191,16 @@ def handle_message(event):
         print('.wav path:'+new_path)
 
         #OLAMI Audio
-        olamiJson = json.loads(OLAMI_audioInput(new_path))
-        response = olamiJson["data"]["asr"]["result"]
+        # olamiJson = json.loads(OLAMI_audioInput(new_path))
+        # response = olamiJson["data"]["asr"]["result"]
 
-        """line_bot_api.reply_message(
+        #google
+        response = get_sp2tx(new_path)
+
+        line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text='你說的是: '+response))"""
+            TextSendMessage(text='你說的是: '+response))
+            
         #get user intent
         get_userIntent(profile.user_id, profile.display_name, response)
 
