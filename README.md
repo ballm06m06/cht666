@@ -9,7 +9,7 @@
 #### 系統建置：
 * python-flask app
 * backend: node.js REST API 
-* DB: postgresSQL
+* DB: PostgreSQL
 
 
 #### 畫面截圖：
