@@ -34,7 +34,7 @@
 
 * 語音辨識
 
-    ![Imgur](https://i.imgur.com/Y5htjDQ.png?1)
+    ![Imgur](https://i.imgur.com/pXX4hhu.png?1)
 
 
 ---
