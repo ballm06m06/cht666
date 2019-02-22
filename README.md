@@ -6,6 +6,9 @@
 * 水質酸鹼、溶氧量、溫度查詢
 * 魚種設定
 
+#### 資料來源：
+* 中華電信iot大平台
+
 #### 系統建置：
 * python-flask app
 * backend: node.js REST API 
